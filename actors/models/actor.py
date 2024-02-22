@@ -14,7 +14,7 @@ class Actor(models.Model):
     image = models.ImageField()
     description = models.TextField(blank=True)
 
-    size = models.CharField(choices=SIZE_CHOICES)
+    size = models.CharField(max_length=100, choices=SIZE_CHOICES)
 
 
 class Character(models.Model):
@@ -44,8 +44,8 @@ class Encounter(models.Model):
     CATEGORY_CHOICES = [("", "")]
 
     nc = models.PositiveSmallIntegerField(default=1)
-    category = models.CharField(choices=CATEGORY_CHOICES)
-    archetype = models.CharField(choices=ARCHETYPE_CHOICES)
+    category = models.CharField(max_length=100, choices=CATEGORY_CHOICES)
+    archetype = models.CharField(max_length=100, choices=ARCHETYPE_CHOICES)
 
 
 class Languages(models.Model):
@@ -56,7 +56,7 @@ class Statistic(models.Model):
     base = models.PositiveSmallIntegerField(default=10)
     racial = models.SmallIntegerField(default=0)
     bonus = models.SmallIntegerField(default=0)
-    mod = models.SmallIntegerField(max=3, default=0)
+    mod = models.SmallIntegerField(default=0)
     value = models.SmallIntegerField(default=0)
     tmpmod = models.SmallIntegerField(default=0)
     superior = models.BooleanField(default=False)
@@ -68,33 +68,33 @@ class Statistic(models.Model):
 
 
 class STR(Statistic):
-    label = models.CharField(default="Force", editable=False)
-    abbrev = models.CharField(default="FOR", editable=False)
+    label = models.CharField(max_length=100, default="Force", editable=False)
+    abbrev = models.CharField(max_length=100, default="FOR", editable=False)
 
 
 class DEX(models.Model):
-    label = models.CharField(default="Dextérité", editable=False)
-    abbrev = models.CharField(default="DEX", editable=False)
+    label = models.CharField(max_length=100, default="Dextérité", editable=False)
+    abbrev = models.CharField(max_length=100, default="DEX", editable=False)
 
 
 class CON(models.Model):
-    label = models.CharField(default="Constitution", editable=False)
-    abbrev = models.CharField(default="CON", editable=False)
+    label = models.CharField(max_length=100, default="Constitution", editable=False)
+    abbrev = models.CharField(max_length=100, default="CON", editable=False)
 
 
 class INT(models.Model):
-    label = models.CharField(default="Intelligence", editable=False)
-    abbrev = models.CharField(default="INT", editable=False)
+    label = models.CharField(max_length=100, default="Intelligence", editable=False)
+    abbrev = models.CharField(max_length=100, default="INT", editable=False)
 
 
 class WIS(models.Model):
-    label = models.CharField(default="Sagesse", editable=False)
-    abbrev = models.CharField(default="WIS", editable=False)
+    label = models.CharField(max_length=100, default="Sagesse", editable=False)
+    abbrev = models.CharField(max_length=100, default="WIS", editable=False)
 
 
 class CHA(models.Model):
-    label = models.CharField(default="Charisme", editable=False)
-    abbrev = models.CharField(default="CHA", editable=False)
+    label = models.CharField(max_length=100, default="Charisme", editable=False)
+    abbrev = models.CharField(max_length=100, default="CHA", editable=False)
 
 
 class Attack(models.Model):
@@ -107,25 +107,29 @@ class Attack(models.Model):
 
 
 class Melee(models.Model):
-    label = models.CharField(default="Mellée", editable=False)
-    abbrev = models.CharField(default="CaC", editable=False)
-    content_type = models.ForeignKey(to=ContentType, on_delete=models.SET_NULL)
+    label = models.CharField(max_length=100, default="Mellée", editable=False)
+    abbrev = models.CharField(max_length=100, default="CaC", editable=False)
+    content_type = models.ForeignKey(
+        to=ContentType, on_delete=models.SET_NULL, null=True
+    )
     object_id = models.PositiveBigIntegerField()
     stat = GenericForeignKey()
 
 
 class Ranged(models.Model):
-    label = models.CharField(default="Distance", editable=False)
-    abbrev = models.CharField(default="Dist", editable=False)
-    content_type = models.ForeignKey(to=ContentType, on_delete=models.SET_NULL)
+    label = models.CharField(max_length=100, default="Distance", editable=False)
+    abbrev = models.CharField(max_length=100, default="Dist", editable=False)
+    content_type = models.ForeignKey(
+        to=ContentType, on_delete=models.SET_NULL, null=True
+    )
     object_id = models.PositiveBigIntegerField()
     stat = GenericForeignKey()
 
 
 class Magic(models.Model):
-    label = models.CharField(default="Magique", editable=False)
-    abbrev = models.CharField(default="Mag", editable=False)
-    content_type = models.ForeignKey(to=ContentType, on_delete=models.SET_NULL)
+    label = models.CharField(max_length=100, default="Magique", editable=False)
+    abbrev = models.CharField(max_length=100, default="Mag", editable=False)
+    content_type = models.ForeignKey(to=ContentType, on_delete=models.SET_NULL, null=True)
     object_id = models.PositiveBigIntegerField()
     stat = GenericForeignKey()
 
@@ -138,28 +142,32 @@ class Attribute(models.Model):
 
 
 class HP(Attribute):
-    label = models.CharField(default="Points de Vigueur", editable=False)
-    abbrev = models.CharField(default="PV", editable=False)
+    label = models.CharField(
+        max_length=100, default="Points de Vigueur", editable=False
+    )
+    abbrev = models.CharField(max_length=100, default="PV", editable=False)
 
 
 class Def(Attribute):
-    label = models.CharField(default="Défence", editable=False)
-    abbrev = models.CharField(default="Def", editable=False)
+    label = models.CharField(max_length=100, default="Défence", editable=False)
+    abbrev = models.CharField(max_length=100, default="Def", editable=False)
 
 
 class Init(Attribute):
-    label = models.CharField(default="Initiative", editable=False)
-    abbrev = models.CharField(default="Init", editable=False)
+    label = models.CharField(max_length=100, default="Initiative", editable=False)
+    abbrev = models.CharField(max_length=100, default="Init", editable=False)
 
 
 class RP(Attribute):
-    label = models.CharField(default="Points de Récupération", editable=False)
-    abbrev = models.CharField(default="PR", editable=False)
+    label = models.CharField(
+        max_length=100, default="Points de Récupération", editable=False
+    )
+    abbrev = models.CharField(max_length=100, default="PR", editable=False)
 
 
 class MP(Attribute):
-    label = models.CharField(default="Points de Mana", editable=False)
-    abbrev = models.CharField(default="PM", editable=False)
+    label = models.CharField(max_length=100, default="Points de Mana", editable=False)
+    abbrev = models.CharField(max_length=100, default="PM", editable=False)
 
 
 class Currency(models.Model):
@@ -167,23 +175,25 @@ class Currency(models.Model):
 
 
 class PP(Currency):
-    label = models.CharField(default="Pièces de Platine", editable=False)
-    abbrev = models.CharField(default="PP", editable=False)
+    label = models.CharField(
+        max_length=100, default="Pièces de Platine", editable=False
+    )
+    abbrev = models.CharField(max_length=100, default="PP", editable=False)
 
 
 class GP(Currency):
-    label = models.CharField(default="Pièces d'Or", editable=False)
-    abbrev = models.CharField(default="PM", editable=False)
+    label = models.CharField(max_length=100, default="Pièces d'Or", editable=False)
+    abbrev = models.CharField(max_length=100, default="PM", editable=False)
 
 
 class SP(Currency):
-    label = models.CharField(default="Pièces d'Argent", editable=False)
-    abbrev = models.CharField(default="PA", editable=False)
+    label = models.CharField(max_length=100, default="Pièces d'Argent", editable=False)
+    abbrev = models.CharField(max_length=100, default="PA", editable=False)
 
 
 class CP(Currency):
-    label = models.CharField(default="Pièces de Cuivre", editable=False)
-    abbrev = models.CharField(default="PC", editable=False)
+    label = models.CharField(max_length=100, default="Pièces de Cuivre", editable=False)
+    abbrev = models.CharField(max_length=100, default="PC", editable=False)
 
 
 class Mini(models.Model):

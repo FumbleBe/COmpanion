@@ -8,12 +8,12 @@ from actors.views import *
 
 
 router = routers.SimpleRouter()
-router.register('category', CategoryViewset, basename='category')
-router.register('product', ProductViewset, basename='product')
-router.register('article', ArticleViewset, basename='article')
+router.register('actors', ActorViewset, basename='actors')
+# router.register('product', ProductViewset, basename='product')
+# router.register('article', ArticleViewset, basename='article')
 
-router.register('admin/category', AdminCategoryViewset, basename='admin-category')
-router.register('admin/article', AdminArticleViewset, basename='admin-article')
+# router.register('admin/category', AdminCategoryViewset, basename='admin-category')
+# router.register('admin/article', AdminArticleViewset, basename='admin-article')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
