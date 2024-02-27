@@ -10,3 +10,9 @@ class Capacity(models.Model):
     spell = models.BooleanField(default=False)
     limited = models.BooleanField(default=False)
     encounter = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name 
+
+    class Meta:
+        verbose_name_plural = "Capacities"

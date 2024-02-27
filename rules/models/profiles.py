@@ -13,3 +13,6 @@ class Profile(models.Model):
     mpfactor = models.PositiveSmallIntegerField(default=0)
     paths = models.ManyToManyField(Path)
     prestige = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name

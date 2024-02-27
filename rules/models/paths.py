@@ -13,3 +13,6 @@ class Path(models.Model):
     prestige = models.BooleanField(default=False)
     racial = models.BooleanField(default=False)
     encounter = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name

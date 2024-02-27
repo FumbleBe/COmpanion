@@ -17,7 +17,7 @@ class Actor(models.Model):
     size = models.CharField(max_length=100, choices=SIZE_CHOICES)
 
 
-class Character(models.Model):
+class Character(Actor):
     level = models.PositiveSmallIntegerField(default=1)
     gender = models.CharField(max_length=255)
     age = models.PositiveSmallIntegerField(default=1)
@@ -28,7 +28,7 @@ class Character(models.Model):
     languages = models.ManyToManyField(to="actors.Languages")
 
 
-class NPC(models.Model):
+class NPC(Actor):
     level = models.PositiveSmallIntegerField(default=1)
     gender = models.CharField(max_length=255)
     age = models.PositiveSmallIntegerField(default=1)
@@ -39,7 +39,7 @@ class NPC(models.Model):
     languages = models.ManyToManyField(to="actors.Languages")
 
 
-class Encounter(models.Model):
+class Encounter(Actor):
     ARCHETYPE_CHOICES = [("standard", "Standard")]
     CATEGORY_CHOICES = [("", "")]
 
@@ -72,27 +72,27 @@ class STR(Statistic):
     abbrev = models.CharField(max_length=100, default="FOR", editable=False)
 
 
-class DEX(models.Model):
+class DEX(Statistic):
     label = models.CharField(max_length=100, default="Dextérité", editable=False)
     abbrev = models.CharField(max_length=100, default="DEX", editable=False)
 
 
-class CON(models.Model):
+class CON(Statistic):
     label = models.CharField(max_length=100, default="Constitution", editable=False)
     abbrev = models.CharField(max_length=100, default="CON", editable=False)
 
 
-class INT(models.Model):
+class INT(Statistic):
     label = models.CharField(max_length=100, default="Intelligence", editable=False)
     abbrev = models.CharField(max_length=100, default="INT", editable=False)
 
 
-class WIS(models.Model):
+class WIS(Statistic):
     label = models.CharField(max_length=100, default="Sagesse", editable=False)
     abbrev = models.CharField(max_length=100, default="WIS", editable=False)
 
 
-class CHA(models.Model):
+class CHA(Statistic):
     label = models.CharField(max_length=100, default="Charisme", editable=False)
     abbrev = models.CharField(max_length=100, default="CHA", editable=False)
 
@@ -106,7 +106,7 @@ class Attack(models.Model):
     dm_bonus = models.PositiveSmallIntegerField(default=0)
 
 
-class Melee(models.Model):
+class Melee(Attack):
     label = models.CharField(max_length=100, default="Mellée", editable=False)
     abbrev = models.CharField(max_length=100, default="CaC", editable=False)
     content_type = models.ForeignKey(
@@ -116,7 +116,7 @@ class Melee(models.Model):
     stat = GenericForeignKey()
 
 
-class Ranged(models.Model):
+class Ranged(Attack):
     label = models.CharField(max_length=100, default="Distance", editable=False)
     abbrev = models.CharField(max_length=100, default="Dist", editable=False)
     content_type = models.ForeignKey(
@@ -126,7 +126,7 @@ class Ranged(models.Model):
     stat = GenericForeignKey()
 
 
-class Magic(models.Model):
+class Magic(Attack):
     label = models.CharField(max_length=100, default="Magique", editable=False)
     abbrev = models.CharField(max_length=100, default="Mag", editable=False)
     content_type = models.ForeignKey(to=ContentType, on_delete=models.SET_NULL, null=True)

@@ -4,12 +4,12 @@ from django.urls import path, include
 
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from actors.views import *
+# from actors.views import *
 from rules.views import *
 
 
 router = routers.SimpleRouter()
-router.register('actors', ActorViewset, basename='actors')
+# router.register('actors', ActorViewset, basename='actors')
 router.register("capacities", CapacityViewset, basename="capacities")
 # router.register('article', ArticleViewset, basename='article')
 
