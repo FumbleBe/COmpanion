@@ -12,18 +12,264 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         self.stdout.write(self.style.MIGRATE_HEADING(self.help))
+        Capacity.objects.all().delete()
+        Path.objects.all().delete()
+        Profile.objects.all().delete()
 
         if Capacity.objects.all():
             self.stdout.write(self.style.WARNING("Capacities already exists in DB !"))
 
         else:
+            _Capacity_created = 0
+            _Capacity_total = 0
+            _enc_Capacity_created = 0
+            _enc_Capacity_total = 0
+            _Profile_created = 0
+            _Profile_total = 0
+            _Path_created = 0
+            _Path_total = 0
+            _enc_Path_created = 0
+            _enc_Path_total = 0
             module_dir = apps.get_app_config("rules").path
-            capacities_json_path = os.path.join(module_dir, "fixtures/capacities.json")
+            profiles_json = os.path.join(module_dir, "fixtures/profiles.json")
+            paths_json = os.path.join(module_dir, "fixtures/paths.json")
+            enc_paths_json = os.path.join(module_dir, "fixtures/encounters-paths.json")
 
-            f = open(capacities_json_path)
-            capacities = json.load(f)
+            capacities_json = os.path.join(module_dir, "fixtures/capacities.json")
+            enc_capacities_json = os.path.join(
+                module_dir, "fixtures/encounters-capacities.json"
+            )
 
-            self.stdout.write(self.style.SUCCESS("Creating Capacities"))
+            f_profiles = open(profiles_json)
+            f_paths = open(paths_json)
+            f_enc_paths = open(enc_paths_json)
+            f_capacities = open(capacities_json)
+            f_enc_capacities = open(enc_capacities_json)
+
+            profiles = json.load(f_profiles)
+            paths = json.load(f_paths)
+            enc_paths = json.load(f_enc_paths)
+            capacities = json.load(f_capacities)
+            enc_capacities = json.load(f_enc_capacities)
+
+            self.stdout.write(self.style.NOTICE("Importing Rules..."))
+
+            for profile in profiles:
+                _Profile_total += 1
+            for path in paths:
+                _Path_total += 1
+            for path in enc_paths:
+                _enc_Path_total += 1
+            for capacity in capacities:
+                _Capacity_total += 1
+            for capacity in enc_capacities:
+                _enc_Capacity_total += 1
+
+            for profile in profiles:
+                name = profile["name"]
+                slug = profile["data"]["key"]
+                description = profile["data"]["description"]
+                source = profile["data"]["source"]
+                if "Chroniques Oubliées DRS" in source:
+                    source = "drs"
+                elif "Chroniques Oubliées Compagnon" in source:
+                    source = "compagnon"
+
+                else:
+                    source = ""
+
+                dv = profile["data"]["dv"]
+                spellcasting = profile["data"]["spellcasting"].upper()
+                mpfactor = profile["data"]["mpfactor"]
+
+                _Profile = Profile.objects.create(
+                    name=name,
+                    slug=slug,
+                    description=description,
+                    source=source,
+                    dv=dv,
+                    spellcasting=spellcasting,
+                    mpfactor=mpfactor,
+                )
+                _Profile_created += 1
+
+                for _path in profile["data"]["paths"]:
+                    _id = _path["_id"]
+                    for path in paths:
+                        if path["_id"] == _id:
+                            name = path["name"]
+                            slug = path["data"]["key"]
+                            description = path["data"]["description"]
+                            source = path["data"]["source"]
+
+                            if "Chroniques Oubliées DRS" in source:
+                                source = "drs"
+                            elif "Chroniques Oubliées Compagnon" in source:
+                                source = "compagnon"
+
+                            else:
+                                source = ""
+
+                            _Path = Path.objects.create(
+                                name=name,
+                                slug=slug,
+                                description=description,
+                                source=source,
+                            )
+                            _Path_created += 1
+                            _Profile.paths.add(_Path)
+                            _Profile.save()
+
+                            for _capacity in path["data"]["capacities"]:
+                                _id_cap = _capacity["_id"]
+                                for capacity in capacities:
+                                    if capacity["_id"] == _id_cap:
+                                        name = capacity["name"]
+                                        slug = capacity["data"]["key"]
+                                        description = capacity["data"]["description"]
+                                        source = capacity["data"]["source"]
+                                        if "Chroniques Oubliées DRS" in source:
+                                            source = "drs"
+                                        elif "Chroniques Oubliées Compagnon" in source:
+                                            source = "compagnon"
+
+                                        else:
+                                            source = ""
+
+                                        spell = capacity["data"]["spell"]
+                                        limited = capacity["data"]["limited"]
+
+                                        _Capacity, created = (
+                                            Capacity.objects.get_or_create(
+                                                name=name,
+                                                slug=slug,
+                                                description=description,
+                                                source=source,
+                                                spell=spell,
+                                                limited=limited,
+                                            )
+                                        )
+                                        if created:
+                                            _Capacity_created += 1
+
+                                        _Path.capacities.add(_Capacity)
+                                        _Path.save()
+
+            for path in enc_paths:
+                name = path["name"]
+                slug = path["data"]["key"]
+                description = path["data"]["description"]
+                source = path["data"]["source"]
+
+                if "Chroniques Oubliées DRS" in source:
+                    source = "drs"
+                elif "Chroniques Oubliées Compagnon" in source:
+                    source = "compagnon"
+
+                else:
+                    source = ""
+
+                _Path = Path.objects.create(
+                    name=name,
+                    slug=slug,
+                    description=description,
+                    source=source,
+                    encounter=True,
+                )
+                _enc_Path_created += 1
+
+                for _capacity in path["data"]["capacities"]:
+                    _id_cap = _capacity["_id"]
+                    for capacity in capacities:
+                        if capacity["_id"] == _id_cap:
+                            name = capacity["name"]
+                            slug = capacity["data"]["key"]
+                            description = capacity["data"]["description"]
+                            source = capacity["data"]["source"]
+                            if "Chroniques Oubliées DRS" in source:
+                                source = "drs"
+                            elif "Chroniques Oubliées Compagnon" in source:
+                                source = "compagnon"
+
+                            else:
+                                source = ""
+
+                            spell = capacity["data"]["spell"]
+                            limited = capacity["data"]["limited"]
+
+                            _Capacity, created = Capacity.objects.get_or_create(
+                                name=name,
+                                slug=slug,
+                                description=description,
+                                source=source,
+                                spell=spell,
+                                limited=limited,
+                            )
+                            if created:
+                                _Capacity_created += 1
+
+                            _Path.capacities.add(_Capacity)
+                            _Path.save()
+
+                    for capacity in enc_capacities:
+                        if capacity["_id"] == _id_cap:
+                            name = capacity["name"]
+                            slug = capacity["data"]["key"]
+                            description = capacity["data"]["description"]
+                            source = capacity["data"]["source"]
+                            if "Chroniques Oubliées DRS" in source:
+                                source = "drs"
+                            elif "Chroniques Oubliées Compagnon" in source:
+                                source = "compagnon"
+
+                            else:
+                                source = ""
+
+                            spell = capacity["data"]["spell"]
+                            limited = capacity["data"]["limited"]
+
+                            _Capacity, created = Capacity.objects.get_or_create(
+                                name=name,
+                                slug=slug,
+                                description=description,
+                                source=source,
+                                spell=spell,
+                                limited=limited,
+                                encounter=True,
+                            )
+                            if created:
+                                _enc_Capacity_created += 1
+
+                            _Path.capacities.add(_Capacity)
+                            _Path.save()
+
+            for capacity in enc_capacities:
+                name = capacity["name"]
+                slug = capacity["data"]["key"]
+                description = capacity["data"]["description"]
+                source = capacity["data"]["source"]
+                if "Chroniques Oubliées DRS" in source:
+                    source = "drs"
+                elif "Chroniques Oubliées Compagnon" in source:
+                    source = "compagnon"
+
+                else:
+                    source = ""
+
+                spell = capacity["data"]["spell"]
+                limited = capacity["data"]["limited"]
+
+                _Capacity, created = Capacity.objects.get_or_create(
+                    name=name,
+                    slug=slug,
+                    description=description,
+                    source=source,
+                    spell=spell,
+                    limited=limited,
+                    encounter=True,
+                )
+                if created:
+                    _enc_Capacity_created += 1
 
             for capacity in capacities:
                 name = capacity["name"]
@@ -40,9 +286,8 @@ class Command(BaseCommand):
 
                 spell = capacity["data"]["spell"]
                 limited = capacity["data"]["limited"]
-                
 
-                Capacity.objects.create(
+                _Capacity, created = Capacity.objects.get_or_create(
                     name=name,
                     slug=slug,
                     description=description,
@@ -50,7 +295,79 @@ class Command(BaseCommand):
                     spell=spell,
                     limited=limited,
                 )
-                self.stdout.write(self.style.SUCCESS("{} created !".format(name)))
+                if created:
+                    _Capacity_created += 1
+
+
+            self.stdout.write(
+                self.style.NOTICE(
+                    "{} Profiles in files...".format(_Profile_total)
+                )
+            )
+            self.stdout.write(
+                self.style.SUCCESS("{} profiles created !".format(_Profile_created))
+            )
+            self.stdout.write(
+                self.style.NOTICE(
+                    "{} Paths in files...".format(_Path_total)
+                )
+            )
+            self.stdout.write(
+                self.style.SUCCESS("{} paths created !".format(_Path_created))
+            )
+            self.stdout.write(
+                self.style.NOTICE(
+                    "{} Encounters Paths in files...".format(_enc_Path_total)
+                )
+            )
+            self.stdout.write(
+                self.style.SUCCESS(
+                    "{} encounter paths created !".format(_enc_Path_created)
+                )
+            )
+            self.stdout.write(
+                self.style.NOTICE(
+                    "{} Capacities in files...".format(_Capacity_total)
+                )
+            )
+            self.stdout.write(
+                self.style.SUCCESS("{} capacities created !".format(_Capacity_created))
+            )
+            self.stdout.write(
+                self.style.NOTICE(
+                    "{} Encounters Capacities in files...".format(_enc_Capacity_total)
+                )
+            )
+            self.stdout.write(
+                self.style.SUCCESS(
+                    "{} encounter capacities created !".format(_enc_Capacity_created)
+                )
+            )
+            # for capacity in capacities:
+            #     name = capacity["name"]
+            #     slug = capacity["data"]["key"]
+            #     description = capacity["data"]["description"]
+            #     source = capacity["data"]["source"]
+            #     if "Chroniques Oubliées DRS" in source:
+            #         source = "drs"
+            #     elif "Chroniques Oubliées Compagnon" in source:
+            #         source = "compagnon"
+
+            #     else:
+            #         source = ""
+
+            #     spell = capacity["data"]["spell"]
+            #     limited = capacity["data"]["limited"]
+
+            #     Capacity.objects.create(
+            #         name=name,
+            #         slug=slug,
+            #         description=description,
+            #         source=source,
+            #         spell=spell,
+            #         limited=limited,
+            #     )
+            #     self.stdout.write(self.style.SUCCESS("{} created !".format(name)))
 
 
 # for data_category in CATEGORIES:

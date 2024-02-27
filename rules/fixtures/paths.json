@@ -3621,12 +3621,12 @@
         "effects": []
     },
     {
-        "_id": "hld4YJU8zeqVywla",
+        "_id": "2DSby800XDMyUOnQ",
         "name": "Voie du familier",
         "type": "path",
         "img": "modules/CoFantasy/artwork/icons/voies/book-embossed-gold-red.webp",
         "data": {
-            "key": "voie-de-l-air",
+            "key": "voie-du-familier",
             "description": "",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},

@@ -1,8 +1,7 @@
 from django.db import models
-
+from rules.models import SOURCE_CHOICES
 
 class Capacity(models.Model):
-    SOURCE_CHOICES = [("",""),("drs", "CO DRS"), ("compagnon", "CO Compagnon"), ("5E", "D&D 5E"), ("homebrew","Règle Maison")]
 
     name = models.CharField(max_length=255)
     slug = models.SlugField()
@@ -10,3 +9,4 @@ class Capacity(models.Model):
     source = models.CharField(max_length=100, choices=SOURCE_CHOICES)
     spell = models.BooleanField(default=False)
     limited = models.BooleanField(default=False)
+    encounter = models.BooleanField(default=False)

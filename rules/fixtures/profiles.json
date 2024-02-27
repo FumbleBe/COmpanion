@@ -6,7 +6,7 @@
         "img": "modules/CoFantasy/artwork/icons/profils/guerrier.webp",
         "data": {
             "key": "guerrier",
-            "description": "<h1>Description</h1><p>Le Guerrier est un combattant émérite qui n'a pas peur du danger et qui affronte ses ennemis l'arme à la main. De tous les profils de combattant, il est le plus spécialisé et le plus complet dans l'art du combat au corps à corps.</p><h1>Maîtrise</h1><p>Le Guerrier sait manier toutes les armes de contact et toutes les armes à distance. Il peut porter jusqu'à l'armure de demi-plaque et manier le bouclier.</p><h1>Possessions de départ</h1><p>Epée longue (<strong>DM</strong> 1d8), épée ou hache à 2 mains (<strong>DM</strong> 2d6), grand bouclier (<strong>DEF</strong> +2) et cotte de mailles (<strong>DEF</strong> +5).</p>",
+            "description": "<p>Le Guerrier est un combattant émérite qui n'a pas peur du danger et qui affronte ses ennemis l'arme à la main. De tous les profils de combattant, il est le plus spécialisé et le plus complet dans l'art du combat au corps à corps.</p><h1>Maîtrise</h1><p>Le Guerrier sait manier toutes les armes de contact et toutes les armes à distance. Il peut porter jusqu'à l'armure de demi-plaque et manier le bouclier.</p><h1>Possessions de départ</h1><p>Epée longue (<strong>DM</strong> 1d8), épée ou hache à 2 mains (<strong>DM</strong> 2d6), grand bouclier (<strong>DEF</strong> +2) et cotte de mailles (<strong>DEF</strong> +5).</p>",
             "source": "Chroniques Oubliées DRS",
             "moduleData": {},
             "dv": "1d10",
@@ -88,7 +88,7 @@
         "img": "modules/CoFantasy/artwork/icons/profils/chevalier.webp",
         "data": {
             "key": "chevalier",
-            "description": "<h1>Description</h1><p>Le Chevalier est un noble guerrier errant, monté sur un puissant destrier et protégé par une armure lourde. Il parcourt la campagne en quête de torts à redresser et d'occasions de mettre son courage à l'épreuve.</p><h1>Maîtrise</h1><p>Le Chevalier sait manier toutes les armes de contact, mais il dédaigne les armes à distance qu'il considère comme des armes de couard. Il sait manier le bouclier et peut porter toutes les armures jusqu'à l'armure de plaques complète.</p><h1>Possessions de départ</h1><p>Epée longue (<strong>DM</strong> 1d8), grand bouclier (<strong>DEF</strong> +2), lance de cavalerie (<strong>DM</strong> 2d6), dague (<strong>DM</strong> 1d4), armure de demi-plaque (<strong>DEF</strong> +6).</p>",
+            "description": "<p>Le Chevalier est un noble guerrier errant, monté sur un puissant destrier et protégé par une armure lourde. Il parcourt la campagne en quête de torts à redresser et d'occasions de mettre son courage à l'épreuve.</p><h1>Maîtrise</h1><p>Le Chevalier sait manier toutes les armes de contact, mais il dédaigne les armes à distance qu'il considère comme des armes de couard. Il sait manier le bouclier et peut porter toutes les armures jusqu'à l'armure de plaques complète.</p><h1>Possessions de départ</h1><p>Epée longue (<strong>DM</strong> 1d8), grand bouclier (<strong>DEF</strong> +2), lance de cavalerie (<strong>DM</strong> 2d6), dague (<strong>DM</strong> 1d4), armure de demi-plaque (<strong>DEF</strong> +6).</p>",
             "source": "Chroniques Oubliées DRS",
             "moduleData": {},
             "dv": "1d10",
@@ -170,7 +170,7 @@
         "img": "modules/CoFantasy/artwork/icons/profils/pretre.webp",
         "data": {
             "key": "pretre",
-            "description": "<h1>Description</h1><p>Le Prêtre utilise l'énergie transmise par son dieu pour mener à bien ses missions  avec la force de la foi mais aussi celle des armes si nécessaire.</p>",
+            "description": "<p>Le Prêtre utilise l'énergie transmise par son dieu pour mener à bien ses missions  avec la force de la foi mais aussi celle des armes si nécessaire.</p>",
             "source": "Chroniques Oubliées DRS",
             "moduleData": {},
             "dv": "1d8",
@@ -252,7 +252,7 @@
         "img": "modules/CoFantasy/artwork/icons/profils/rodeur.webp",
         "data": {
             "key": "rodeur",
-            "description": "<h1>Description</h1><p>Le Rôdeur est à l'aise dans les forêts ténébreuses, où il traque les animaux dangereux et les créatures monstrueuses ou, au contraire, se fait l'ami des bêtes et le protecteur des lieux sauvages.</p><h1>Maîtrise</h1><p>Le Rôdeur sait manier les armes de contact à une main et toutes les armes à distance, il peut porter toutes les armures à base de cuir mais ne manie pas de bouclier.</p><h1>Possessions de départ</h1><p>Arc court (<strong>DM</strong> 1d6, portée 30m), carquois, épée longue (<strong>DM</strong> 1d8), dague (<strong>DM</strong> 1d4), armure de cuir renforcée (<strong>DEF</strong> +3).</p><h1>Notes</h1><h2>Compagnon animal</h2><p>Si vous jouez dans un monde moins fantastique ou plus exotique, vous pouvez  remplacer le loup par un chien ou par tout autre animal adapté à vos aventures (hyène, panthère, chacal&#8230;). Si le joueur la choisit, la Voie du compagnon animal. Un Profil ne peut avoir plus de 5 Voies.</p>",
+            "description": "<p>Le Rôdeur est à l'aise dans les forêts ténébreuses, où il traque les animaux dangereux et les créatures monstrueuses ou, au contraire, se fait l'ami des bêtes et le protecteur des lieux sauvages.</p><h1>Maîtrise</h1><p>Le Rôdeur sait manier les armes de contact à une main et toutes les armes à distance, il peut porter toutes les armures à base de cuir mais ne manie pas de bouclier.</p><h1>Possessions de départ</h1><p>Arc court (<strong>DM</strong> 1d6, portée 30m), carquois, épée longue (<strong>DM</strong> 1d8), dague (<strong>DM</strong> 1d4), armure de cuir renforcée (<strong>DEF</strong> +3).</p><h1>Notes</h1><h2>Compagnon animal</h2><p>Si vous jouez dans un monde moins fantastique ou plus exotique, vous pouvez  remplacer le loup par un chien ou par tout autre animal adapté à vos aventures (hyène, panthère, chacal&#8230;). Si le joueur la choisit, la Voie du compagnon animal. Un Profil ne peut avoir plus de 5 Voies.</p>",
             "source": "Chroniques Oubliées DRS",
             "moduleData": {},
             "dv": "1d8",
@@ -340,7 +340,7 @@
         "img": "modules/CoFantasy/artwork/icons/profils/magicien.webp",
         "data": {
             "key": "magicien",
-            "description": "<h1>Description</h1><p>Le Magicien n'est pas qu'un rat de bibliothèque. Il fait aussi appel à ses sorts pour se débarrasser de ses ennemis et pour aider ses compagnons.</p><h1>Maîtrise</h1><p>Le Magicien sait manier la dague et le bâton ferré et ne porte que des vêtements en tissu, donc aucune armure.</p><h1>Possessions de départ</h1><p>Bâton (<strong>DM</strong> 1d6), dague (<strong>DM</strong> 1d4), grimoire, potion de soin (guérit 1d8 PV).</p>",
+            "description": "<p>Le Magicien n'est pas qu'un rat de bibliothèque. Il fait aussi appel à ses sorts pour se débarrasser de ses ennemis et pour aider ses compagnons.</p><h1>Maîtrise</h1><p>Le Magicien sait manier la dague et le bâton ferré et ne porte que des vêtements en tissu, donc aucune armure.</p><h1>Possessions de départ</h1><p>Bâton (<strong>DM</strong> 1d6), dague (<strong>DM</strong> 1d4), grimoire, potion de soin (guérit 1d8 PV).</p>",
             "source": "Chroniques Oubliées DRS",
             "moduleData": {},
             "dv": "1d4",
@@ -422,7 +422,7 @@
         "img": "modules/CoFantasy/artwork/icons/profils/barde.webp",
         "data": {
             "key": "barde",
-            "description": "<h1>Description</h1><p>Le Barde est un personnage polyvalent qui utilise la magie et le spectacle pour divertir et parvenir à ses fins. Il est aussi habitué aux ruses qu'à la diplomatie.</p><h1>Maîtrise</h1><p>Le Barde sait manier les armes à 1 main. Il peut porter jusqu'à l'armure de cuir renforcée et ne peut pas manier le bouclier.</p><h1>Possessions de départ</h1><p>Rapière (<strong>DM</strong> 1d6, Crit 19-20), dague (<strong>DM</strong> 1d4), instrument de musique, armure de cuir (<strong>DEF</strong> +2).</p>",
+            "description": "<p>Le Barde est un personnage polyvalent qui utilise la magie et le spectacle pour divertir et parvenir à ses fins. Il est aussi habitué aux ruses qu'à la diplomatie.</p><h1>Maîtrise</h1><p>Le Barde sait manier les armes à 1 main. Il peut porter jusqu'à l'armure de cuir renforcée et ne peut pas manier le bouclier.</p><h1>Possessions de départ</h1><p>Rapière (<strong>DM</strong> 1d6, Crit 19-20), dague (<strong>DM</strong> 1d4), instrument de musique, armure de cuir (<strong>DEF</strong> +2).</p>",
             "source": "Chroniques Oubliées DRS",
             "moduleData": {},
             "dv": "1d6",
@@ -516,7 +516,7 @@
         "img": "modules/CoFantasy/artwork/icons/profils/ensorceleur.webp",
         "data": {
             "key": "ensorceleur",
-            "description": "<h1>Description</h1><p>L'Ensorceleur tire son pouvoir d'un talent inné pour la magie. Il pratique une magie subtile à base de tromperie et de contrôle, et possède peu de sorts de destruction massive.</p><h1>Maîtrise</h1><p>L'Ensorceleur sait manier la dague et le bâton ferré. Il ne peut porter aucune armure (sauf si elle est faite de tissu) et ne peut pas manier le bouclier.</p><h1>Possessions de départ</h1><p>Bâton ferré (<strong>DM</strong> 1d6), dague (<strong>DM</strong> 1d4), potion de soins (guérit 1d8 PV).</p>",
+            "description": "<p>L'Ensorceleur tire son pouvoir d'un talent inné pour la magie. Il pratique une magie subtile à base de tromperie et de contrôle, et possède peu de sorts de destruction massive.</p><h1>Maîtrise</h1><p>L'Ensorceleur sait manier la dague et le bâton ferré. Il ne peut porter aucune armure (sauf si elle est faite de tissu) et ne peut pas manier le bouclier.</p><h1>Possessions de départ</h1><p>Bâton ferré (<strong>DM</strong> 1d6), dague (<strong>DM</strong> 1d4), potion de soins (guérit 1d8 PV).</p>",
             "source": "Chroniques Oubliées DRS",
             "moduleData": {},
             "dv": "1d4",
@@ -598,7 +598,7 @@
         "img": "modules/CoFantasy/artwork/icons/profils/druide.webp",
         "data": {
             "key": "druide",
-            "description": "<h1>Description</h1><p>Le Druide est un prêtre de la nature qui défend sa pureté originelle et tire ses pouvoirs de la vie, des animaux et des plantes.</p><h1>Maîtrise</h1><p>Le Druide (équivalent à un bâton ferré), l'épieu, le javelot et l'arc court. Il peut porter l'armure de cuir et peut manier le petit bouclier en bois (<strong>DEF</strong>+1).</p><h1>Possessions de départ</h1><p>Bâton (<strong>DM</strong> 1d6), dague (<strong>DM</strong> 1d4), arc court (<strong>DM</strong> 1d6, portée 30 m), armure de cuir (<strong>DEF</strong> +2).</p>",
+            "description": "<p>Le Druide est un prêtre de la nature qui défend sa pureté originelle et tire ses pouvoirs de la vie, des animaux et des plantes.</p><h1>Maîtrise</h1><p>Le Druide (équivalent à un bâton ferré), l'épieu, le javelot et l'arc court. Il peut porter l'armure de cuir et peut manier le petit bouclier en bois (<strong>DEF</strong>+1).</p><h1>Possessions de départ</h1><p>Bâton (<strong>DM</strong> 1d6), dague (<strong>DM</strong> 1d4), arc court (<strong>DM</strong> 1d6, portée 30 m), armure de cuir (<strong>DEF</strong> +2).</p>",
             "source": "Chroniques Oubliées DRS",
             "moduleData": {},
             "dv": "1d8",
@@ -680,7 +680,7 @@
         "img": "modules/CoFantasy/artwork/icons/profils/forgesort.webp",
         "data": {
             "key": "forgesort",
-            "description": "<h1>Description</h1><p>A la fois artisan et enchanteur, artiste et magicien, le Forgesort lie les énergies occultes à la matière qu'il façonne pour créer des artefacts magiques ou des breuvages aux propriétés fantastiques.</p><h1>Maîtrise</h1><p>Le Forgesort sait manier la dague, le bâton ferré, le marteau et l'arbalète légère. Il peut porter une armure de cuir simple seulement et ne peut pas manier de bouclier.</p><h1>Possessions de départ</h1><p>Dague (<strong>DM</strong> 1d4), bâton ferré (<strong>DM</strong> 1d6), marteau (<strong>DM</strong> 1d6).</p><h1>Notes</h1><h2>Science, pas science ?</h2><p>Ce Profil est particulièrement adapté aux univers où le développement technologique n'est pas en reste (tendance Steampunk, Les Royaumes d'Acier ou Eberron par exemple). Dans ce genre d'univers, vous pouvez le typer plus fortement en renommant la Voie du golem en Voie du méca et plutôt que des sorts, tous les effets sont obtenus par de nombreux objets étranges portés, ingérés ou greffés.</p>",
+            "description": "<p>A la fois artisan et enchanteur, artiste et magicien, le Forgesort lie les énergies occultes à la matière qu'il façonne pour créer des artefacts magiques ou des breuvages aux propriétés fantastiques.</p><h1>Maîtrise</h1><p>Le Forgesort sait manier la dague, le bâton ferré, le marteau et l'arbalète légère. Il peut porter une armure de cuir simple seulement et ne peut pas manier de bouclier.</p><h1>Possessions de départ</h1><p>Dague (<strong>DM</strong> 1d4), bâton ferré (<strong>DM</strong> 1d6), marteau (<strong>DM</strong> 1d6).</p><h1>Notes</h1><h2>Science, pas science ?</h2><p>Ce Profil est particulièrement adapté aux univers où le développement technologique n'est pas en reste (tendance Steampunk, Les Royaumes d'Acier ou Eberron par exemple). Dans ce genre d'univers, vous pouvez le typer plus fortement en renommant la Voie du golem en Voie du méca et plutôt que des sorts, tous les effets sont obtenus par de nombreux objets étranges portés, ingérés ou greffés.</p>",
             "source": "Chroniques Oubliées DRS",
             "moduleData": {},
             "dv": "1d6",
@@ -762,7 +762,7 @@
         "img": "modules/CoFantasy/artwork/icons/profils/voleur.webp",
         "data": {
             "key": "voleur",
-            "description": "<h1>Description</h1><p>Le Voleur crochète les portes, détecte les pièges et préfère piller les cadavres des ennemis que de se salir les mains pendant le combat.</p><h1>Maîtrise</h1><p>Le Voleur sait manier les armes de contact à une main et toutes les armes à distance. Il peut seulement porter une armure de cuir simple et ne manie pas de bouclier.</p><h1>Possessions de départ</h1><p>Rapière (<strong>DM</strong> 1d6, Crit 19-20), 5 dagues (<strong>DM</strong> 1d4, portée 5 m), outils de crochetage, armure de cuir (<strong>DEF</strong> +2).</p>",
+            "description": "<p>Le Voleur crochète les portes, détecte les pièges et préfère piller les cadavres des ennemis que de se salir les mains pendant le combat.</p><h1>Maîtrise</h1><p>Le Voleur sait manier les armes de contact à une main et toutes les armes à distance. Il peut seulement porter une armure de cuir simple et ne manie pas de bouclier.</p><h1>Possessions de départ</h1><p>Rapière (<strong>DM</strong> 1d6, Crit 19-20), 5 dagues (<strong>DM</strong> 1d4, portée 5 m), outils de crochetage, armure de cuir (<strong>DEF</strong> +2).</p>",
             "source": "Chroniques Oubliées DRS",
             "moduleData": {},
             "dv": "1d6",
@@ -844,7 +844,7 @@
         "img": "modules/CoFantasy/artwork/icons/profils/barbare.webp",
         "data": {
             "key": "barbare",
-            "description": "<h1>Description</h1><p>Le Barbare est un combattant sauvage issu d'une culture primitive. Il affronte ses ennemis avec rage sans se cacher derrière une lourde armure.</p><h1>Maîtrise</h1><p>Le Barbare sait manier toutes les armes au contact, toutes les armes à distance (sauf les arbalètes et les armes d'une technologie trop complexe). Il peut porter jusqu'à l'armure de cuir et manier le bouclier.</p><h1>Possessions de départ</h1><p>Hache à 2 mains (<strong>DM</strong> 2d6), 2 javelots (<strong>DM</strong> 1d6, portée 20 m), dague (<strong>DM</strong> 1d4), armure de cuir (<strong>DEF</strong> +2).</p>",
+            "description": "<p>Le Barbare est un combattant sauvage issu d'une culture primitive. Il affronte ses ennemis avec rage sans se cacher derrière une lourde armure.</p><h1>Maîtrise</h1><p>Le Barbare sait manier toutes les armes au contact, toutes les armes à distance (sauf les arbalètes et les armes d'une technologie trop complexe). Il peut porter jusqu'à l'armure de cuir et manier le bouclier.</p><h1>Possessions de départ</h1><p>Hache à 2 mains (<strong>DM</strong> 2d6), 2 javelots (<strong>DM</strong> 1d6, portée 20 m), dague (<strong>DM</strong> 1d4), armure de cuir (<strong>DEF</strong> +2).</p>",
             "source": "Chroniques Oubliées DRS",
             "moduleData": {},
             "dv": "1d12",
@@ -926,7 +926,7 @@
         "img": "modules/CoFantasy/artwork/icons/profils/invocateur.webp",
         "data": {
             "key": "ensorceleur",
-            "description": "<h1>Description</h1>\n<p>L&rsquo;invocateur est un lanceur de sort qui s&rsquo;est d&eacute;vou&eacute; exclusivement &agrave; un aspect sp&eacute;cifique de la magie profane : l&rsquo;&eacute;tude de la structure du multivers.</p>\n<p>Cette connaissance occulte lui permet de comprendre les r&egrave;gles qui lient les diff&eacute;rents plans d&rsquo;existence, d&rsquo;invoquer &agrave; son service des cr&eacute;atures venues d&rsquo;autres plans ou encore de cr&eacute;er des portails de voyage.</p>\n<h1>Ma&icirc;trise</h1>\n<p>L'invocateur sait manier la dague, le b&acirc;ton et l'arbal&egrave;te l&eacute;g&egrave;re. Il peut seulement porter une armure de cuir simple et ne peut pas manier de bouclier.</p>\n<h1>Possessions de d&eacute;part</h1>\n<p>B&acirc;ton ferr&eacute; (<strong>DM</strong> 1d6), dague (<strong>DM</strong> 1d4).</p>",
+            "description": "\n<p>L&rsquo;invocateur est un lanceur de sort qui s&rsquo;est d&eacute;vou&eacute; exclusivement &agrave; un aspect sp&eacute;cifique de la magie profane : l&rsquo;&eacute;tude de la structure du multivers.</p>\n<p>Cette connaissance occulte lui permet de comprendre les r&egrave;gles qui lient les diff&eacute;rents plans d&rsquo;existence, d&rsquo;invoquer &agrave; son service des cr&eacute;atures venues d&rsquo;autres plans ou encore de cr&eacute;er des portails de voyage.</p>\n<h1>Ma&icirc;trise</h1>\n<p>L'invocateur sait manier la dague, le b&acirc;ton et l'arbal&egrave;te l&eacute;g&egrave;re. Il peut seulement porter une armure de cuir simple et ne peut pas manier de bouclier.</p>\n<h1>Possessions de d&eacute;part</h1>\n<p>B&acirc;ton ferr&eacute; (<strong>DM</strong> 1d6), dague (<strong>DM</strong> 1d4).</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "dv": "1d6",
@@ -1008,7 +1008,7 @@
         "img": "modules/CoFantasy/artwork/icons/profils/arquebusier.webp",
         "data": {
             "key": "arquebusier",
-            "description": "<h1>Description</h1><p>L'Arquebusier est un dur à cuire, un soldat ou un mercenaire habitué des champs de bataille. C'est un spécialiste du combat à distance et plus particulièrement des armes à feu et des explosifs.</p><h1>Maîtrise</h1><p>L'Arquebusier sait manier toutes les armes de contact à une main, les armes à distance et les armes à poudre. Il peut porter jusqu'à la chemise de maille et ne manie pas de bouclier.</p><h1>Possessions de départ</h1><p>Pétoire (<strong>DM</strong> 1d10, portée 20m), épée longue (<strong>DM</strong> 1d8), dague (<strong>DM</strong> 1d4), armure de cuir (<strong>DEF</strong> +2).</p><h1>Notes</h1><h2>Poudre ou pas poudre ?</h2><p>Ce personnage utilise des armes à feu et peut être joué dans un cadre équivalent à la Renaissance ou au XVIIe siècle, mais si votre contexte de jeu ne le permet pas, vous pouvez remplacer la pétoire par une arbalète de poing, le mousquet par une arbalète lourde et la couleuvrine par une baliste… Supprimez la Voie des explosifs et remplacez-la par la Voie du Maître d'arme de Guerrier, en la limitant aux arbalètes. Le nom du Profil devient alors « Arbalétrier ».</p>",
+            "description": "<p>L'Arquebusier est un dur à cuire, un soldat ou un mercenaire habitué des champs de bataille. C'est un spécialiste du combat à distance et plus particulièrement des armes à feu et des explosifs.</p><h1>Maîtrise</h1><p>L'Arquebusier sait manier toutes les armes de contact à une main, les armes à distance et les armes à poudre. Il peut porter jusqu'à la chemise de maille et ne manie pas de bouclier.</p><h1>Possessions de départ</h1><p>Pétoire (<strong>DM</strong> 1d10, portée 20m), épée longue (<strong>DM</strong> 1d8), dague (<strong>DM</strong> 1d4), armure de cuir (<strong>DEF</strong> +2).</p><h1>Notes</h1><h2>Poudre ou pas poudre ?</h2><p>Ce personnage utilise des armes à feu et peut être joué dans un cadre équivalent à la Renaissance ou au XVIIe siècle, mais si votre contexte de jeu ne le permet pas, vous pouvez remplacer la pétoire par une arbalète de poing, le mousquet par une arbalète lourde et la couleuvrine par une baliste… Supprimez la Voie des explosifs et remplacez-la par la Voie du Maître d'arme de Guerrier, en la limitant aux arbalètes. Le nom du Profil devient alors « Arbalétrier ».</p>",
             "source": "Chroniques Oubliées DRS",
             "moduleData": {},
             "dv": "1d8",
@@ -1090,7 +1090,7 @@
         "img": "modules/CoFantasy/artwork/icons/profils/moine.webp",
         "data": {
             "key": "moine",
-            "description": "<h1>Description</h1><p>Le Moine combat à mains nues et utilise le contrôle qu'il a sur son esprit et son corps pour transformer ce dernier en arme de chair.</p><h1>Maîtrise</h1><p>Le Moines n'y font pas appel et sont plus  efficaces à mains nues.</p><h1>Possessions de départ</h1><p>Bâton ferré (<strong>DM</strong> 1d6).</p><h1>Notes</h1><h2>Adapter le moine à votre univers</h2><p>Bien que d 'inspiration asiatique, ce Moine est un moine-guerrier qui peut être adapté à de nombreux mondes fantastiques. Si cela ne colle pas avec votre univers, vous pouvez facilement transposer les capacités de combat à mains nues avec une arme (l'épée par exemple) afin d 'occidentaliser ce profil.</p>",
+            "description": "<p>Le Moine combat à mains nues et utilise le contrôle qu'il a sur son esprit et son corps pour transformer ce dernier en arme de chair.</p><h1>Maîtrise</h1><p>Le Moines n'y font pas appel et sont plus  efficaces à mains nues.</p><h1>Possessions de départ</h1><p>Bâton ferré (<strong>DM</strong> 1d6).</p><h1>Notes</h1><h2>Adapter le moine à votre univers</h2><p>Bien que d 'inspiration asiatique, ce Moine est un moine-guerrier qui peut être adapté à de nombreux mondes fantastiques. Si cela ne colle pas avec votre univers, vous pouvez facilement transposer les capacités de combat à mains nues avec une arme (l'épée par exemple) afin d 'occidentaliser ce profil.</p>",
             "source": "Chroniques Oubliées DRS",
             "moduleData": {},
             "dv": "1d8",
@@ -1172,7 +1172,7 @@
         "img": "modules/CoFantasy/artwork/icons/profils/necromancien.webp",
         "data": {
             "key": "necromancien",
-            "description": "<h1>Description</h1><p>Les Nécromanciens sont généralement considérés comme maléfiques et sont peu appréciés. Interprétez-le de façon subtile afin d'en faire un personnage plutôt sombre ou désespéré, mais pas forcément « mauvais » !</p><h1>Maîtrise</h1><p>Le Nécromancien sait manier la dague et le bâton ferré. Il ne peut porter aucune  armure (sauf si celle-ci est faite de tissu) et ne peut pas manier le bouclier.</p><h1>Possessions de départ</h1><p>Bâton ferré (<strong>DM</strong> 1d6), dague (<strong>DM</strong> 1d4), potion de soins (guérit 1d8 PV).</p>",
+            "description": "<p>Les Nécromanciens sont généralement considérés comme maléfiques et sont peu appréciés. Interprétez-le de façon subtile afin d'en faire un personnage plutôt sombre ou désespéré, mais pas forcément « mauvais » !</p><h1>Maîtrise</h1><p>Le Nécromancien sait manier la dague et le bâton ferré. Il ne peut porter aucune  armure (sauf si celle-ci est faite de tissu) et ne peut pas manier le bouclier.</p><h1>Possessions de départ</h1><p>Bâton ferré (<strong>DM</strong> 1d6), dague (<strong>DM</strong> 1d4), potion de soins (guérit 1d8 PV).</p>",
             "source": "Chroniques Oubliées DRS",
             "moduleData": {},
             "dv": "1d4",
