@@ -3,12 +3,11 @@ from rest_framework import serializers
 from actors.models import *
 
 
-class ActorListSerializer(serializers.ModelSerializer):
+class CharacterListSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Actor
-        fields = ["id", "date_created", "date_updated", "name"]
-
+        model = Character
+        fields = '__all__'
 
 
 # class ProductDetailSerializer(serializers.ModelSerializer):

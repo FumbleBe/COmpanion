@@ -18,13 +18,13 @@ class MultipleSerializerMixin:
 
 
 
-class ActorViewset(MultipleSerializerMixin, ReadOnlyModelViewSet):
+class CharacterViewset(MultipleSerializerMixin, ReadOnlyModelViewSet):
 
-    serializer_class = ActorListSerializer
+    serializer_class = CharacterListSerializer
     # detail_serializer_class = CategoryDetailSerializer
 
     def get_queryset(self):
-        return Actor.objects.all()
+        return Character.objects.all()
 
     # @action(detail=True, methods=["post"])
     # def disable(self, request, pk):

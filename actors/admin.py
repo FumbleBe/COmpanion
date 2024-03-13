@@ -2,10 +2,10 @@ from django.contrib import admin
 from actors.models import *
 
 
-class ActorAdmin(admin.ModelAdmin):
+class CharacterAdmin(admin.ModelAdmin):
 
     list_display = ('name', 'size')
 
 
 
-admin.site.register(Actor, ActorAdmin)
+admin.site.register(Character, CharacterAdmin)

@@ -5,27 +5,42 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 
 
 class Actor(models.Model):
-    SIZE_CHOICES = [("small", "Petit"), ("medium", "Moyen")]
+    SIZE_CHOICES = [
+        ("tiny", "Minuscule"),
+        ("really_small", "Très petit"),
+        ("small", "Petit"),
+        ("medium", "Moyen"),
+        ("tall", "Grand"),
+        ("huge", "Énorme"),
+        ("colossal", "Colossale"),
+    ]
 
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
 
     name = models.CharField(max_length=255)
-    image = models.ImageField()
+    image = models.ImageField(null=True, blank=True)
     description = models.TextField(blank=True)
 
     size = models.CharField(max_length=100, choices=SIZE_CHOICES)
 
 
 class Character(Actor):
+    GENDER_CHOICES = [
+        ("male", "Homme"),
+        ("female", "Femme"),
+    ]
     level = models.PositiveSmallIntegerField(default=1)
-    gender = models.CharField(max_length=255)
+    gender = models.CharField(max_length=100, choices=GENDER_CHOICES)
     age = models.PositiveSmallIntegerField(default=1)
     weight = models.PositiveSmallIntegerField(default=1)
     height = models.PositiveSmallIntegerField(default=1)
-    eyes = models.CharField(max_length=255)
-    hair = models.CharField(max_length=255)
-    languages = models.ManyToManyField(to="actors.Languages")
+    eyes = models.CharField(max_length=255, null=True, blank=True)
+    hair = models.CharField(max_length=255, null=True, blank=True)
+    species = models.ForeignKey(
+        "rules.Species", on_delete=models.PROTECT, related_name="characters"
+    )
+    languages = models.ManyToManyField(to="actors.Languages", blank=True)
 
 
 class NPC(Actor):
