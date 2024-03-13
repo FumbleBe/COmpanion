@@ -11,6 +11,7 @@ from rules.views import *
 router = routers.SimpleRouter()
 # router.register('actors', ActorViewset, basename='actors')
 router.register("capacities", CapacityViewset, basename="capacities")
+router.register("paths", PathViewset, basename="paths")
 # router.register('article', ArticleViewset, basename='article')
 
 # router.register('admin/category', AdminCategoryViewset, basename='admin-category')
