@@ -5,7 +5,7 @@ from rules.models import SOURCE_CHOICES, Path, Capacity
 class Species(models.Model):
 
     name = models.CharField(max_length=255)
-    img = models.ImageField()
+    img = models.ImageField(blank=True, null=True)
     slug = models.SlugField()
     description = models.TextField(blank=False)
     source = models.CharField(max_length=100, choices=SOURCE_CHOICES)

@@ -12,6 +12,8 @@ router = routers.SimpleRouter()
 router.register('characters', CharacterViewset, basename='characters')
 router.register("capacities", CapacityViewset, basename="capacities")
 router.register("paths", PathViewset, basename="paths")
+router.register("profiles", ProfileViewset, basename="profiles")
+router.register("species", SpeciesViewset, basename="species")
 # router.register('article', ArticleViewset, basename='article')
 
 # router.register('admin/category', AdminCategoryViewset, basename='admin-category')

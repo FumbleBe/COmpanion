@@ -38,27 +38,126 @@ class Character(Actor):
     eyes = models.CharField(max_length=255, null=True, blank=True)
     hair = models.CharField(max_length=255, null=True, blank=True)
     species = models.ForeignKey(
-        "rules.Species", on_delete=models.PROTECT, related_name="characters"
+        "rules.Species",
+        on_delete=models.PROTECT,
+        related_name="characters",
+        null=True,
+        blank=True,
     )
-    languages = models.ManyToManyField(to="actors.Languages", blank=True)
+    profile = models.ForeignKey(
+        "rules.Profile",
+        on_delete=models.PROTECT,
+        related_name="characters",
+        null=True,
+        blank=True,
+    )
     STR = models.ForeignKey(
-        "actors.STR", on_delete=models.PROTECT, related_name="characters"
+        "actors.STR",
+        on_delete=models.PROTECT,
+        related_name="characters",
+        null=True,
+        blank=True,
     )
     DEX = models.ForeignKey(
-        "actors.DEX", on_delete=models.PROTECT, related_name="characters"
+        "actors.DEX",
+        on_delete=models.PROTECT,
+        related_name="characters",
+        null=True,
+        blank=True,
     )
     CON = models.ForeignKey(
-        "actors.CON", on_delete=models.PROTECT, related_name="characters"
+        "actors.CON",
+        on_delete=models.PROTECT,
+        related_name="characters",
+        null=True,
+        blank=True,
     )
     INT = models.ForeignKey(
-        "actors.INT", on_delete=models.PROTECT, related_name="characters"
+        "actors.INT",
+        on_delete=models.PROTECT,
+        related_name="characters",
+        null=True,
+        blank=True,
     )
     WIS = models.ForeignKey(
-        "actors.WIS", on_delete=models.PROTECT, related_name="characters"
+        "actors.WIS",
+        on_delete=models.PROTECT,
+        related_name="characters",
+        null=True,
+        blank=True,
     )
     CHA = models.ForeignKey(
-        "actors.CHA", on_delete=models.PROTECT, related_name="characters"
+        "actors.CHA",
+        on_delete=models.PROTECT,
+        related_name="characters",
+        null=True,
+        blank=True,
     )
+    melee = models.ForeignKey(
+        "actors.Melee",
+        on_delete=models.PROTECT,
+        related_name="characters",
+        null=True,
+        blank=True,
+    )
+    ranged = models.ForeignKey(
+        "actors.Ranged",
+        on_delete=models.PROTECT,
+        related_name="characters",
+        null=True,
+        blank=True,
+    )
+    magic = models.ForeignKey(
+        "actors.Magic",
+        on_delete=models.PROTECT,
+        related_name="characters",
+        null=True,
+        blank=True,
+    )
+    init = models.ForeignKey(
+        "actors.Init",
+        on_delete=models.PROTECT,
+        related_name="characters",
+        null=True,
+        blank=True,
+    )
+    HP = models.ForeignKey(
+        "actors.HP",
+        on_delete=models.PROTECT,
+        related_name="characters",
+        null=True,
+        blank=True,
+    )
+    RP = models.ForeignKey(
+        "actors.RP",
+        on_delete=models.PROTECT,
+        related_name="characters",
+        null=True,
+        blank=True,
+    )
+    DEF = models.ForeignKey(
+        "actors.Def",
+        on_delete=models.PROTECT,
+        related_name="characters",
+        null=True,
+        blank=True,
+    )
+    MP = models.ForeignKey(
+        "actors.MP",
+        on_delete=models.PROTECT,
+        related_name="characters",
+        null=True,
+        blank=True,
+    )
+    LP = models.ForeignKey(
+        "actors.LP",
+        on_delete=models.PROTECT,
+        related_name="characters",
+        null=True,
+        blank=True,
+    )
+
+    languages = models.ManyToManyField(to="actors.Languages", blank=True)
 
 
 class NPC(Actor):
@@ -79,6 +178,48 @@ class Encounter(Actor):
     nc = models.PositiveSmallIntegerField(default=1)
     category = models.CharField(max_length=100, choices=CATEGORY_CHOICES)
     archetype = models.CharField(max_length=100, choices=ARCHETYPE_CHOICES)
+    STR = models.ForeignKey(
+        "actors.STR",
+        on_delete=models.PROTECT,
+        related_name="encounters",
+        null=True,
+        blank=True,
+    )
+    DEX = models.ForeignKey(
+        "actors.DEX",
+        on_delete=models.PROTECT,
+        related_name="encounters",
+        null=True,
+        blank=True,
+    )
+    CON = models.ForeignKey(
+        "actors.CON",
+        on_delete=models.PROTECT,
+        related_name="encounters",
+        null=True,
+        blank=True,
+    )
+    INT = models.ForeignKey(
+        "actors.INT",
+        on_delete=models.PROTECT,
+        related_name="encounters",
+        null=True,
+        blank=True,
+    )
+    WIS = models.ForeignKey(
+        "actors.WIS",
+        on_delete=models.PROTECT,
+        related_name="encounters",
+        null=True,
+        blank=True,
+    )
+    CHA = models.ForeignKey(
+        "actors.CHA",
+        on_delete=models.PROTECT,
+        related_name="encounters",
+        null=True,
+        blank=True,
+    )
 
 
 class Languages(models.Model):
@@ -95,9 +236,6 @@ class Statistic(models.Model):
     superior = models.BooleanField(default=False)
     skillbonus = models.SmallIntegerField(default=0)
     skillmalus = models.SmallIntegerField(default=0)
-    actor = models.ForeignKey(
-        "actors.Character", on_delete=models.CASCADE, related_name="statistics"
-    )
 
 
 class STR(Statistic):
@@ -201,6 +339,11 @@ class RP(Attribute):
 class MP(Attribute):
     label = models.CharField(max_length=100, default="Points de Mana", editable=False)
     abbrev = models.CharField(max_length=100, default="PM", editable=False)
+
+
+class LP(Attribute):
+    label = models.CharField(max_length=100, default="Points de Chance", editable=False)
+    abbrev = models.CharField(max_length=100, default="PC", editable=False)
 
 
 class Currency(models.Model):
