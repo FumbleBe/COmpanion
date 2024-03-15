@@ -41,6 +41,24 @@ class Character(Actor):
         "rules.Species", on_delete=models.PROTECT, related_name="characters"
     )
     languages = models.ManyToManyField(to="actors.Languages", blank=True)
+    STR = models.ForeignKey(
+        "actors.STR", on_delete=models.PROTECT, related_name="characters"
+    )
+    DEX = models.ForeignKey(
+        "actors.DEX", on_delete=models.PROTECT, related_name="characters"
+    )
+    CON = models.ForeignKey(
+        "actors.CON", on_delete=models.PROTECT, related_name="characters"
+    )
+    INT = models.ForeignKey(
+        "actors.INT", on_delete=models.PROTECT, related_name="characters"
+    )
+    WIS = models.ForeignKey(
+        "actors.WIS", on_delete=models.PROTECT, related_name="characters"
+    )
+    CHA = models.ForeignKey(
+        "actors.CHA", on_delete=models.PROTECT, related_name="characters"
+    )
 
 
 class NPC(Actor):
