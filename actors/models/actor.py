@@ -237,6 +237,9 @@ class Statistic(models.Model):
     skillbonus = models.SmallIntegerField(default=0)
     skillmalus = models.SmallIntegerField(default=0)
 
+    def __str__(self):
+        return str(self.value)
+
 
 class STR(Statistic):
     label = models.CharField(max_length=100, default="Force", editable=False)
