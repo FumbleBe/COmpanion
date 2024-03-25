@@ -24,11 +24,91 @@ class Actor(models.Model):
 
     size = models.CharField(max_length=100, choices=SIZE_CHOICES)
 
+    STR_label = models.CharField(max_length=100, default="Force", editable=False)
+    STR_abbrev = models.CharField(max_length=100, default="FOR", editable=False)
+    STR_base = models.PositiveSmallIntegerField(default=10)
+    STR_racial = models.SmallIntegerField(default=0)
+    STR_bonus = models.SmallIntegerField(default=0)
+    STR_mod = models.SmallIntegerField(default=0)
+    STR_value = models.SmallIntegerField(default=0)
+    STR_tmpmod = models.SmallIntegerField(default=0)
+    STR_superior = models.BooleanField(default=False)
+    STR_skillbonus = models.SmallIntegerField(default=0)
+    STR_skillmalus = models.SmallIntegerField
+
+    DEX_label = models.CharField(max_length=100, default="Dextérité", editable=False)
+    DEX_abbrev = models.CharField(max_length=100, default="DEX", editable=False)
+    DEX_base = models.PositiveSmallIntegerField(default=10)
+    DEX_racial = models.SmallIntegerField(default=0)
+    DEX_bonus = models.SmallIntegerField(default=0)
+    DEX_mod = models.SmallIntegerField(default=0)
+    DEX_value = models.SmallIntegerField(default=0)
+    DEX_tmpmod = models.SmallIntegerField(default=0)
+    DEX_superior = models.BooleanField(default=False)
+    DEX_skillbonus = models.SmallIntegerField(default=0)
+    DEX_skillmalus = models.SmallIntegerField(default=0)
+
+    CON_label = models.CharField(max_length=100, default="Constitution", editable=False)
+    CON_abbrev = models.CharField(max_length=100, default="CON", editable=False)
+    CON_base = models.PositiveSmallIntegerField(default=10)
+    CON_racial = models.SmallIntegerField(default=0)
+    CON_bonus = models.SmallIntegerField(default=0)
+    CON_mod = models.SmallIntegerField(default=0)
+    CON_value = models.SmallIntegerField(default=0)
+    CON_tmpmod = models.SmallIntegerField(default=0)
+    CON_superior = models.BooleanField(default=False)
+    CON_skillbonus = models.SmallIntegerField(default=0)
+    CON_skillmalus = models.SmallIntegerField(default=0)
+
+    INT_label = models.CharField(max_length=100, default="Intelligence", editable=False)
+    INT_abbrev = models.CharField(max_length=100, default="INT", editable=False)
+    INT_base = models.PositiveSmallIntegerField(default=10)
+    INT_racial = models.SmallIntegerField(default=0)
+    INT_bonus = models.SmallIntegerField(default=0)
+    INT_mod = models.SmallIntegerField(default=0)
+    INT_value = models.SmallIntegerField(default=0)
+    INT_tmpmod = models.SmallIntegerField(default=0)
+    INT_superior = models.BooleanField(default=False)
+    INT_skillbonus = models.SmallIntegerField(default=0)
+    INT_skillmalus = models.SmallIntegerField(default=0)
+
+    WIS_label = models.CharField(max_length=100, default="Sagesse", editable=False)
+    WIS_abbrev = models.CharField(max_length=100, default="WIS", editable=False)
+    WIS_base = models.PositiveSmallIntegerField(default=10)
+    WIS_racial = models.SmallIntegerField(default=0)
+    WIS_bonus = models.SmallIntegerField(default=0)
+    WIS_mod = models.SmallIntegerField(default=0)
+    WIS_value = models.SmallIntegerField(default=0)
+    WIS_tmpmod = models.SmallIntegerField(default=0)
+    WIS_superior = models.BooleanField(default=False)
+    WIS_skillbonus = models.SmallIntegerField(default=0)
+    WIS_skillmalus = models.SmallIntegerField(default=0)
+
+    CHA_label = models.CharField(max_length=100, default="Charisme", editable=False)
+    CHA_abbrev = models.CharField(max_length=100, default="CHA", editable=False)
+    CHA_base = models.PositiveSmallIntegerField(default=10)
+    CHA_racial = models.SmallIntegerField(default=0)
+    CHA_bonus = models.SmallIntegerField(default=0)
+    CHA_mod = models.SmallIntegerField(default=0)
+    CHA_value = models.SmallIntegerField(default=0)
+    CHA_tmpmod = models.SmallIntegerField(default=0)
+    CHA_superior = models.BooleanField(default=False)
+    CHA_skillbonus = models.SmallIntegerField(default=0)
+    CHA_skillmalus = models.SmallIntegerField(default=0)
+
 
 class Character(Actor):
     GENDER_CHOICES = [
         ("male", "Homme"),
         ("female", "Femme"),
+    ]
+    CARAC_CHOICES = [
+        ("str", "FOR"),
+        ("dex", "DEX"),
+        ("con", "CON"),
+        ("int", "INT"),
+        ("wis", "SAG"),
+        ("cha", "CHA")
     ]
     level = models.PositiveSmallIntegerField(default=1)
     gender = models.CharField(max_length=100, choices=GENDER_CHOICES)
@@ -51,69 +131,40 @@ class Character(Actor):
         null=True,
         blank=True,
     )
-    STR = models.ForeignKey(
-        "actors.STR",
-        on_delete=models.PROTECT,
-        related_name="characters",
-        null=True,
-        blank=True,
-    )
-    DEX = models.ForeignKey(
-        "actors.DEX",
-        on_delete=models.PROTECT,
-        related_name="characters",
-        null=True,
-        blank=True,
-    )
-    CON = models.ForeignKey(
-        "actors.CON",
-        on_delete=models.PROTECT,
-        related_name="characters",
-        null=True,
-        blank=True,
-    )
-    INT = models.ForeignKey(
-        "actors.INT",
-        on_delete=models.PROTECT,
-        related_name="characters",
-        null=True,
-        blank=True,
-    )
-    WIS = models.ForeignKey(
-        "actors.WIS",
-        on_delete=models.PROTECT,
-        related_name="characters",
-        null=True,
-        blank=True,
-    )
-    CHA = models.ForeignKey(
-        "actors.CHA",
-        on_delete=models.PROTECT,
-        related_name="characters",
-        null=True,
-        blank=True,
-    )
-    melee = models.ForeignKey(
-        "actors.Melee",
-        on_delete=models.PROTECT,
-        related_name="characters",
-        null=True,
-        blank=True,
-    )
-    ranged = models.ForeignKey(
-        "actors.Ranged",
-        on_delete=models.PROTECT,
-        related_name="characters",
-        null=True,
-        blank=True,
-    )
-    magic = models.ForeignKey(
-        "actors.Magic",
-        on_delete=models.PROTECT,
-        related_name="characters",
-        null=True,
-        blank=True,
-    )
+
+    
+    melee_label = models.CharField(max_length=100, default="Mellée", editable=False)
+    melee_abbrev = models.CharField(max_length=100, default="CaC", editable=False)
+    melee_enabled = models.BooleanField(default=True)
+    melee_base = models.PositiveSmallIntegerField(default=10)
+    melee_bonus = models.PositiveSmallIntegerField(default=0)
+    melee_malus = models.PositiveSmallIntegerField(default=0)
+    melee_mod = models.PositiveSmallIntegerField(default=0)
+    melee_dm_bonus = models.PositiveSmallIntegerField(default=0)
+    melee_stat = models.CharField(max_length=3, choices=CARAC_CHOICES)
+
+    
+    ranged_label = models.CharField(max_length=100, default="Distance", editable=False)
+    ranged_abbrev = models.CharField(max_length=100, default="Dist", editable=False)
+    ranged_enabled = models.BooleanField(default=True)
+    ranged_base = models.PositiveSmallIntegerField(default=10)
+    ranged_bonus = models.PositiveSmallIntegerField(default=0)
+    ranged_malus = models.PositiveSmallIntegerField(default=0)
+    ranged_mod = models.PositiveSmallIntegerField(default=0)
+    ranged_dm_bonus = models.PositiveSmallIntegerField(default=0)
+    ranged_stat = models.CharField(max_length=3, choices=CARAC_CHOICES)
+
+    
+    magic_label = models.CharField(max_length=100, default="Magique", editable=False)
+    magic_abbrev = models.CharField(max_length=100, default="Mag", editable=False)
+    magic_enabled = models.BooleanField(default=True)
+    magic_base = models.PositiveSmallIntegerField(default=10)
+    magic_bonus = models.PositiveSmallIntegerField(default=0)
+    magic_malus = models.PositiveSmallIntegerField(default=0)
+    magic_mod = models.PositiveSmallIntegerField(default=0)
+    magic_dm_bonus = models.PositiveSmallIntegerField(default=0)
+    magic_stat = models.CharField(max_length=3, choices=CARAC_CHOICES)
+
     init = models.ForeignKey(
         "actors.Init",
         on_delete=models.PROTECT,
@@ -178,97 +229,10 @@ class Encounter(Actor):
     nc = models.PositiveSmallIntegerField(default=1)
     category = models.CharField(max_length=100, choices=CATEGORY_CHOICES)
     archetype = models.CharField(max_length=100, choices=ARCHETYPE_CHOICES)
-    STR = models.ForeignKey(
-        "actors.STR",
-        on_delete=models.PROTECT,
-        related_name="encounters",
-        null=True,
-        blank=True,
-    )
-    DEX = models.ForeignKey(
-        "actors.DEX",
-        on_delete=models.PROTECT,
-        related_name="encounters",
-        null=True,
-        blank=True,
-    )
-    CON = models.ForeignKey(
-        "actors.CON",
-        on_delete=models.PROTECT,
-        related_name="encounters",
-        null=True,
-        blank=True,
-    )
-    INT = models.ForeignKey(
-        "actors.INT",
-        on_delete=models.PROTECT,
-        related_name="encounters",
-        null=True,
-        blank=True,
-    )
-    WIS = models.ForeignKey(
-        "actors.WIS",
-        on_delete=models.PROTECT,
-        related_name="encounters",
-        null=True,
-        blank=True,
-    )
-    CHA = models.ForeignKey(
-        "actors.CHA",
-        on_delete=models.PROTECT,
-        related_name="encounters",
-        null=True,
-        blank=True,
-    )
 
 
 class Languages(models.Model):
     name = models.CharField(max_length=255)
-
-
-class Statistic(models.Model):
-    base = models.PositiveSmallIntegerField(default=10)
-    racial = models.SmallIntegerField(default=0)
-    bonus = models.SmallIntegerField(default=0)
-    mod = models.SmallIntegerField(default=0)
-    value = models.SmallIntegerField(default=0)
-    tmpmod = models.SmallIntegerField(default=0)
-    superior = models.BooleanField(default=False)
-    skillbonus = models.SmallIntegerField(default=0)
-    skillmalus = models.SmallIntegerField(default=0)
-
-    def __str__(self):
-        return str(self.value)
-
-
-class STR(Statistic):
-    label = models.CharField(max_length=100, default="Force", editable=False)
-    abbrev = models.CharField(max_length=100, default="FOR", editable=False)
-
-
-class DEX(Statistic):
-    label = models.CharField(max_length=100, default="Dextérité", editable=False)
-    abbrev = models.CharField(max_length=100, default="DEX", editable=False)
-
-
-class CON(Statistic):
-    label = models.CharField(max_length=100, default="Constitution", editable=False)
-    abbrev = models.CharField(max_length=100, default="CON", editable=False)
-
-
-class INT(Statistic):
-    label = models.CharField(max_length=100, default="Intelligence", editable=False)
-    abbrev = models.CharField(max_length=100, default="INT", editable=False)
-
-
-class WIS(Statistic):
-    label = models.CharField(max_length=100, default="Sagesse", editable=False)
-    abbrev = models.CharField(max_length=100, default="WIS", editable=False)
-
-
-class CHA(Statistic):
-    label = models.CharField(max_length=100, default="Charisme", editable=False)
-    abbrev = models.CharField(max_length=100, default="CHA", editable=False)
 
 
 class Attack(models.Model):
