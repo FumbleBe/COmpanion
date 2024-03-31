@@ -32,9 +32,9 @@ class CHAAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Character, CharacterAdmin)
-admin.site.register(STR, STRAdmin)
-admin.site.register(DEX, DEXAdmin)
-admin.site.register(CON, CONAdmin)
-admin.site.register(INT, INTAdmin)
-admin.site.register(WIS, WISAdmin)
-admin.site.register(CHA, CHAAdmin)
+# admin.site.register(STR, STRAdmin)
+# admin.site.register(DEX, DEXAdmin)
+# admin.site.register(CON, CONAdmin)
+# admin.site.register(INT, INTAdmin)
+# admin.site.register(WIS, WISAdmin)
+# admin.site.register(CHA, CHAAdmin)

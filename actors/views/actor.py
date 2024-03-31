@@ -1,7 +1,9 @@
 from rest_framework.viewsets import ReadOnlyModelViewSet, ModelViewSet
 from rest_framework.response import Response
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
 
+from companion.api.permissions import IsDmOrReadOnly, OwnerAndDmOnly
 from actors.permissions import IsAdminAuthenticated, IsStaffAuthenticated
 from actors.models import *
 from actors.serializers import *
@@ -17,16 +19,21 @@ class MultipleSerializerMixin:
         return super().get_serializer_class()
 
 
-
-class CharacterViewset(MultipleSerializerMixin, ReadOnlyModelViewSet):
-
+class CharacterViewset(ModelViewSet):
+    queryset = Character.objects.all()
     serializer_class = CharacterListSerializer
-    # detail_serializer_class = CategoryDetailSerializer
 
-    def get_queryset(self):
-        return Character.objects.all()
+    permission_classes = [IsAuthenticated, OwnerAndDmOnly]
 
-    # @action(detail=True, methods=["post"])
-    # def disable(self, request, pk):
-    #     self.get_object().disable()
-    #     return Response()
+# class CharacterViewset(MultipleSerializerMixin, ReadOnlyModelViewSet):
+
+#     serializer_class = CharacterListSerializer
+#     # detail_serializer_class = CategoryDetailSerializer
+
+#     def get_queryset(self):
+#         return Character.objects.all()
+
+#     # @action(detail=True, methods=["post"])
+#     # def disable(self, request, pk):
+#     #     self.get_object().disable()
+#     #     return Response()

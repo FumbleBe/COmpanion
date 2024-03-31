@@ -4,7 +4,7 @@ from actors.models import *
 
 
 class CharacterListSerializer(serializers.ModelSerializer):
-
+    owner = serializers.HiddenField(default=serializers.CurrentUserDefault())
     class Meta:
         model = Character
         fields = '__all__'

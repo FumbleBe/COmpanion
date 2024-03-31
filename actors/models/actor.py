@@ -1,4 +1,5 @@
 from django.db import models, transaction
+from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.contenttypes.fields import GenericForeignKey
@@ -132,7 +133,6 @@ class Character(Actor):
         blank=True,
     )
 
-    
     melee_label = models.CharField(max_length=100, default="Mellée", editable=False)
     melee_abbrev = models.CharField(max_length=100, default="CaC", editable=False)
     melee_enabled = models.BooleanField(default=True)
@@ -143,7 +143,6 @@ class Character(Actor):
     melee_dm_bonus = models.PositiveSmallIntegerField(default=0)
     melee_stat = models.CharField(max_length=3, choices=CARAC_CHOICES)
 
-    
     ranged_label = models.CharField(max_length=100, default="Distance", editable=False)
     ranged_abbrev = models.CharField(max_length=100, default="Dist", editable=False)
     ranged_enabled = models.BooleanField(default=True)
@@ -154,7 +153,6 @@ class Character(Actor):
     ranged_dm_bonus = models.PositiveSmallIntegerField(default=0)
     ranged_stat = models.CharField(max_length=3, choices=CARAC_CHOICES)
 
-    
     magic_label = models.CharField(max_length=100, default="Magique", editable=False)
     magic_abbrev = models.CharField(max_length=100, default="Mag", editable=False)
     magic_enabled = models.BooleanField(default=True)
@@ -209,6 +207,10 @@ class Character(Actor):
     )
 
     languages = models.ManyToManyField(to="actors.Languages", blank=True)
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
 
 
 class NPC(Actor):
