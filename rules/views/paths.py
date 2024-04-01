@@ -1,24 +1,15 @@
-from rest_framework.viewsets import ReadOnlyModelViewSet
-# from actors.permissions import IsAdminAuthenticated, IsStaffAuthenticated
-from rules.models import *
-from rules.serializers import *
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticated
+
+from companion.api.mixins import MultipleSerializerMixin
+from companion.api.permissions import IsDmOrReadOnly
+from rules.models import Path
+from rules.serializers import PathListSerializer, PathDetailSerializer
 
 
-class MultipleSerializerMixin:
-
-    detail_serializer_class = None
-
-    def get_serializer_class(self):
-        if self.action == "retrieve" and self.detail_serializer_class is not None:
-            return self.detail_serializer_class
-        return super().get_serializer_class()
-
-
-class PathViewset(MultipleSerializerMixin, ReadOnlyModelViewSet):
-
+class PathViewset(MultipleSerializerMixin, ModelViewSet):
+    queryset = Path.objects.all().order_by("slug")
     serializer_class = PathListSerializer
-    # detail_serializer_class = CategoryDetailSerializer
+    detail_serializer_class = PathDetailSerializer
 
-    def get_queryset(self):
-        return Path.objects.all()
-
+    permission_classes = [IsAuthenticated, IsDmOrReadOnly]

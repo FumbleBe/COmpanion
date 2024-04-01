@@ -1,24 +1,15 @@
-from rest_framework.viewsets import ReadOnlyModelViewSet
-# from actors.permissions import IsAdminAuthenticated, IsStaffAuthenticated
-from rules.models import *
-from rules.serializers import *
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticated
+
+from companion.api.mixins import MultipleSerializerMixin
+from companion.api.permissions import IsDmOrReadOnly
+from rules.models import Capacity
+from rules.serializers import CapacityListSerializer, CapacityDetailSerializer
 
 
-class MultipleSerializerMixin:
-
-    detail_serializer_class = None
-
-    def get_serializer_class(self):
-        if self.action == "retrieve" and self.detail_serializer_class is not None:
-            return self.detail_serializer_class
-        return super().get_serializer_class()
-
-
-class CapacityViewset(MultipleSerializerMixin, ReadOnlyModelViewSet):
-
+class CapacityViewset(MultipleSerializerMixin, ModelViewSet):
+    queryset = Capacity.objects.all().order_by("slug")
     serializer_class = CapacityListSerializer
-    # detail_serializer_class = CategoryDetailSerializer
+    detail_serializer_class = CapacityDetailSerializer
 
-    def get_queryset(self):
-        return Capacity.objects.all()
-
+    permission_classes = [IsAuthenticated, IsDmOrReadOnly]

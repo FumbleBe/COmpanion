@@ -15,10 +15,18 @@ class OwnerAndDmOnly(permissions.BasePermission):
             return obj.owner == request.user
 
 
+# class IsDmOrReadOnly(permissions.BasePermission):
+
+#     def has_object_permission(self, request, view, obj):
+#         if request.method in permissions.SAFE_METHODS:
+#             return True
+
+#         return request.user.groups.filter(name="DungeonMaster").exists()
+
 
 class IsDmOrReadOnly(permissions.BasePermission):
 
-    def has_object_permission(self, request, view, obj):
+    def has_permission(self, request, view):
         if request.method in permissions.SAFE_METHODS:
             return True
 

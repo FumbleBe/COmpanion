@@ -7,4 +7,11 @@ class CapacityListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Capacity
+        fields = ["name", "description", "limited"]
+
+
+class CapacityDetailSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Capacity
         fields = "__all__"

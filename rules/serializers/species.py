@@ -1,29 +1,29 @@
 from rest_framework.serializers import (
     ModelSerializer,
-    SerializerMethodField,
-    ValidationError,
+    SerializerMethodField
 )
 
-from rules.models import *
-from rules.serializers import PathListSerializer
+from rules.models import Species
+from rules.serializers import PathListSerializer, CapacityListSerializer
 
 
 class SpeciesListSerializer(ModelSerializer):
 
     class Meta:
         model = Species
-        fields = ["id", "name", "img"]
+        fields = ["name", "img", "description", "source"]
 
 
 class SpeciesDetailSerializer(ModelSerializer):
 
-    paths = SerializerMethodField()
+    paths = PathListSerializer(many=True, read_only=True)
+    capacities = CapacityListSerializer(many=True, read_only=True)
 
     class Meta:
         model = Species
         fields = "__all__"
 
-    def get_paths(self, instance):
-        queryset = instance.paths.all()
-        serializer = PathListSerializer(queryset, many=True)
-        return serializer.data
+    # def get_paths(self, instance):
+    #     queryset = instance.paths.all()
+    #     serializer = PathListSerializer(queryset, many=True)
+    #     return serializer.data

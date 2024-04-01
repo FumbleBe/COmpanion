@@ -1,14 +1,15 @@
-from rest_framework.viewsets import ReadOnlyModelViewSet
-# from actors.permissions import IsAdminAuthenticated, IsStaffAuthenticated
-from rules.models import *
-from rules.serializers import *
-from rules.views import MultipleSerializerMixin
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticated
+
+from companion.api.mixins import MultipleSerializerMixin
+from companion.api.permissions import IsDmOrReadOnly
+from rules.models import Species
+from rules.serializers import SpeciesListSerializer, SpeciesDetailSerializer
 
 
-class SpeciesViewset(MultipleSerializerMixin, ReadOnlyModelViewSet):
-
+class SpeciesViewset(MultipleSerializerMixin, ModelViewSet):
+    queryset = Species.objects.all().order_by("name")
     serializer_class = SpeciesListSerializer
     detail_serializer_class = SpeciesDetailSerializer
 
-    def get_queryset(self):
-        return Species.objects.all()
+    permission_classes = [IsAuthenticated, IsDmOrReadOnly]

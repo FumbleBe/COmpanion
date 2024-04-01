@@ -1,24 +1,15 @@
-from rest_framework.viewsets import ReadOnlyModelViewSet
-# from actors.permissions import IsAdminAuthenticated, IsStaffAuthenticated
-from rules.models import *
-from rules.serializers import *
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticated
+
+from companion.api.mixins import MultipleSerializerMixin
+from companion.api.permissions import IsDmOrReadOnly
+from rules.models import Profile
+from rules.serializers import ProfileListSerializer, ProfileDetailSerializer
 
 
-class MultipleSerializerMixin:
-
-    detail_serializer_class = None
-
-    def get_serializer_class(self):
-        if self.action == "retrieve" and self.detail_serializer_class is not None:
-            return self.detail_serializer_class
-        return super().get_serializer_class()
-
-
-class ProfileViewset(MultipleSerializerMixin, ReadOnlyModelViewSet):
-
+class ProfileViewset(MultipleSerializerMixin, ModelViewSet):
+    queryset = Profile.objects.all().order_by('name')
     serializer_class = ProfileListSerializer
-    # detail_serializer_class = CategoryDetailSerializer
+    detail_serializer_class = ProfileDetailSerializer
 
-    def get_queryset(self):
-        return Profile.objects.all()
-
+    permission_classes = [IsAuthenticated, IsDmOrReadOnly]
