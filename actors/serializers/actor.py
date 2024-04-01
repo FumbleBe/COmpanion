@@ -1,24 +1,18 @@
 from rest_framework import serializers
 
-from actors.models import *
+from actors.models import Character
 
 
 class CharacterListSerializer(serializers.ModelSerializer):
     owner = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    species = serializers.StringRelatedField()
+    profile = serializers.StringRelatedField()
+    class Meta:
+        model = Character
+        fields = ['owner', 'name', 'level', 'gender', 'species', 'profile']
+
+class CharacterDetailSerializer(serializers.ModelSerializer):
+    owner = serializers.HiddenField(default=serializers.CurrentUserDefault())
     class Meta:
         model = Character
         fields = '__all__'
-
-
-# class ProductDetailSerializer(serializers.ModelSerializer):
-
-#     articles = serializers.SerializerMethodField()
-
-#     class Meta:
-#         model = Actor
-#         fields = ["id", "date_created", "date_updated", "name", "category", "articles"]
-
-#     def get_articles(self, instance):
-#         queryset = instance.articles.filter(active=True)
-#         serializer = ArticleSerializer(queryset, many=True)
-#         return serializer.data
