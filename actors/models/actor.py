@@ -20,13 +20,11 @@ class Actor(models.Model):
     date_updated = models.DateTimeField(auto_now=True)
 
     name = models.CharField(max_length=255)
-    image = models.ImageField(null=True, blank=True)
+    img = models.ImageField(null=True, blank=True)
     description = models.TextField(blank=True)
 
     size = models.CharField(max_length=100, choices=SIZE_CHOICES)
 
-    STR_label = models.CharField(max_length=100, default="Force", editable=False)
-    STR_abbrev = models.CharField(max_length=100, default="FOR", editable=False)
     STR_base = models.PositiveSmallIntegerField(default=10)
     STR_racial = models.SmallIntegerField(default=0)
     STR_bonus = models.SmallIntegerField(default=0)
@@ -37,8 +35,6 @@ class Actor(models.Model):
     STR_skillbonus = models.SmallIntegerField(default=0)
     STR_skillmalus = models.SmallIntegerField
 
-    DEX_label = models.CharField(max_length=100, default="Dextérité", editable=False)
-    DEX_abbrev = models.CharField(max_length=100, default="DEX", editable=False)
     DEX_base = models.PositiveSmallIntegerField(default=10)
     DEX_racial = models.SmallIntegerField(default=0)
     DEX_bonus = models.SmallIntegerField(default=0)
@@ -49,8 +45,6 @@ class Actor(models.Model):
     DEX_skillbonus = models.SmallIntegerField(default=0)
     DEX_skillmalus = models.SmallIntegerField(default=0)
 
-    CON_label = models.CharField(max_length=100, default="Constitution", editable=False)
-    CON_abbrev = models.CharField(max_length=100, default="CON", editable=False)
     CON_base = models.PositiveSmallIntegerField(default=10)
     CON_racial = models.SmallIntegerField(default=0)
     CON_bonus = models.SmallIntegerField(default=0)
@@ -61,8 +55,6 @@ class Actor(models.Model):
     CON_skillbonus = models.SmallIntegerField(default=0)
     CON_skillmalus = models.SmallIntegerField(default=0)
 
-    INT_label = models.CharField(max_length=100, default="Intelligence", editable=False)
-    INT_abbrev = models.CharField(max_length=100, default="INT", editable=False)
     INT_base = models.PositiveSmallIntegerField(default=10)
     INT_racial = models.SmallIntegerField(default=0)
     INT_bonus = models.SmallIntegerField(default=0)
@@ -73,8 +65,6 @@ class Actor(models.Model):
     INT_skillbonus = models.SmallIntegerField(default=0)
     INT_skillmalus = models.SmallIntegerField(default=0)
 
-    WIS_label = models.CharField(max_length=100, default="Sagesse", editable=False)
-    WIS_abbrev = models.CharField(max_length=100, default="WIS", editable=False)
     WIS_base = models.PositiveSmallIntegerField(default=10)
     WIS_racial = models.SmallIntegerField(default=0)
     WIS_bonus = models.SmallIntegerField(default=0)
@@ -85,8 +75,6 @@ class Actor(models.Model):
     WIS_skillbonus = models.SmallIntegerField(default=0)
     WIS_skillmalus = models.SmallIntegerField(default=0)
 
-    CHA_label = models.CharField(max_length=100, default="Charisme", editable=False)
-    CHA_abbrev = models.CharField(max_length=100, default="CHA", editable=False)
     CHA_base = models.PositiveSmallIntegerField(default=10)
     CHA_racial = models.SmallIntegerField(default=0)
     CHA_bonus = models.SmallIntegerField(default=0)
@@ -118,6 +106,7 @@ class Character(Actor):
     height = models.PositiveSmallIntegerField(default=1)
     eyes = models.CharField(max_length=255, null=True, blank=True)
     hair = models.CharField(max_length=255, null=True, blank=True)
+    background = models.TextField(blank=True)
     species = models.ForeignKey(
         "rules.Species",
         on_delete=models.PROTECT,
@@ -133,8 +122,6 @@ class Character(Actor):
         blank=True,
     )
 
-    melee_label = models.CharField(max_length=100, default="Mellée", editable=False)
-    melee_abbrev = models.CharField(max_length=100, default="CaC", editable=False)
     melee_enabled = models.BooleanField(default=True)
     melee_base = models.PositiveSmallIntegerField(default=10)
     melee_bonus = models.PositiveSmallIntegerField(default=0)
@@ -143,8 +130,6 @@ class Character(Actor):
     melee_dm_bonus = models.PositiveSmallIntegerField(default=0)
     melee_stat = models.CharField(max_length=3, choices=CARAC_CHOICES)
 
-    ranged_label = models.CharField(max_length=100, default="Distance", editable=False)
-    ranged_abbrev = models.CharField(max_length=100, default="Dist", editable=False)
     ranged_enabled = models.BooleanField(default=True)
     ranged_base = models.PositiveSmallIntegerField(default=10)
     ranged_bonus = models.PositiveSmallIntegerField(default=0)
@@ -153,8 +138,6 @@ class Character(Actor):
     ranged_dm_bonus = models.PositiveSmallIntegerField(default=0)
     ranged_stat = models.CharField(max_length=3, choices=CARAC_CHOICES)
 
-    magic_label = models.CharField(max_length=100, default="Magique", editable=False)
-    magic_abbrev = models.CharField(max_length=100, default="Mag", editable=False)
     magic_enabled = models.BooleanField(default=True)
     magic_base = models.PositiveSmallIntegerField(default=10)
     magic_bonus = models.PositiveSmallIntegerField(default=0)
@@ -235,43 +218,6 @@ class Encounter(Actor):
 
 class Languages(models.Model):
     name = models.CharField(max_length=255)
-
-
-class Attack(models.Model):
-    enabled = models.BooleanField(default=True)
-    base = models.PositiveSmallIntegerField(default=10)
-    bonus = models.PositiveSmallIntegerField(default=0)
-    malus = models.PositiveSmallIntegerField(default=0)
-    mod = models.PositiveSmallIntegerField(default=0)
-    dm_bonus = models.PositiveSmallIntegerField(default=0)
-
-
-class Melee(Attack):
-    label = models.CharField(max_length=100, default="Mellée", editable=False)
-    abbrev = models.CharField(max_length=100, default="CaC", editable=False)
-    content_type = models.ForeignKey(
-        to=ContentType, on_delete=models.SET_NULL, null=True
-    )
-    object_id = models.PositiveBigIntegerField()
-    stat = GenericForeignKey()
-
-
-class Ranged(Attack):
-    label = models.CharField(max_length=100, default="Distance", editable=False)
-    abbrev = models.CharField(max_length=100, default="Dist", editable=False)
-    content_type = models.ForeignKey(
-        to=ContentType, on_delete=models.SET_NULL, null=True
-    )
-    object_id = models.PositiveBigIntegerField()
-    stat = GenericForeignKey()
-
-
-class Magic(Attack):
-    label = models.CharField(max_length=100, default="Magique", editable=False)
-    abbrev = models.CharField(max_length=100, default="Mag", editable=False)
-    content_type = models.ForeignKey(to=ContentType, on_delete=models.SET_NULL, null=True)
-    object_id = models.PositiveBigIntegerField()
-    stat = GenericForeignKey()
 
 
 class Attribute(models.Model):
