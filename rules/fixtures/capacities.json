@@ -1110,7 +1110,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "sens-de-lorientation",
+            "key": "creature-de-metal",
             "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Les parties m&eacute;talliques d&rsquo;une &acirc;me-forg&eacute;e lui offrent une protection naturelle qui lui accorde un bonus de +1 en DEF. De plus, l&rsquo;&acirc;me-forg&eacute;e retranche 5 points (RD 5) &agrave; tous les DM de feu, de froid et aux drains de vie (pouvoir de vampire par exemple). Enfin, elle est immunis&eacute;e aux effets de saignement.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -3052,7 +3052,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "sens-de-lorientation",
+            "key": "creature-artificielle",
             "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Une &acirc;me-forg&eacute;e n&rsquo;a pas besoin de boire ni de se nourrir, ni m&ecirc;me de respirer ! Elle a toutefois besoin de r&ecirc;ver quatre heures par jour (sans quoi elle subit un malus de -2 &agrave; ses tests de SAG,ce malus est cumulatif). Elle est naturellement immunis&eacute;e aux poisons et aux maladies. Les &acirc;mes-forg&eacute;es sont incapables de nager mais elles peuvent marcher au fond de l&rsquo;eau (consid&eacute;r&eacute; comme un terrain difficile).</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -6111,7 +6111,7 @@
         "type": "capacity",
         "img": "icons/sundries/scrolls/scroll-plain-tan-red.webp",
         "data": {
-            "key": "sens-de-lorientation",
+            "key": "tout-petit",
             "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Leur petite taille leur conf&egrave;re un bonus de +2 en DEF et de +5 &agrave; tous les tests de discr&eacute;tion.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -11921,7 +11921,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "sens-de-lorientation",
+            "key": "coup-de-corne",
             "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Un minotaure peut r&eacute;aliser une attaque de corne qui inflige [1d6 + Mod. de FOR] DM &agrave; la place d&rsquo;une attaque normale. Au prix d&rsquo;une action limit&eacute;e, il peut faire une attaque normale avec une arme de contact plus une attaque de corne.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -12208,7 +12208,7 @@
         "type": "capacity",
         "img": "icons/sundries/scrolls/scroll-plain-tan-red.webp",
         "data": {
-            "key": "sens-de-lorientation",
+            "key": "teleportation",
             "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Les lutins peuvent se t&eacute;l&eacute;porter de 20 m&egrave;tres par action de mouvement. Ils doivent &ecirc;tre en mesure de voir leur lieu d&rsquo;arriv&eacute;e au d&eacute;but de la t&eacute;l&eacute;portation.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
