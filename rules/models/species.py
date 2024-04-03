@@ -1,5 +1,6 @@
 from django.db import models
-from rules.models import SOURCE_CHOICES, Path, Capacity
+from rules.choices import Source
+from rules.models import Path, Capacity
 
 
 class Species(models.Model):
@@ -8,7 +9,13 @@ class Species(models.Model):
     img = models.ImageField(blank=True, null=True)
     slug = models.SlugField()
     description = models.TextField(blank=False)
-    source = models.CharField(max_length=100, choices=SOURCE_CHOICES)
+    source = models.ForeignKey(
+        Source,
+        on_delete=models.PROTECT,
+        related_name="species",
+        null=True,
+        blank=True,
+    )
     STR = models.SmallIntegerField(default=0)
     DEX = models.SmallIntegerField(default=0)
     CON = models.SmallIntegerField(default=0)

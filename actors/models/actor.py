@@ -4,17 +4,19 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.contenttypes.fields import GenericForeignKey
 
+from rules.choices import CaracChoice, SizeChoice, GenderChoice
+
 
 class Actor(models.Model):
-    SIZE_CHOICES = [
-        ("tiny", "Minuscule"),
-        ("really_small", "Très petit"),
-        ("small", "Petit"),
-        ("medium", "Moyen"),
-        ("tall", "Grand"),
-        ("huge", "Énorme"),
-        ("colossal", "Colossale"),
-    ]
+    # SIZE_CHOICES = [
+    #     ("tiny", "Minuscule"),
+    #     ("really_small", "Très petit"),
+    #     ("small", "Petit"),
+    #     ("medium", "Moyen"),
+    #     ("tall", "Grand"),
+    #     ("huge", "Énorme"),
+    #     ("colossal", "Colossale"),
+    # ]
 
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
@@ -23,7 +25,7 @@ class Actor(models.Model):
     img = models.ImageField(null=True, blank=True)
     description = models.TextField(blank=True)
 
-    size = models.CharField(max_length=100, choices=SIZE_CHOICES)
+    size = models.CharField(max_length=100, choices=SizeChoice.choices)
 
     STR_base = models.PositiveSmallIntegerField(default=10)
     STR_racial = models.SmallIntegerField(default=0)
@@ -85,22 +87,32 @@ class Actor(models.Model):
     CHA_skillbonus = models.SmallIntegerField(default=0)
     CHA_skillmalus = models.SmallIntegerField(default=0)
 
+    PP = models.PositiveSmallIntegerField(default=0)
+
+    GP = models.PositiveSmallIntegerField(default=0)
+
+    SP = models.PositiveSmallIntegerField(default=0)
+
+    CP = models.PositiveSmallIntegerField(default=0)
+
+    # items = pass # Add m2m to items
+
 
 class Character(Actor):
-    GENDER_CHOICES = [
-        ("male", "Homme"),
-        ("female", "Femme"),
-    ]
-    CARAC_CHOICES = [
-        ("str", "FOR"),
-        ("dex", "DEX"),
-        ("con", "CON"),
-        ("int", "INT"),
-        ("wis", "SAG"),
-        ("cha", "CHA")
-    ]
+    # GENDER_CHOICES = [
+    #     ("male", "Homme"),
+    #     ("female", "Femme"),
+    # ]
+    # CARAC_CHOICES = [
+    #     ("str", "FOR"),
+    #     ("dex", "DEX"),
+    #     ("con", "CON"),
+    #     ("int", "INT"),
+    #     ("wis", "SAG"),
+    #     ("cha", "CHA")
+    # ]
     level = models.PositiveSmallIntegerField(default=1)
-    gender = models.CharField(max_length=100, choices=GENDER_CHOICES)
+    gender = models.CharField(max_length=100, choices=GenderChoice.choices)
     age = models.PositiveSmallIntegerField(default=1)
     weight = models.PositiveSmallIntegerField(default=1)
     height = models.PositiveSmallIntegerField(default=1)
@@ -128,7 +140,7 @@ class Character(Actor):
     melee_malus = models.PositiveSmallIntegerField(default=0)
     melee_mod = models.PositiveSmallIntegerField(default=0)
     melee_dm_bonus = models.PositiveSmallIntegerField(default=0)
-    melee_stat = models.CharField(max_length=3, choices=CARAC_CHOICES)
+    melee_stat = models.CharField(max_length=3, choices=CaracChoice.choices)
 
     ranged_enabled = models.BooleanField(default=True)
     ranged_base = models.PositiveSmallIntegerField(default=10)
@@ -136,7 +148,7 @@ class Character(Actor):
     ranged_malus = models.PositiveSmallIntegerField(default=0)
     ranged_mod = models.PositiveSmallIntegerField(default=0)
     ranged_dm_bonus = models.PositiveSmallIntegerField(default=0)
-    ranged_stat = models.CharField(max_length=3, choices=CARAC_CHOICES)
+    ranged_stat = models.CharField(max_length=3, choices=CaracChoice.choices)
 
     magic_enabled = models.BooleanField(default=True)
     magic_base = models.PositiveSmallIntegerField(default=10)
@@ -144,50 +156,37 @@ class Character(Actor):
     magic_malus = models.PositiveSmallIntegerField(default=0)
     magic_mod = models.PositiveSmallIntegerField(default=0)
     magic_dm_bonus = models.PositiveSmallIntegerField(default=0)
-    magic_stat = models.CharField(max_length=3, choices=CARAC_CHOICES)
+    magic_stat = models.CharField(max_length=3, choices=CaracChoice.choices)
 
-    init = models.ForeignKey(
-        "actors.Init",
-        on_delete=models.PROTECT,
-        related_name="characters",
-        null=True,
-        blank=True,
-    )
-    HP = models.ForeignKey(
-        "actors.HP",
-        on_delete=models.PROTECT,
-        related_name="characters",
-        null=True,
-        blank=True,
-    )
-    RP = models.ForeignKey(
-        "actors.RP",
-        on_delete=models.PROTECT,
-        related_name="characters",
-        null=True,
-        blank=True,
-    )
-    DEF = models.ForeignKey(
-        "actors.Def",
-        on_delete=models.PROTECT,
-        related_name="characters",
-        null=True,
-        blank=True,
-    )
-    MP = models.ForeignKey(
-        "actors.MP",
-        on_delete=models.PROTECT,
-        related_name="characters",
-        null=True,
-        blank=True,
-    )
-    LP = models.ForeignKey(
-        "actors.LP",
-        on_delete=models.PROTECT,
-        related_name="characters",
-        null=True,
-        blank=True,
-    )
+    init_base = models.PositiveSmallIntegerField(default=0)
+    init_bonus = models.PositiveSmallIntegerField(default=0)
+    init_value = models.PositiveSmallIntegerField(default=0)
+    init_max = models.PositiveSmallIntegerField(default=0)
+
+    HP_base = models.PositiveSmallIntegerField(default=0)
+    HP_bonus = models.PositiveSmallIntegerField(default=0)
+    HP_value = models.PositiveSmallIntegerField(default=0)
+    HP_max = models.PositiveSmallIntegerField(default=0)
+
+    RP_base = models.PositiveSmallIntegerField(default=0)
+    RP_bonus = models.PositiveSmallIntegerField(default=0)
+    RP_value = models.PositiveSmallIntegerField(default=0)
+    RP_max = models.PositiveSmallIntegerField(default=0)
+
+    def_base = models.PositiveSmallIntegerField(default=0)
+    def_bonus = models.PositiveSmallIntegerField(default=0)
+    def_value = models.PositiveSmallIntegerField(default=0)
+    def_max = models.PositiveSmallIntegerField(default=0)
+
+    MP_base = models.PositiveSmallIntegerField(default=0)
+    MP_bonus = models.PositiveSmallIntegerField(default=0)
+    MP_value = models.PositiveSmallIntegerField(default=0)
+    MP_max = models.PositiveSmallIntegerField(default=0)
+
+    LP_base = models.PositiveSmallIntegerField(default=0)
+    LP_bonus = models.PositiveSmallIntegerField(default=0)
+    LP_value = models.PositiveSmallIntegerField(default=0)
+    LP_max = models.PositiveSmallIntegerField(default=0)
 
     languages = models.ManyToManyField(to="actors.Languages", blank=True)
     owner = models.ForeignKey(
@@ -218,73 +217,6 @@ class Encounter(Actor):
 
 class Languages(models.Model):
     name = models.CharField(max_length=255)
-
-
-class Attribute(models.Model):
-    base = models.PositiveSmallIntegerField(default=0)
-    bonus = models.PositiveSmallIntegerField(default=0)
-    value = models.PositiveSmallIntegerField(default=0)
-    max = models.PositiveSmallIntegerField(default=0)
-
-
-class HP(Attribute):
-    label = models.CharField(
-        max_length=100, default="Points de Vigueur", editable=False
-    )
-    abbrev = models.CharField(max_length=100, default="PV", editable=False)
-
-
-class Def(Attribute):
-    label = models.CharField(max_length=100, default="Défence", editable=False)
-    abbrev = models.CharField(max_length=100, default="Def", editable=False)
-
-
-class Init(Attribute):
-    label = models.CharField(max_length=100, default="Initiative", editable=False)
-    abbrev = models.CharField(max_length=100, default="Init", editable=False)
-
-
-class RP(Attribute):
-    label = models.CharField(
-        max_length=100, default="Points de Récupération", editable=False
-    )
-    abbrev = models.CharField(max_length=100, default="PR", editable=False)
-
-
-class MP(Attribute):
-    label = models.CharField(max_length=100, default="Points de Mana", editable=False)
-    abbrev = models.CharField(max_length=100, default="PM", editable=False)
-
-
-class LP(Attribute):
-    label = models.CharField(max_length=100, default="Points de Chance", editable=False)
-    abbrev = models.CharField(max_length=100, default="PC", editable=False)
-
-
-class Currency(models.Model):
-    qty = models.PositiveSmallIntegerField(default=0)
-
-
-class PP(Currency):
-    label = models.CharField(
-        max_length=100, default="Pièces de Platine", editable=False
-    )
-    abbrev = models.CharField(max_length=100, default="PP", editable=False)
-
-
-class GP(Currency):
-    label = models.CharField(max_length=100, default="Pièces d'Or", editable=False)
-    abbrev = models.CharField(max_length=100, default="PM", editable=False)
-
-
-class SP(Currency):
-    label = models.CharField(max_length=100, default="Pièces d'Argent", editable=False)
-    abbrev = models.CharField(max_length=100, default="PA", editable=False)
-
-
-class CP(Currency):
-    label = models.CharField(max_length=100, default="Pièces de Cuivre", editable=False)
-    abbrev = models.CharField(max_length=100, default="PC", editable=False)
 
 
 class Mini(models.Model):

@@ -1,5 +1,6 @@
 from django.db import models
-from rules.models import SOURCE_CHOICES, Path
+from rules.choices import Source
+from rules.models import Path
 
 class Profile(models.Model):
 
@@ -7,7 +8,13 @@ class Profile(models.Model):
     img = models.ImageField()
     slug = models.SlugField()
     description = models.TextField(blank=False)
-    source = models.CharField(max_length=100, choices=SOURCE_CHOICES)
+    source = models.ForeignKey(
+        Source,
+        on_delete=models.PROTECT,
+        related_name="profiles",
+        null=True,
+        blank=True,
+    )
     dv = models.CharField(max_length=4)
     spellcasting = models.CharField(max_length=3)
     mpfactor = models.PositiveSmallIntegerField(default=0)

@@ -1,5 +1,6 @@
 from django.db import models
-from rules.models import SOURCE_CHOICES, Capacity
+from rules.choices import Source
+from rules.models import Capacity
 
 
 class Path(models.Model):
@@ -8,7 +9,13 @@ class Path(models.Model):
     slug = models.SlugField()
     img = models.ImageField()
     description = models.TextField(blank=False)
-    source = models.CharField(max_length=100, choices=SOURCE_CHOICES)
+    source = models.ForeignKey(
+        Source,
+        on_delete=models.PROTECT,
+        related_name="paths",
+        null=True,
+        blank=True,
+    )
     capacities = models.ManyToManyField(Capacity)
     prestige = models.BooleanField(default=False)
     racial = models.BooleanField(default=False)

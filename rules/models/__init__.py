@@ -1,3 +1,4 @@
+
 SOURCE_CHOICES = [
     ("", ""),
     ("drs", "CO DRS"),
@@ -5,7 +6,6 @@ SOURCE_CHOICES = [
     ("5E", "D&D 5E"),
     ("homebrew", "Règle Maison"),
 ]
-
 
 from .capacities import *
 from .paths import *
