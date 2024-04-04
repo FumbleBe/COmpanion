@@ -30,3 +30,4 @@ class Species(models.Model):
 
     class Meta:
         verbose_name_plural = "Species"
+        ordering = ['name']

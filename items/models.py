@@ -1,74 +1,101 @@
 from django.db import models
-from rules.choices import RarityChoice, Source
+from rules.choices import (
+    RarityChoice,
+    Source,
+    CaracChoice,
+    ItemTrait,
+    ReloadChoice,
+    SlotChoice,
+    ItemSubtypeChoice,
+)
+
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
 
-# class Item(models.Model):
-#     # RARITY_CHOICES = [("", ""),
-#     #                   ("common", "Commun"),
-#     #                   ("moderate", "Modéré"),
-#     #                   ("rare", "Rare"),
-#     #                   ("very-rare", "Très rare"),
-#     #                   ("unique", "Unique")]
-#     # SOURCE_CHOICES = [("", "")]
+
+class AbstractItem(models.Model):
+    name = models.CharField(max_length=255)
+    # slug = models.SlugField(unique=True)
+    img = models.ImageField(null=True, blank=True)
+    subtype = models.CharField(max_length=100, choices=ItemSubtypeChoice.choices)
+    trait = models.ManyToManyField(
+        ItemTrait,
+    )
+    rarity = models.CharField(max_length=100, choices=RarityChoice.choices)
+    unique = models.BooleanField(default=False)  # property
+    price = models.PositiveSmallIntegerField(default=0)
+    value = models.PositiveSmallIntegerField(default=0)
+
+    equipment = models.BooleanField(default=False)  # property
+    stackable = models.BooleanField(default=False)  # property
+    qty = models.PositiveSmallIntegerField(default=1)
+    stacksize = models.PositiveSmallIntegerField(default=1)
+    deleteWhen0 = models.BooleanField(default=False)
+    tailored = models.BooleanField(default=False)  # property
+    two_handed = models.BooleanField(default=False)  # property
+    consumable = models.BooleanField(default=False)  # property
+
+    description = models.TextField()
+
+    protection = models.BooleanField(default=False)  # property
+    def_tot = models.PositiveSmallIntegerField(default=0)
+    def_base = models.PositiveSmallIntegerField(default=0)
+    def_bonus = models.PositiveSmallIntegerField(default=0)
+    dr = models.BooleanField(default=False)  # property
+    dr_value = models.PositiveSmallIntegerField(default=0)
+
+    weapon = models.BooleanField(default=False)  # property
+    dmg_tot = models.PositiveSmallIntegerField(default=0)
+    dmg_base = models.PositiveSmallIntegerField(default=0)
+    dmg_stat = models.CharField(max_length=100, choices=CaracChoice.choices)
+    dmg_bonus = models.PositiveSmallIntegerField(default=0)
+    mod = models.PositiveSmallIntegerField(default=0)
+    skill = models.CharField(max_length=100, choices=CaracChoice.choices)
+    skillBonus = models.PositiveSmallIntegerField(default=0)
+    critrange = models.CharField(max_length=10)
+
+    ranged = models.BooleanField(default=False)  # property
+    range = models.PositiveSmallIntegerField(default=0)
+    reloadable = models.BooleanField(default=False)  # property
+    reload = models.CharField(max_length=100, choices=ReloadChoice.choices)
+    bow = models.BooleanField(default=False)  # property
+    crossbow = models.BooleanField(default=False)  # property
+    powder = models.BooleanField(default=False)  # property
+    throwing = models.BooleanField(default=False)  # property
+    sling = models.BooleanField(default=False)  # property
+    spell = models.BooleanField(default=False)  # property
+
+    equipable = models.BooleanField(default=False)  # property
+    worn = models.BooleanField(default=False)
+    slot = models.CharField(max_length=100, choices=SlotChoice.choices)
+
+    class Meta:
+        abstract = True
 
 
-#     name = models.CharField(max_length=255)
-#     img = models.ImageField(null=True, blank=True)
-#     type = 
-#     rarity = models.CharField(max_length=100, choices=RarityChoice.choices)
-#     price = models.PositiveSmallIntegerField(default=0)
-#     value = models.PositiveSmallIntegerField(default=0)
-#     qty = models.PositiveSmallIntegerField(default=1)
-#     description = models.TextField()
-#     source = models.ForeignKey(
-#         Source,
-#         on_delete=models.PROTECT,
-#         related_name="sources",
-#         null=True,
-#         blank=True,
-#     )
+class Item(AbstractItem):
+    slug = models.SlugField(unique=True)
+    source = models.ForeignKey(
+        Source,
+        on_delete=models.PROTECT,
+        related_name="items",
+        null=True,
+        blank=True,
+    )
 
-# class Weapon(models.Model):
-#     melee
-#     ranged
-#     ammunition
-#     subtype = 
-#     "dmg": "",
-#     "dmgBase": "",
-#     "dmgStat": "",
-#     "dmgBonus": 0,
-#     "mod": 0,
-#     "skill": "",
-#     "skillBonus": 0,
-#     "critrange": "20",
-#     "hands": 1,
-#     "range": 0,
-#     "reload": "",
 
-# class Armor(models.Model):
-#     shield
-#     armor
-#     subtype =
-#     "def": 0,
-#     "defBase": 0,
-#     "defBonus": 0,
-
-# <select name="data.subtype" data-type="String" style="width:100%"
-# "other"Divers
-# "armor"Armure
-# "shield" selected=""Bouclier
-# "melee"Arme de contact
-# "ranged"Arme à distance
-# "spell"Sort
-# "jewel"Bijou
-# "scroll"Parchemin
-# "wand"Baguette
-# "ammunition"Munition
-# "consumable"Consommable
-# "container"Contenant
-# "mount"Monture
-# "currency"Monnaie
-# "trapping"Equipement
-# </select
+class Equipment(AbstractItem):
+    actor = models.ForeignKey(
+        to="actors.Actor",
+        on_delete=models.CASCADE,
+        related_name="equipments",
+    )
+    slug = models.SlugField(unique=False)
+    source = models.ForeignKey(
+        Source,
+        on_delete=models.PROTECT,
+        related_name="equipments",
+        null=True,
+        blank=True,
+    )

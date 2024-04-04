@@ -5,19 +5,10 @@ from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.contenttypes.fields import GenericForeignKey
 
 from rules.choices import CaracChoice, SizeChoice, GenderChoice
+from items.models import Item
 
 
 class Actor(models.Model):
-    # SIZE_CHOICES = [
-    #     ("tiny", "Minuscule"),
-    #     ("really_small", "Très petit"),
-    #     ("small", "Petit"),
-    #     ("medium", "Moyen"),
-    #     ("tall", "Grand"),
-    #     ("huge", "Énorme"),
-    #     ("colossal", "Colossale"),
-    # ]
-
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
 
@@ -88,29 +79,12 @@ class Actor(models.Model):
     CHA_skillmalus = models.SmallIntegerField(default=0)
 
     PP = models.PositiveSmallIntegerField(default=0)
-
     GP = models.PositiveSmallIntegerField(default=0)
-
     SP = models.PositiveSmallIntegerField(default=0)
-
     CP = models.PositiveSmallIntegerField(default=0)
-
-    # items = pass # Add m2m to items
 
 
 class Character(Actor):
-    # GENDER_CHOICES = [
-    #     ("male", "Homme"),
-    #     ("female", "Femme"),
-    # ]
-    # CARAC_CHOICES = [
-    #     ("str", "FOR"),
-    #     ("dex", "DEX"),
-    #     ("con", "CON"),
-    #     ("int", "INT"),
-    #     ("wis", "SAG"),
-    #     ("cha", "CHA")
-    # ]
     level = models.PositiveSmallIntegerField(default=1)
     gender = models.CharField(max_length=100, choices=GenderChoice.choices)
     age = models.PositiveSmallIntegerField(default=1)
