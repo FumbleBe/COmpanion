@@ -925,7 +925,7 @@
         "type": "profile",
         "img": "modules/CoFantasy/artwork/icons/profils/invocateur.webp",
         "data": {
-            "key": "ensorceleur",
+            "key": "invocateur",
             "description": "\n<p>L&rsquo;invocateur est un lanceur de sort qui s&rsquo;est d&eacute;vou&eacute; exclusivement &agrave; un aspect sp&eacute;cifique de la magie profane : l&rsquo;&eacute;tude de la structure du multivers.</p>\n<p>Cette connaissance occulte lui permet de comprendre les r&egrave;gles qui lient les diff&eacute;rents plans d&rsquo;existence, d&rsquo;invoquer &agrave; son service des cr&eacute;atures venues d&rsquo;autres plans ou encore de cr&eacute;er des portails de voyage.</p>\n<h1>Ma&icirc;trise</h1>\n<p>L'invocateur sait manier la dague, le b&acirc;ton et l'arbal&egrave;te l&eacute;g&egrave;re. Il peut seulement porter une armure de cuir simple et ne peut pas manier de bouclier.</p>\n<h1>Possessions de d&eacute;part</h1>\n<p>B&acirc;ton ferr&eacute; (<strong>DM</strong> 1d6), dague (<strong>DM</strong> 1d4).</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},

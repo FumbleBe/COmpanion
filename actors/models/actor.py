@@ -5,7 +5,6 @@ from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.contenttypes.fields import GenericForeignKey
 
 from rules.choices import CaracChoice, SizeChoice, GenderChoice
-from items.models import Item
 
 
 class Actor(models.Model):

@@ -212,7 +212,7 @@
         "type": "path",
         "img": "modules/CoFantasy/artwork/icons/voies/book-embossed-gold-red.webp",
         "data": {
-            "key": "voie-de-l-air",
+            "key": "voie-des-mutations",
             "description": "",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -351,10 +351,10 @@
                     "sourceId": "Compendium.cof-srd.capacities.Dqb10OOil8nw72Sc"
                 },
                 {
-                    "_id": "lqNsZ1IcA6roRmYH",
+                    "_id": "u1ppR7hhVumtfakV",
                     "name": "Empathie animale",
                     "img": "/modules/cof-srd/ui/icons/capacities/voie-du-montreur-dours-4.webp",
-                    "sourceId": "Compendium.cof-srd.capacities.lqNsZ1IcA6roRmYH"
+                    "sourceId": "Compendium.cof-srd.capacities.u1ppR7hhVumtfakV"
                 },
                 {
                     "_id": "tvZZzk5824ldbisL",
@@ -614,10 +614,10 @@
                     "sourceId": "Compendium.cof-srd.capacities.1tQeK4pXIse73Px6"
                 },
                 {
-                    "_id": "bqx5DODlCZcow8IS",
+                    "_id": "Ca1WmWxnZi2z3jAh",
                     "name": "Dextérité héroïque",
                     "img": "/modules/cof-srd/ui/icons/capacities/voie-du-deplacement-5.webp",
-                    "sourceId": "Compendium.cof-srd.capacities.bqx5DODlCZcow8IS"
+                    "sourceId": "Compendium.cof-srd.capacities.Ca1WmWxnZi2z3jAh"
                 }
             ]
         },
@@ -712,10 +712,10 @@
                     "sourceId": "Compendium.cof-srd.capacities.VgCANxVcaaiNcBe0"
                 },
                 {
-                    "_id": "CwiE3a6i0CajS4bE",
+                    "_id": "3mvcthXPki5GOEQQ",
                     "name": "Force héroïque",
                     "img": "/modules/cof-srd/ui/icons/capacities/voie-de-la-brute-5.webp",
-                    "sourceId": "Compendium.cof-srd.capacities.CwiE3a6i0CajS4bE"
+                    "sourceId": "Compendium.cof-srd.capacities.3mvcthXPki5GOEQQ"
                 }
             ]
         },
@@ -908,10 +908,10 @@
                     "sourceId": "Compendium.cof-srd.capacities.xkMBOVXbFpreq9ER"
                 },
                 {
-                    "_id": "mcdC01mn70bDS2Cu",
+                    "_id": "MDbMGpU4jxnAOxh1",
                     "name": "Sagesse héroïque",
                     "img": "/modules/cof-srd/ui/icons/capacities/voie-du-protecteur-5.webp",
-                    "sourceId": "Compendium.cof-srd.capacities.mcdC01mn70bDS2Cu"
+                    "sourceId": "Compendium.cof-srd.capacities.MDbMGpU4jxnAOxh1"
                 }
             ]
         },
@@ -957,10 +957,10 @@
                     "sourceId": "Compendium.cof-srd.capacities.RsrpiaWykeotddRJ"
                 },
                 {
-                    "_id": "agI7yC1KX2ZaidDB",
+                    "_id": "3mvcthXPki5GOEQQ",
                     "name": "Force héroïque",
                     "img": "/modules/cof-srd/ui/icons/capacities/voie-de-la-guerre-5.webp",
-                    "sourceId": "Compendium.cof-srd.capacities.agI7yC1KX2ZaidDB"
+                    "sourceId": "Compendium.cof-srd.capacities.3mvcthXPki5GOEQQ"
                 }
             ]
         },
@@ -1055,10 +1055,10 @@
                     "sourceId": "Compendium.cof-srd.capacities.RHNfDDPkfZuUQGdI"
                 },
                 {
-                    "_id": "7lqDlyZAUpruGnEU",
+                    "_id": "3TRSlQBprZW93NNB",
                     "name": "Constitution héroïque",
                     "img": "/modules/cof-srd/ui/icons/capacities/voie-de-la-survie-5.webp",
-                    "sourceId": "Compendium.cof-srd.capacities.7lqDlyZAUpruGnEU"
+                    "sourceId": "Compendium.cof-srd.capacities.3TRSlQBprZW93NNB"
                 }
             ]
         },
@@ -1153,10 +1153,10 @@
                     "sourceId": "Compendium.cof-srd.capacities.JFbGkc4mKpFRMmHg"
                 },
                 {
-                    "_id": "QmyeYKoiFxjORWqo",
+                    "_id": "C8eTcdgxKCBhVNuF",
                     "name": "Charisme héroïque",
                     "img": "/modules/cof-srd/ui/icons/capacities/voie-du-heros-5.webp",
-                    "sourceId": "Compendium.cof-srd.capacities.QmyeYKoiFxjORWqo"
+                    "sourceId": "Compendium.cof-srd.capacities.C8eTcdgxKCBhVNuF"
                 }
             ]
         },
@@ -1311,10 +1311,10 @@
                     "sourceId": "Compendium.cof-srd.capacities.TNiDIV0LZkzBjmbV"
                 },
                 {
-                    "_id": "sVYoEKU4QozfdHKd",
+                    "_id": "C8eTcdgxKCBhVNuF",
                     "name": "Charisme héroïque",
                     "img": "/modules/cof-srd/ui/icons/capacities/voie-de-l-invocation-5.webp",
-                    "sourceId": "Compendium.cof-srd.capacities.sVYoEKU4QozfdHKd"
+                    "sourceId": "Compendium.cof-srd.capacities.C8eTcdgxKCBhVNuF"
                 }
             ]
         },
@@ -1409,10 +1409,10 @@
                     "sourceId": "Compendium.cof-srd.capacities.fSDrGSxD6RNL74Kd"
                 },
                 {
-                    "_id": "jLC8ogwFb4gXX0WY",
+                    "_id": "3TRSlQBprZW93NNB",
                     "name": "Constitution héroïque",
                     "img": "/modules/cof-srd/ui/icons/capacities/voie-de-la-nature-5.webp",
-                    "sourceId": "Compendium.cof-srd.capacities.jLC8ogwFb4gXX0WY"
+                    "sourceId": "Compendium.cof-srd.capacities.3TRSlQBprZW93NNB"
                 }
             ]
         },
@@ -1458,10 +1458,10 @@
                     "sourceId": "Compendium.cof-srd.capacities.ZoDCRxY9j0XZNduK"
                 },
                 {
-                    "_id": "Io9Iet9CdDg9YSDU",
+                    "_id": "Ca1WmWxnZi2z3jAh",
                     "name": "Dextérité héroïque",
                     "img": "/modules/cof-srd/ui/icons/capacities/voie-du-pistolero-5.webp",
-                    "sourceId": "Compendium.cof-srd.capacities.Io9Iet9CdDg9YSDU"
+                    "sourceId": "Compendium.cof-srd.capacities.Ca1WmWxnZi2z3jAh"
                 }
             ]
         },
@@ -2321,10 +2321,10 @@
                     "sourceId": "Compendium.cof-srd.capacities.iAlOaP9xScqMQhRm"
                 },
                 {
-                    "_id": "iyDJ6Bn8Bm99RjoT",
+                    "_id": "3TRSlQBprZW93NNB",
                     "name": "Constitution héroïque",
                     "img": "/modules/cof-srd/ui/icons/capacities/voie-du-pagne-5.webp",
-                    "sourceId": "Compendium.cof-srd.capacities.iyDJ6Bn8Bm99RjoT"
+                    "sourceId": "Compendium.cof-srd.capacities.3TRSlQBprZW93NNB"
                 }
             ]
         },
@@ -2436,7 +2436,7 @@
         "type": "path",
         "img": "modules/CoFantasy/artwork/icons/voies/book-embossed-gold-red.webp",
         "data": {
-            "key": "voie-de-l-air",
+            "key": "voie-de-l-entite",
             "description": "",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -2532,10 +2532,10 @@
                     "sourceId": "Compendium.cof-srd.capacities.3KDePO61V0dVV9FB"
                 },
                 {
-                    "_id": "i9336EW3nFPKfgMS",
+                    "_id": "3Dhmja0Tqw5SpXrF",
                     "name": "Intelligence héroïque",
                     "img": "/modules/cof-srd/ui/icons/capacities/voie-de-la-magie-universelle-5.webp",
-                    "sourceId": "Compendium.cof-srd.capacities.i9336EW3nFPKfgMS"
+                    "sourceId": "Compendium.cof-srd.capacities.3Dhmja0Tqw5SpXrF"
                 }
             ]
         },
@@ -2784,10 +2784,10 @@
                     "sourceId": "Compendium.cof-srd.capacities.bQMj3gpFKOH1rmzK"
                 },
                 {
-                    "_id": "f4defUW682Hdas8j",
+                    "_id": "3TRSlQBprZW93NNB",
                     "name": "Constitution héroïque",
                     "img": "/modules/cof-srd/ui/icons/capacities/voie-de-la-resistance-5.webp",
-                    "sourceId": "Compendium.cof-srd.capacities.f4defUW682Hdas8j"
+                    "sourceId": "Compendium.cof-srd.capacities.3TRSlQBprZW93NNB"
                 }
             ]
         },
@@ -2931,10 +2931,10 @@
                     "sourceId": "Compendium.cof-srd.capacities.cQHQzNJeshvmnOk3"
                 },
                 {
-                    "_id": "U8PdKWfB0CkRSD2l",
+                    "_id": "C8eTcdgxKCBhVNuF",
                     "name": "Charisme héroïque",
                     "img": "/modules/cof-srd/ui/icons/capacities/voie-de-la-seduction-5.webp",
-                    "sourceId": "Compendium.cof-srd.capacities.U8PdKWfB0CkRSD2l"
+                    "sourceId": "Compendium.cof-srd.capacities.C8eTcdgxKCBhVNuF"
                 }
             ]
         },
@@ -2948,7 +2948,7 @@
         "type": "path",
         "img": "modules/CoFantasy/artwork/icons/voies/book-embossed-gold-red.webp",
         "data": {
-            "key": "voie-de-l-air",
+            "key": "voie-de-la-conjuration",
             "description": "",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -3300,10 +3300,10 @@
                     "sourceId": "Compendium.cof-srd.capacities.URCLJL6zBVScaFXS"
                 },
                 {
-                    "_id": "wljnkXvkEHD3RvtU",
+                    "_id": "C8eTcdgxKCBhVNuF",
                     "name": "Charisme héroïque",
                     "img": "/modules/cof-srd/ui/icons/capacities/voie-de-l-aventurier-5.webp",
-                    "sourceId": "Compendium.cof-srd.capacities.wljnkXvkEHD3RvtU"
+                    "sourceId": "Compendium.cof-srd.capacities.C8eTcdgxKCBhVNuF"
                 }
             ]
         },
@@ -3398,10 +3398,10 @@
                     "sourceId": "Compendium.cof-srd.capacities.P7rjY8RAWuye7NLK"
                 },
                 {
-                    "_id": "HEod47Ehc873p9as",
+                    "_id": "3Dhmja0Tqw5SpXrF",
                     "name": "Intelligence héroïque",
                     "img": "/modules/cof-srd/ui/icons/capacities/voie-de-la-sombre-magie-5.webp",
-                    "sourceId": "Compendium.cof-srd.capacities.HEod47Ehc873p9as"
+                    "sourceId": "Compendium.cof-srd.capacities.3Dhmja0Tqw5SpXrF"
                 }
             ]
         },
@@ -3415,7 +3415,7 @@
         "type": "path",
         "img": "modules/CoFantasy/artwork/icons/voies/book-embossed-gold-red.webp",
         "data": {
-            "key": "voie-de-l-air",
+            "key": "voie-des-portes",
             "description": "",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -4114,10 +4114,10 @@
                     "sourceId": "Compendium.cof-srd.capacities.aEYEsPsjLlQekeYC"
                 },
                 {
-                    "_id": "wIoi5T4gmiFpnhvr",
+                    "_id": "MDbMGpU4jxnAOxh1",
                     "name": "Sagesse héroïque",
                     "img": "/modules/cof-srd/ui/icons/capacities/voie-de-la-meditation-5.webp",
-                    "sourceId": "Compendium.cof-srd.capacities.wIoi5T4gmiFpnhvr"
+                    "sourceId": "Compendium.cof-srd.capacities.MDbMGpU4jxnAOxh1"
                 }
             ]
         },
@@ -4131,7 +4131,7 @@
         "type": "path",
         "img": "/modules/cof-srd/ui/icons/paths/voie-de-l-air.webp",
         "data": {
-            "key": "voie-de-l-air",
+            "key": "voie-de-l-elfe-noir",
             "description": "",
             "source": "Chroniques Oubliées",
             "moduleData": {},

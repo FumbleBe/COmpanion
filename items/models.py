@@ -1,4 +1,7 @@
 from django.db import models
+from django.conf import settings
+from django.utils.text import slugify
+from django.core.exceptions import ValidationError
 from rules.choices import (
     RarityChoice,
     Source,
@@ -16,12 +19,9 @@ class Category(models.Model):
 
 class AbstractItem(models.Model):
     name = models.CharField(max_length=255)
-    # slug = models.SlugField(unique=True)
     img = models.ImageField(null=True, blank=True)
     subtype = models.CharField(max_length=100, choices=ItemSubtypeChoice.choices)
-    trait = models.ManyToManyField(
-        ItemTrait,
-    )
+    trait = models.ManyToManyField(ItemTrait, blank=True)
     rarity = models.CharField(max_length=100, choices=RarityChoice.choices)
     unique = models.BooleanField(default=False)  # property
     price = models.PositiveSmallIntegerField(default=0)
@@ -53,7 +53,7 @@ class AbstractItem(models.Model):
     mod = models.PositiveSmallIntegerField(default=0)
     skill = models.CharField(max_length=100, choices=CaracChoice.choices)
     skillBonus = models.PositiveSmallIntegerField(default=0)
-    critrange = models.CharField(max_length=10)
+    critrange = models.CharField(max_length=10, default="20")
 
     ranged = models.BooleanField(default=False)  # property
     range = models.PositiveSmallIntegerField(default=0)
@@ -75,7 +75,7 @@ class AbstractItem(models.Model):
 
 
 class Item(AbstractItem):
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, blank=True)
     source = models.ForeignKey(
         Source,
         on_delete=models.PROTECT,
@@ -83,6 +83,18 @@ class Item(AbstractItem):
         null=True,
         blank=True,
     )
+    access = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True)
+
+    def clean_fields(self, exclude=None):
+        self.slug = slugify(self.name)
+        if Item.objects.filter(slug=self.slug).exclude(pk=self.pk).exists():
+            raise ValidationError(
+                {
+                    "name": [
+                        "Cet objet existe déjà !",
+                    ]
+                }
+            )
 
 
 class Equipment(AbstractItem):
@@ -99,3 +111,6 @@ class Equipment(AbstractItem):
         null=True,
         blank=True,
     )
+
+    def clean_fields(self, exclude=None):
+        self.slug = slugify(self.name)

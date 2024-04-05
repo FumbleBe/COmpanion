@@ -18,6 +18,7 @@ class CapacityAdmin(admin.ModelAdmin):
 class SpeciesAdmin(admin.ModelAdmin):
     list_display = ("name", "slug")
 
+
 class SourceAdmin(admin.ModelAdmin):
     list_display = ("name",)
 

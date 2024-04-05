@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils.text import slugify
+from django.core.exceptions import ValidationError
 from rules.choices import Source
 from rules.models import Path, Capacity
 
@@ -27,6 +29,17 @@ class Species(models.Model):
 
     def __str__(self):
         return self.name
+
+    def clean_fields(self, exclude=None):
+        self.slug = slugify(self.name)
+        if Species.objects.filter(slug=self.slug).exclude(pk=self.pk).exists():
+            raise ValidationError(
+                {
+                    "name": [
+                        "Cette race existe déjà !",
+                    ]
+                }
+            )
 
     class Meta:
         verbose_name_plural = "Species"

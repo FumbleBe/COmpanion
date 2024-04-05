@@ -27,7 +27,7 @@
         "data": {
             "description": "<p>Le Barbare est particulièrement endurci, il reçoit un bonus de <strong>DEF</strong> égal à son Mod. de <strong>CON</strong>.</p>",
             "source": "Chroniques Oubliées DRS",
-            "key": "peau-de-pierre",
+            "key": "peau-de-pierre-barbare",
             "limited": false,
             "spell": false
         },
@@ -315,7 +315,7 @@
         "data": {
             "description": "<p>Au premier tour de combat, si l’environnement permet à la créature de se dissimuler, la cible doit faire un test de <strong>SAG</strong> difficulté [15 + Mod. de <strong>DEX</strong>] ou être Surprise. Si elle attaque avec succès une cible surprise, la créature inflige +1d6 aux <strong>DM</strong> et toute créature dont la <strong>FOR</strong> est inférieure à la sienne est Renversée. La créature obtient un bonus de +5 à tous les tests de discrétion et en Init.</p>",
             "source": "Chroniques Oubliées DRS",
-            "key": "embuscade",
+            "key": "embuscade-en",
             "limited": false,
             "spell": false
         },
@@ -783,7 +783,7 @@
         "data": {
             "description": "<p>Le champion peut effectuer une attaque en action gratuite contre chaque adversaire qui l’attaque à l’exception de celui qu’il a lui-même choisit d’attaquer à son tour.</p>",
             "source": "Chroniques Oubliées DRS",
-            "key": "riposte",
+            "key": "riposte-en",
             "limited": false,
             "spell": false
         },
@@ -1039,7 +1039,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "mutation-regeneratrice",
             "description": "\n<p>A chaque fois qu'il retrouve sa forme normale apr&egrave;s avoir utilis&eacute; un sort de la Voie des mutations, l'invocateur r&eacute;cup&egrave;re 1d6 PV.</p>\n<p>D&eacute;sormais, lorsqu'un test de CON lui est demand&eacute;, il lance deux d20 et conserve le meilleur des deux r&eacute;sultats.</p>\n<p>Si vous n'utilisez pas la r&egrave;gle optionnelle de points de Mana, les PV sont r&eacute;g&eacute;n&eacute;r&eacute;s seulement s'ils ont &eacute;t&eacute; perdus pendant la dur&eacute;e du sort.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -1111,7 +1111,7 @@
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
             "key": "creature-de-metal",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Les parties m&eacute;talliques d&rsquo;une &acirc;me-forg&eacute;e lui offrent une protection naturelle qui lui accorde un bonus de +1 en DEF. De plus, l&rsquo;&acirc;me-forg&eacute;e retranche 5 points (RD 5) &agrave; tous les DM de feu, de froid et aux drains de vie (pouvoir de vampire par exemple). Enfin, elle est immunis&eacute;e aux effets de saignement.</p>",
+            "description": "<p>Les parties m&eacute;talliques d&rsquo;une &acirc;me-forg&eacute;e lui offrent une protection naturelle qui lui accorde un bonus de +1 en DEF. De plus, l&rsquo;&acirc;me-forg&eacute;e retranche 5 points (RD 5) &agrave; tous les DM de feu, de froid et aux drains de vie (pouvoir de vampire par exemple). Enfin, elle est immunis&eacute;e aux effets de saignement.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -1271,8 +1271,8 @@
         "type": "capacity",
         "img": "icons/sundries/scrolls/scroll-plain-tan-red.webp",
         "data": {
-            "key": "souffle",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Lorsqu'un adversaire lui inflige une r&eacute;ussite critique en attaque ou lorsqu'il passe sous la moiti&eacute; de son score de PV max, le drakonide obtient un bonus de +1 en attaque et aux DM.</p>",
+            "key": "fureur-drakonide",
+            "description": "<p>Lorsqu'un adversaire lui inflige une r&eacute;ussite critique en attaque ou lorsqu'il passe sous la moiti&eacute; de son score de PV max, le drakonide obtient un bonus de +1 en attaque et aux DM.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -1450,7 +1450,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "invisibilite",
+            "key": "invisibilite-lutin",
             "description": "\n<p>Le personnage peut se rendre invisible comme s'il utilisait la capacit&eacute; de magicien du m&ecirc;me nom @Item[w5b4jXqfw66I7585]{Invisibilit&eacute;} (Voie de la magie universelle) une fois par jour par rang atteint dans la Voie.</p>\n<p>S'il poss&egrave;de d&eacute;ja cette capacit&eacute;, il obtient une capacit&eacute; d'ensorceleur de rang 1 de son choix.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -1610,8 +1610,8 @@
         "type": "capacity",
         "img": "icons/sundries/scrolls/scroll-plain-tan-red.webp",
         "data": {
-            "key": "conjuration-renforcee",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Le lutin devient plus sage et charismatique, il est consid&eacute;r&eacute; parmi les siens comme un individu de haut rang.</p>\n<p>Il augmente ses valeurs de SAG et CHA de +2.</p>",
+            "key": "seigneur-feerique",
+            "description": "<p>Le lutin devient plus sage et charismatique, il est consid&eacute;r&eacute; parmi les siens comme un individu de haut rang.</p>\n<p>Il augmente ses valeurs de SAG et CHA de +2.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -2094,8 +2094,8 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "conjuration-renforcee",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Vous pouvez faire croire &agrave; ceux qui vous entourent que vous &ecirc;tes un humain pendant 1 heure.</p>\n<p>Vous ne pouvez utiliser cette capacit&eacute; qu'une fois par jour.</p>\n<p>Vous ne pouvez pas prendre l'apparence d'une personne en particulier.</p>",
+            "key": "camouflage",
+            "description": "<p>Vous pouvez faire croire &agrave; ceux qui vous entourent que vous &ecirc;tes un humain pendant 1 heure.</p>\n<p>Vous ne pouvez utiliser cette capacit&eacute; qu'une fois par jour.</p>\n<p>Vous ne pouvez pas prendre l'apparence d'une personne en particulier.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -2183,7 +2183,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "raccourci",
             "description": "\n<p>L'invocateur emprunte une porte magique qui appara&icirc;t &agrave; son contact et il ressort par une autre en vue et &agrave; moins de 10 m&egrave;tres de distance par rang atteint dans la Voie.</p>\n<p>Les deux portes disparaissent imm&eacute;diatement apt&egrave;s son passage.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -2456,7 +2456,7 @@
         "data": {
             "description": "<p>L’ours du Rôdeur peut désormais se battre comme un véritable personnage. Il attaque en même temps que le Rôdeur.\nJeune ours noir : Init 13, <strong>DEF</strong> 14, PV [niveau x 5], attaque au contact = [niveau du Rôdeur], <strong>DM</strong> 1d6+3, <strong>FOR</strong> +3*, <strong>DEX</strong> +1, <strong>CON</strong> +3, <strong>INT</strong> -4, <strong>SAG</strong> +2, <strong>CHA</strong> -2</p>",
             "source": "Chroniques Oubliées DRS",
-            "key": "combat",
+            "key": "combat-ours",
             "limited": false,
             "spell": false
         },
@@ -2627,8 +2627,8 @@
         "type": "capacity",
         "img": "icons/sundries/scrolls/scroll-plain-tan-red.webp",
         "data": {
-            "key": "conjuration-renforcee",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>D&eacute;sormais, le minotaure ne se perd jamais et il conna&icirc;t toujours le plus court chemin vers la sortie ou la surface.</p>",
+            "key": "orientation-infaillible",
+            "description": "<p>D&eacute;sormais, le minotaure ne se perd jamais et il conna&icirc;t toujours le plus court chemin vers la sortie ou la surface.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -2734,7 +2734,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "mutation-protectrice",
             "description": "\n<p>L'invocateur obtient les caract&eacute;ristiques d'une cr&eacute;ature d'un autre monde, adapt&eacute;e &agrave; la survie dans un environnement dangereux, pendant [5 + mod. CHA] minutes. A chaque utilisation du sort, il choisit une mutation de son choix dans la liste suivante:</p>\n<ul>\n<li>Cuirasse: +1 en DEF par rang</li>\n<li>Ecailles rouges: DM de ou d'acide divis&eacute;s par 2</li>\n<li>Fourrure violette: DM de froid ou de foudre divis&eacute;s par 2</li>\n<li>Ou&iuml;es: respiration aquatique</li>\n<li>Sang noir: immunis&eacute; au poison ou aux maladies</li>\n</ul>\n<p><sub><em>Il est impossible de b&eacute;n&eacute;ficier de deux mutations protrectrices en m&euml;me temps.</em></sub></p>\n<p>&nbsp;</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -3053,7 +3053,7 @@
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
             "key": "creature-artificielle",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Une &acirc;me-forg&eacute;e n&rsquo;a pas besoin de boire ni de se nourrir, ni m&ecirc;me de respirer ! Elle a toutefois besoin de r&ecirc;ver quatre heures par jour (sans quoi elle subit un malus de -2 &agrave; ses tests de SAG,ce malus est cumulatif). Elle est naturellement immunis&eacute;e aux poisons et aux maladies. Les &acirc;mes-forg&eacute;es sont incapables de nager mais elles peuvent marcher au fond de l&rsquo;eau (consid&eacute;r&eacute; comme un terrain difficile).</p>",
+            "description": "<p>Une &acirc;me-forg&eacute;e n&rsquo;a pas besoin de boire ni de se nourrir, ni m&ecirc;me de respirer ! Elle a toutefois besoin de r&ecirc;ver quatre heures par jour (sans quoi elle subit un malus de -2 &agrave; ses tests de SAG,ce malus est cumulatif). Elle est naturellement immunis&eacute;e aux poisons et aux maladies. Les &acirc;mes-forg&eacute;es sont incapables de nager mais elles peuvent marcher au fond de l&rsquo;eau (consid&eacute;r&eacute; comme un terrain difficile).</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -3586,8 +3586,8 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "conjuration-renforcee",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Lorsqu'il convoque un pr&eacute;dateur (rang 1 de cette Voie), l'invocateur peut, au choix, ajouter &agrave; la cr&eacute;ature une mutation protectrice ou une adaptation motrice issue de la Voie des mutations (il n'y a pas besoin d'avoir acc&eacute;s &agrave; ces capacit&eacute;s).</p>\n<p>Si l'invocateur opte pour Cuirasse, cela apporte un bonus de +3 en DEF &agrave; la cr&eacute;ature.</p>",
+            "key": "conjuration-de-predateur-etrange",
+            "description": "<p>Lorsqu'il convoque un pr&eacute;dateur (rang 1 de cette Voie), l'invocateur peut, au choix, ajouter &agrave; la cr&eacute;ature une mutation protectrice ou une adaptation motrice issue de la Voie des mutations (il n'y a pas besoin d'avoir acc&eacute;s &agrave; ces capacit&eacute;s).</p>\n<p>Si l'invocateur opte pour Cuirasse, cela apporte un bonus de +3 en DEF &agrave; la cr&eacute;ature.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -3975,7 +3975,7 @@
         "img": "icons/sundries/scrolls/scroll-plain-tan-red.webp",
         "data": {
             "key": "sens-de-lorientation",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Le minotaure re&ccedil;oit un test de +5 &agrave; tous les tests d&rsquo;orientation.</p>",
+            "description": "<p>Le minotaure re&ccedil;oit un test de +5 &agrave; tous les tests d&rsquo;orientation.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -4063,7 +4063,7 @@
         "data": {
             "description": "<p>Si la créature attaque en même temps qu’un allié (elle peut volontairement retarder son Initiative), de dos ou par surprise, elle réalise une Attaque sournoise avec un bonus de +5 en attaque et +2d6 aux <strong>DM</strong>.</p>",
             "source": "Chroniques Oubliées DRS",
-            "key": "attaque-en-traitre",
+            "key": "attaque-en-traitre-en",
             "limited": true,
             "spell": false
         },
@@ -4095,8 +4095,8 @@
         "type": "capacity",
         "img": "icons/sundries/scrolls/scroll-plain-tan-red.webp",
         "data": {
-            "key": "conjuration-renforcee",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>L'&acirc;me-forg&eacute;e devient une force impossible &agrave; ignorer sur le champ de bataille, elle augmente ses scores de CON et de FOR de +2.</p>",
+            "key": "machine-de-guerre",
+            "description": "<p>L'&acirc;me-forg&eacute;e devient une force impossible &agrave; ignorer sur le champ de bataille, elle augmente ses scores de CON et de FOR de +2.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -4274,7 +4274,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "familier",
             "description": "\n<p>L'invocateur choisit un petit animal (corbeau, chat, furet, serpent...). Il peut utiliser les sens de son familier et communiquer avec lui &agrave; distance illimit&eacute;e.</p>\n<p>Il gagne +2 en Initiative lorsque son familier est en vue.</p>\n<p>Familier:</p>\n<table border=\"1\">\n<tbody>\n<tr>\n<td style=\"text-align: center;\">DEF: [=invocateur]</td>\n<td style=\"text-align: center;\">Init.: [=invocateur]</td>\n<td style=\"text-align: center;\">\n<p>PV: [il les partagent avec ceux de son ma&icirc;tre]</p>\n<p><sub><em>ils forment une cible unique pour les attaques de zone.</em></sub></p>\n</td>\n</tr>\n</tbody>\n</table>\n<table style=\"height: 17px; width: 100%; margin-left: auto; margin-right: auto;\" border=\"1\">\n<tbody>\n<tr style=\"height: 17px;\">\n<td style=\"width: 16.7567%; height: 17px; text-align: center;\">FOR -4</td>\n<td style=\"width: 17.4471%; height: 17px; text-align: center;\">DEX +3</td>\n<td style=\"width: 15.2344%; height: 17px; text-align: center;\">CON 0</td>\n<td style=\"width: 14.5735%; height: 17px; text-align: center;\">INT -2</td>\n<td style=\"width: 17.4979%; height: 17px; text-align: center;\">SAG +1</td>\n<td style=\"width: 16.9494%; height: 17px; text-align: center;\">CHA -2</td>\n</tr>\n</tbody>\n</table>\n<p>Lorsque le familier subit des DM, l'invocateur peut choisir de ne pas les subir, dans ce cas, le familier est d&eacute;truit et il ne pourra pas &agrave; nouveau &ecirc;tre convoqu&eacute; avant 24 heures.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -4363,7 +4363,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "manoir-d-outre-monde",
             "description": "\n<p>L'invocateur enchante une porte ordinaire existante (pas une porte artificielle) et, pendant jusqu'&agrave; 1 heure par niveau, elle s'ouvre sur un manoir magique au lieu de l'endroit habituel. La porte garde ses caract&eacute;ristiques originelles (solidit&eacute;, serrure, etc.), mais elle ne peut pas &ecirc;tre bloqu&eacute;e par magie. Le manoir poss&eacute;de jusqu'&agrave; 1 pi&egrave;ce par niveau de l'invocateur, pour une surface totale atteignant jusqu'&agrave; 50 m&sup2; par niveau de l'invocateur.</p>\n<p>Il est meubl&eacute; selon le style choisi par l'invocateur, un taudis lugubre, ou un palais luxueux rempli de victuailles et de vaisselle d'or (aucun objet magique).</p>\n<p>Les pi&eacute;ces n'ont pas de fen&ecirc;tre et les objets disparaissent s'ils sortent du manoir.</p>\n<p>La nourriture qui peut &ecirc;tre trouv&eacute;e poss&egrave;de des qualit&eacute;s gustatives &agrave; la discr&eacute;tion de l'invocateur. Tous ces aliments d&eacute;salt&egrave;rent ou procurent un effet normal de sati&eacute;t&eacute;, mais ils n'hydratent ni ne nourrissent pas r&eacute;ellement.</p>\n<p>Si l'invocateur utilise &agrave; nouveau ce sort alors qu'un autre manoir &eacute;tait encore actif, le premier dispara&icirc;t imm&eacute;diatement.</p>\n<p>Si la porte d'entr&eacute;e est d&eacute;truite, le sort prend fin. Toutes les cr&eacute;atures &agrave; l'int&eacute;rieur du manoir au moment o&ugrave; il dispara&icirc;t sont &eacute;ject&eacute;es devant la porte et subissent 1d6 DM.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -4524,7 +4524,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "adaptation-motrice",
             "description": "\n<p>L'invocateur obtient une des mutations suivantes au choix pendant [5 + Mod. de CHA] minutes:</p>\n<ul>\n<li>Ailes: vol &agrave; sa vitesse normale de d&eacute;placement</li>\n<li>Pattes d&eacute;mesur&eacute;es: se d&eacute;place de 15 m&egrave;tres par action de mouvement</li>\n<li>Queue de poisson: nage de 15 m&egrave;tres pas action de mouvement</li>\n</ul>\n<p><sub><em>Il est impossible de b&eacute;n&eacute;ficier de deux effets d'adaptation en m&ecirc;me temps.</em></sub></p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -4632,7 +4632,7 @@
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
             "key": "conjuration-renforcee",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>L'invocateur ajoute &agrave; son niveau le rang atteint dans la Voie pour d&eacute;terminer le niveau des pr&eacute;dateurs conjur&eacute;s.</p>\n<p>Exemple: Un invocateur de niveau 3 avec 2 rangs dans la Voie conjure un loup alpha NC 2, comme s'il &eacute;tait de niveau 5 (3 + 2).</p>",
+            "description": "<p>L'invocateur ajoute &agrave; son niveau le rang atteint dans la Voie pour d&eacute;terminer le niveau des pr&eacute;dateurs conjur&eacute;s.</p>\n<p>Exemple: Un invocateur de niveau 3 avec 2 rangs dans la Voie conjure un loup alpha NC 2, comme s'il &eacute;tait de niveau 5 (3 + 2).</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -4810,7 +4810,7 @@
         "data": {
             "description": "<p>L’elfe augmente ses valeurs de <strong>DEX</strong> et <strong>SAG</strong> de +2.</p>",
             "source": "Chroniques Oubliées DRS",
-            "key": "superiorite-elfique",
+            "key": "superiorite-elfique-sylvain",
             "limited": false,
             "spell": false
         },
@@ -4842,8 +4842,8 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "conjuration-renforcee",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Sur une attaque &agrave; mains nues r&eacute;ussie, l'&acirc;me-forg&eacute;e inflige 1d6 DM d'&eacute;lectricit&eacute; par rang dans cette Voie (d&eacute;gats de l'attaque &agrave; mains nues inclus).</p>",
+            "key": "choc-electrique",
+            "description": "<p>Sur une attaque &agrave; mains nues r&eacute;ussie, l'&acirc;me-forg&eacute;e inflige 1d6 DM d'&eacute;lectricit&eacute; par rang dans cette Voie (d&eacute;gats de l'attaque &agrave; mains nues inclus).</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -4985,7 +4985,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "porte-dimensionnelle",
             "description": "\n<p>L'invocateur fait appara&icirc;tre une porte lumineuse pour une dur&eacute;e maximum de [5 + Mod. de CHA] minutes, bien qu'il puisse mettre fin au sort &agrave; tout moment. Cette porte appara&icirc;t simultan&eacute;ment dans un autre lieu choisi par l'invocateur, soit &agrave; port&eacute;e de vue, soit &agrave; un endroit parfaitement connu de l'invocateur, &agrave; une port&eacute;e maximum de 200 m&egrave;tres.</p>\n<p>Tant qu'elle est active, la porte magique peut &ecirc;tre emprunt&eacute;e dans un sens ou dans l'autre par toute cr&eacute;ature de taille grande ou inf&eacute;rieure. Si l'invocateur utilise &agrave; nouveau ce sort alors qu'une autre porte &eacute;tait encore active, la premi&eacute;re dispara&icirc;t imm&eacute;diatement.&nbsp;</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -5056,7 +5056,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "conjuration-de-predateur",
             "description": "\n<p>Une fois par combat, l'invocateur peut conjurer un animal qui combat pour lui pendant [5 + Mod. de CHA] tours. Le type d'animal conjur&eacute; d&eacute;pend du niveau de l'invocateur (voir tableau). L'animal appara&icirc;t au contact de l'invocateur et peut s'&eacute;loigner jusqu'&agrave; une distance de 50 m&egrave;tres.</p>\n<table style=\"width: 90.8592%;\" border=\"1\">\n<tbody>\n<tr>\n<td style=\"width: 39.4608%;\">Niveau 1 &agrave; 4</td>\n<td style=\"width: 60.5392%;\">&nbsp;Loup (NC 1)</td>\n</tr>\n<tr>\n<td style=\"width: 39.4608%;\">Niveau 5 &agrave; 8</td>\n<td style=\"width: 60.5392%;\">&nbsp;Loup alpha (NC 2)</td>\n</tr>\n<tr>\n<td style=\"width: 39.4608%;\">Niveau 9 &agrave; 11</td>\n<td style=\"width: 60.5392%;\">&nbsp;Loup g&eacute;ant (NC 3)</td>\n</tr>\n<tr>\n<td style=\"width: 39.4608%;\">Niveau 12 &agrave; 14</td>\n<td style=\"width: 60.5392%;\">&nbsp;Lion (NC 4)</td>\n</tr>\n<tr>\n<td style=\"width: 39.4608%;\">Niveau 15 &agrave; 17</td>\n<td style=\"width: 60.5392%;\">&nbsp;Lion, grand m&acirc;le (NC 5)</td>\n</tr>\n<tr>\n<td style=\"width: 39.4608%;\">Niveau 18 &agrave; 20</td>\n<td style=\"width: 60.5392%;\">&nbsp;Ours polaire (NC 6)</td>\n</tr>\n<tr>\n<td style=\"width: 39.4608%;\">Niveau 21 &agrave; 22</td>\n<td style=\"width: 60.5392%;\">&nbsp;Tigre &agrave; dents de sabre (NC 7)</td>\n</tr>\n<tr>\n<td style=\"width: 39.4608%;\">Niveau 23 et +</td>\n<td style=\"width: 60.5392%;\">&nbsp;Ours pr&eacute;historique (NC 8)</td>\n</tr>\n</tbody>\n</table>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -5239,7 +5239,7 @@
         "data": {
             "description": "<p>L’elfe gagne +5 à tous les tests de <strong>CHA</strong> et de déplacement silencieux.</p>",
             "source": "Chroniques Oubliées DRS",
-            "key": "grace-elfique",
+            "key": "grace-elfique-haut",
             "limited": false,
             "spell": false
         },
@@ -5257,7 +5257,7 @@
         "data": {
             "description": "<p>Si vous croyez en avoir fini avec lui&#8230; Une fois par combat, lorsqu'il tombe à 0 PV, le Rôdeur peut récupérer [3d6 + Mod. de <strong>CON</strong>] PV au tour suivant.</p>",
             "source": "Chroniques Oubliées DRS",
-            "key": "increvable",
+            "key": "increvable-rodeur",
             "limited": true,
             "spell": false
         },
@@ -5289,7 +5289,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "amelioration",
             "description": "\n<p>L'invocateur siphone l'&eacute;nergie des plans pour am&eacute;liorer les capacit&eacute;s de son entit&eacute;. Il doit choisir une option parmi les suivantes:</p>\n<ul>\n<li>Armes puissantes (griffes, crocs, arme): +1d6 aux DM au contact</li>\n<li>Armure: +4 en DEF</li>\n<li>Grande taille: +10 PV et +1 Mod. de FOR</li>\n<li>Pouvoir d'attaque &agrave; distance: port&eacute;e 20m, 2d6 DM (attaque = niveau de l'invocateur + Mod. de DEX de l'entit&eacute;)</li>\n<li>Puissant: +2 Mod. de FOR</li>\n<li>R&eacute;sistant: +2 Mod. de CON, +10 PV et r&eacute;sistance &agrave; un &eacute;l&eacute;ment au choix (1/2 DM)</li>\n<li>Sup&eacute;riorit&eacute;: +2 Mod. d'INT, SAG, CHA</li>\n<li>Vif: +2 Mod. de DEX</li>\n<li>Vol: l'entit&eacute; obtient un moyen de se d&eacute;placer dans les airs (g&eacute;n&eacute;ralement des ailes)</li>\n</ul>\n<p>&nbsp;</p>\n<p>Le joueur peut choisir une option de plus lorsque son personnage atteint les<strong> niveaux 8, 13 et 17.</strong></p>\n<p><sup><em>Chaque option peut &ecirc;tre choisie jusqu'&agrave; trois fois et cumul&eacute;e.</em></sup></p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -5378,8 +5378,8 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "conjuration-renforcee",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Le minotaure est une montagne de muscles, il augmente ses valeurs de CON et de FOR de +2.</p>",
+            "key": "colosse",
+            "description": "<p>Le minotaure est une montagne de muscles, il augmente ses valeurs de CON et de FOR de +2.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -5665,7 +5665,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "resistance",
             "description": "\n<p>Le familier obtient une r&eacute;duction des DM (RD) de 1 point par rang atteint dans la Voie, face &agrave; tous les types de DM.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -5844,7 +5844,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "protecteur",
             "description": "\n<p>Quand un alli&eacute; se trouve au contact de l'entit&eacute;, il obtient un bonus de +2 en DEF.</p>\n<p>Si l'alli&eacute; est l'invocateur, ce bonus passe &agrave; +4.</p>\n<p>De plus, une fois par tour, l'entit&eacute; peut subir une attaque &agrave; la place d'un alli&eacute; &agrave; son contact.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -5951,7 +5951,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "rappel",
             "description": "\n<p>L'invocateur peut rappeler son familier &agrave; son contact par magie.</p>\n<p>Le familier est t&eacute;l&eacute;port&eacute; sur son ma&icirc;tre au prix d'une action de mouvement s'il est en vue, ou par une action limit&eacute;e dans tous les autres cas.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -6040,8 +6040,8 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "conjuration-renforcee",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Le minotaure peut d&eacute;sormais r&eacute;aliser une attaque de corne en action gratuite une fois pas tour.</p>",
+            "key": "encorner",
+            "description": "<p>Le minotaure peut d&eacute;sormais r&eacute;aliser une attaque de corne en action gratuite une fois pas tour.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -6112,7 +6112,7 @@
         "img": "icons/sundries/scrolls/scroll-plain-tan-red.webp",
         "data": {
             "key": "tout-petit",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Leur petite taille leur conf&egrave;re un bonus de +2 en DEF et de +5 &agrave; tous les tests de discr&eacute;tion.</p>",
+            "description": "<p>Leur petite taille leur conf&egrave;re un bonus de +2 en DEF et de +5 &agrave; tous les tests de discr&eacute;tion.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -6214,7 +6214,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "porte-artificielle",
             "description": "\n<p>L'invocateur invoque une porte venant d'un autre monde dans une surface ma&ccedil;onn&eacute;e non magique de moins d'un m&egrave;tre d'&eacute;paisseur (le mur d'une maison par exemple).</p>\n<p>Pendant [5 + Mod. de CHA] tours, cette porte peut &ecirc;tre ouverte et referm&eacute;e normalement et elle donne de l'autre cot&eacute; du mur, de facon tout &agrave; fait ordinaire.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -6285,7 +6285,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "sens-developpes",
             "description": "\n<p>Capable de percevoir avec les sens de son familier, l'invocateur am&eacute;liore grandement sa vigilance. Il obtient un bonus de +5 &agrave; tous les tests de perception (SAG) et peut voir dans le noir comme s'il &eacute;tait dans la p&eacute;nombre jusqu'&agrave; une distance de 20m. S'il poss&egrave;de d&eacute;ja cette capacit&eacute;, la distance est doubl&eacute;e.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -6477,8 +6477,8 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "conjuration-renforcee",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Le minotaure se d&eacute;place en ligne droite d'au moins 5 m&egrave;tres (20 m&egrave;tres au maximum) et il r&eacute;alise une attaque avec +2 au test et +1d6 DM en cas de r&eacute;ussite.</p>\n<p>Cette capacit&eacute; peut se cumuler &agrave; la @Item[lweE7GpjLgnxYAMo]{Charge} du barbare.</p>",
+            "key": "charge-minotaure",
+            "description": "<p>Le minotaure se d&eacute;place en ligne droite d'au moins 5 m&egrave;tres (20 m&egrave;tres au maximum) et il r&eacute;alise une attaque avec +2 au test et +1d6 DM en cas de r&eacute;ussite.</p>\n<p>Cette capacit&eacute; peut se cumuler &agrave; la @Item[lweE7GpjLgnxYAMo]{Charge} du barbare.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -6782,7 +6782,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "langage-des-animaux",
+            "key": "langage-des-animaux-lutin",
             "description": "\n<p>Le personnage obtient la capacit&eacute; de druide @Item[yOvsVP63wSBdZ0lY]{Langage des animaux} (Voie des animaux). S'il poss&egrave;de d&eacute;j&agrave; cette capacit&eacute;, il obtient une capacit&eacute; de r&ocirc;deur de rang 1 de son choix.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -6853,7 +6853,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "lien-magique",
             "description": "\n<p>L'invocateur peut communiquer par t&eacute;l&eacute;pathie avec son entit&eacute;, quelle que soit la distance qui les s&eacute;pare. Laorsque l'entit&eacute; subit des DM, l'invocateur peut choisir de sacrifier ses propres PV pour prot&eacute;ger son entit&eacute;.</p>\n<p>Inversement, si l'invocateur subit des DM, il peut les transf&eacute;rer &agrave; son entit&eacute;, mais dans ce cas, les DM subis par celle-ci sont doubl&eacute;s.</p>\n<p>Enfin, gr&acirc;ce au lien avec l'invocateur, la cr&eacute;ature peut toucher et attaquer des cibles prot&eacute;g&eacute;es normalement du contact des cr&eacute;atures invoqu&eacute;es.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -6978,8 +6978,8 @@
         "type": "capacity",
         "img": "icons/sundries/scrolls/scroll-plain-tan-red.webp",
         "data": {
-            "key": "conjuration-renforcee",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Le personnage remplace une Voie de son profil par sa Voie raciale d&egrave;s le premier niveau.</p>",
+            "key": "voie-raciale-de-base",
+            "description": "<p>Le personnage remplace une Voie de son profil par sa Voie raciale d&egrave;s le premier niveau.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -7589,8 +7589,8 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "conjuration-renforcee",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Une fois par combat, l'&acirc;me-forg&eacute;e peut totalement ignorer les d&eacute;g&acirc;ts subis par une attaque.</p>",
+            "key": "forge-dans-la-bataille",
+            "description": "<p>Une fois par combat, l'&acirc;me-forg&eacute;e peut totalement ignorer les d&eacute;g&acirc;ts subis par une attaque.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -7754,7 +7754,7 @@
         "data": {
             "description": "<p>Le Barde ajoute son Mod. de <strong>CHA</strong> en <strong>DEF</strong> et en Initiative (en plus du Mod. habituel de <strong>DEX</strong>).</p>",
             "source": "Chroniques Oubliées DRS",
-            "key": "grace-feline",
+            "key": "grace-feline-barde",
             "limited": false,
             "spell": false
         },
@@ -7840,7 +7840,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "monture-fantastique",
+            "key": "monture-feerique",
             "description": "\n<p>Le personnage apprivoise un animal qui lui sert de monture, souvent une monture volante comme un aigle.</p>\n<p>Monture:</p>\n<p>Init 16, DEF 16, PV [niveau x4]</p>\n<p>Attaque au contact = [niveau du personnage +1], DM 1d6+2</p>\n<p>FOR +2, DEX +2*, CON +2*, INT -2, SAG +2*, CHA -2.</p>\n<p>La monture volante inflige seulement 1d6 DM avec une FOR de +0.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -7965,7 +7965,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "lien-magique-ameliore",
             "description": "\n<p>Le lien entre l'invocateur et l'entit&eacute; est tel qu'ils peuvent se t&eacute;l&eacute;porter ou &eacute;changer leurs places. Au prix d'une action de mouvement, l'invocateur peut utiliser une action de son choix:</p>\n<ul>\n<li>T&eacute;l&eacute;porter son entit&eacute; &agrave; son contact</li>\n<li>Se t&eacute;l&eacute;porter au contact de son entit&eacute;</li>\n<li>Echanger sa place avec son entit&eacute;</li>\n</ul>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -8593,7 +8593,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "lilliputien",
             "description": "\n<p>L'invocateur rapetisse jusqu'&agrave; devenir plus petit que son familier (entre 10 et 30 cm, minuscule ou tr&egrave;s petit).</p>\n<p>La transformation dans un sens ou dans l'autre demande 1 tour complet.</p>\n<p>Sa dur&eacute;e est illimit&eacute;e. Sous cette forme, l'invocateur obtient la m&ecirc;me r&eacute;duction aux DM que le familier (RD 5), il gagne un bonus de +10 aux tests de discr&eacute;tion et peut passer dans des espaces tr&egrave;s r&eacute;duits.</p>\n<p>En revanche, ses DM sont r&eacute;duits &agrave; 1 point par attaque r&eacute;ussie et ses sorts n'affectent aucune cr&eacute;ature de taille sup&eacute;rieure &agrave; tr&egrave;s petite.</p>\n<p>Ses d&eacute;placements sont r&eacute;duits &agrave; 5 m par action de mouvement, sauf s'il chevauche son familier. Le familier est tr&egrave;s endurant et lui permet de couvrir une distance de 5 km par heure pendant un maximum de 10 heures par jour (pour un total de 50 km/jour) quel que soit le terrain.</p>\n<p>Cette distance est doubl&eacute;e si le familier est une cr&eacute;ature volante (100 km/jour).</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -8790,7 +8790,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "mutation-offensive",
             "description": "\n<p>L'invocateur &eacute;change une partie de son corps avec celle d'une cr&eacute;ature monstreuse d'un autre plan pendant [5 + Mod. CHA] tours.</p>\n<p>Il obtien ainsi un appendice monstrueux de son choix:</p>\n<ul>\n<li>Une geule d&eacute;mesur&eacute;e&nbsp;</li>\n<li>Un bras bras monstrueux dot&eacute; de griffes ou de pinces</li>\n<li>Une queue munie d'un formidable piquant</li>\n<li>etc.</li>\n</ul>\n<p>Il lui faut une action limit&eacute;e pour attaquer avec cet appendice et il recoit un bonus de +3 au Mod. de FOR sur cette attaque.</p>\n<p>L'attaque inflige [1d6 + Mod. de FOR] DM (<strong>2d6 au niveau 10</strong>).</p>\n<p>A partir du rang 4, l'invocateur apprend &agrave; mieux ma&icirc;triser le membre &eacute;tranger et il lui suffit d'une action d'attaque pour attaquer.</p>\n<p>&nbsp;</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -8969,8 +8969,8 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "conjuration-renforcee",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Apr&egrave;s avoir re&ccedil;u une blessure, le minotaure peut entrer en fr&eacute;n&eacute;sie (action gratuite), il gagne un bonus de +2 en attaque au contact et aux DM, mais subit un malus de -2 en DEF pour 1d6 tours.</p>\n<p>Ces bonus/malus ne sont pas cumulables &agrave; la @Item[a8feJdNOQ7C0iW0N]{Rage} du barbare.</p>",
+            "key": "frenesie",
+            "description": "<p>Apr&egrave;s avoir re&ccedil;u une blessure, le minotaure peut entrer en fr&eacute;n&eacute;sie (action gratuite), il gagne un bonus de +2 en attaque au contact et aux DM, mais subit un malus de -2 en DEF pour 1d6 tours.</p>\n<p>Ces bonus/malus ne sont pas cumulables &agrave; la @Item[a8feJdNOQ7C0iW0N]{Rage} du barbare.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -9166,8 +9166,8 @@
         "type": "capacity",
         "img": "icons/sundries/scrolls/scroll-plain-tan-red.webp",
         "data": {
-            "key": "souffle",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Le drakonide re&ccedil;oit un bonus de +5 &agrave; tous les tests d'intimidation.</p>",
+            "key": "intimidant",
+            "description": "<p>Le drakonide re&ccedil;oit un bonus de +5 &agrave; tous les tests d'intimidation.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -9237,7 +9237,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "enkystement-lointain",
             "description": "\n<p>Une fois par combat, l'invocateur d&eacute;signe d'un mouvement de la main une cible &agrave; moins de 20 m&egrave;tres, et un tourbillon de lumi&egrave;re multicolore emporte la victime en un lieu lointain.</p>\n<p>En cas de succ&eacute;s d'un test d'attaque magique oppos&eacute; (attaque au contact dans le cas o&ugrave; la cr&eacute;ature n'en poss&egrave;de pas), la cible est instantan&eacute;ment t&eacute;l&eacute;port&eacute;e dans une direction al&eacute;atoire (&agrave; peu pr&egrave;s horizontalement et dans un milieu adapt&eacute; &agrave; sa survie).</p>\n<p>Les cr&eacute;atures de niveau inf&eacute;rieur &agrave; la moiti&eacute; du niveau de l'invocateur sont t&eacute;l&eacute;port&eacute;es &agrave; une distance de 1d20 x 100 kilom&egrave;tres, celles de niveau inf&eacute;rieur au sien &agrave; 1d20 kilom&egrave;tres et celles de niveau sup&eacute;rieur ou &eacute;gal &agrave; 1d20 x 10 m&egrave;tres.</p>\n<p>Une cr&eacute;ature ne peut pas &ecirc;tre victime de ce sort plus d'une fois par jour.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -9941,7 +9941,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "charge",
+            "key": "charge-barbare2",
             "description": "<p>Le Barbare se déplace en ligne droite d'au moins 5 mètres (20 mètres au maximum) et effectue une attaque au contact avec un bonus de +2 en attaque et +1d6 aux <strong>DM</strong>.</p>",
             "source": "Chroniques Oubliées DRS",
             "moduleData": {},
@@ -10156,8 +10156,8 @@
         "type": "capacity",
         "img": "icons/sundries/scrolls/scroll-plain-tan-red.webp",
         "data": {
-            "key": "conjuration-renforcee",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>A mains nues, l'&acirc;me-forg&eacute;e inflige 1d6 DM l&eacute;taux.</p>",
+            "key": "main-lourde",
+            "description": "<p>A mains nues, l'&acirc;me-forg&eacute;e inflige 1d6 DM l&eacute;taux.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -10317,7 +10317,7 @@
         "data": {
             "description": "<p>Le familier obtient une réduction des <strong>DM</strong> (RD) de 1 point par rang face à tous les types de <strong>DM</strong>.</p>",
             "source": "Chroniques Oubliées DRS",
-            "key": "resistance",
+            "key": "resistance-familier",
             "limited": false,
             "spell": false
         },
@@ -10331,8 +10331,8 @@
         "type": "capacity",
         "img": "icons/sundries/scrolls/scroll-plain-tan-red.webp",
         "data": {
-            "key": "conjuration-renforcee",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Le lutin est capable de prendre une taille humaine pendant [1d6 + Mod. de CHA] minutes trois fois par jour.</p>\n<p>Sous cette forme, il obtient un bonus de +2 au Mod. de FOR et donc en attaque et aux DM) et il peut infliger des DM normalement selon l'arme utilis&eacute;e.</p>",
+            "key": "grande-taille",
+            "description": "<p>Le lutin est capable de prendre une taille humaine pendant [1d6 + Mod. de CHA] minutes trois fois par jour.</p>\n<p>Sous cette forme, il obtient un bonus de +2 au Mod. de FOR et donc en attaque et aux DM) et il peut infliger des DM normalement selon l'arme utilis&eacute;e.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -10496,7 +10496,7 @@
         "data": {
             "description": "<p>Le Barbare devient capable de résister à la magie. Lorsqu'il est la cible d'un sort, une fois par tour, il peut faire un test d'attaque magique (Mod. de <strong>SAG</strong>) opposé à celui du sort. En cas de réussite, il n'en subit pas les effets.</p>",
             "source": "Chroniques Oubliées DRS",
-            "key": "resistance-a-la-magie",
+            "key": "resistance-a-la-magie-barbare",
             "limited": false,
             "spell": false
         },
@@ -10672,7 +10672,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "invocation-d-une-entite",
             "description": "\n<p>L'invocateur appelle une cr&eacute;ature d'un autre plan qui entre alors &agrave; son service. Personne d'autre que l'invocateur ne peut renvoyer l'entit&eacute; sur son plan d'origine. Lorsque l'entit&eacute; est r&eacute;duite &agrave; 0 PV, elle dispara&icirc;t imm&eacute;diatement. Dans ce cas, ou si l'invocateur la renvoie (par une action de mouvement), l'invocateur devra attendre 12 heures avant de pouvoir la convoquer de nouveau. L'entit&eacute; revient en jeu avec ses PV au maximum et d&eacute;barass&eacute;e de tout effet pr&eacute;judiciable dont elle pouvait &ecirc;tre victime au moment de sa disparition. En dehors de son plan, l'entit&eacute; ne gu&eacute;rit pas naturellement, mais elle peut b&eacute;n&eacute;ficier de sorts de soins. L'entit&eacute; est totalement d&eacute;vou&eacute;e &agrave; son invocateur, elle agit au mieux pour respecter les ordres qui lui sont donn&eacute;s, en fonction de son Mod. d'INT.&nbsp;</p>\n<p>Elle parle la langue de l'invocateur. L'apparence physique de l'entit&eacute; est d&eacute;termin&eacute;e lors de sa premi&egrave;re invocation (un animal, uen cr&eacute;ature fantastique ou une cr&eacute;ature humano&iuml;de), mais elle doit s'inspirer des Mod. de Carac. choisis par le joueur. Elle ne peut pas imiter pr&eacute;cis&eacute;ment l'apparence d'un personnage ou d'une cr&eacute;ature en particulier. Une fois que le joueur a d&eacute;termin&eacute; son apparence, la cr&eacute;ature la conserve pour toujours.</p>\n<p>L'entit&eacute; arbore quelque part sur son corps une rune lumineuse qui la maintient sur le plan de l'invocateur.</p>\n<p>Cr&eacute;er son entit&eacute;: Le joueur doit r&eacute;partir 4 points entre les Mod. de FOR et de DEX, puis 2 points entre INT, SAG et CHA (minimum +0).</p>\n<p>Enfin, le Mod. de CON est &eacute;gal &agrave; +2. La DEF de l'entit&eacute; est &eacute;gale a 12 (+Mod. de DEX), son score d'attaque est &eacute;gal au niveau de l'invocateur (+Mod. de FOR ou de DEX de l'entit&eacute;) et ses DM sont &eacute;gaux &agrave; [1d6 + Mod. de FOR]. Ses PV sont &eacute;gaux &agrave; cinq fois le niveau de l'invocateur.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -10797,7 +10797,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "surpuissance-physique",
             "description": "\n<p>L'invocateur obtient une des mutations suivantes au choix pendant [5 + Mod. de CHA] minutes:</p>\n<ul>\n<li>Muscles hypertrophi&eacute;s: +2 au Mod. de FOR</li>\n<li>Silhouette filiforme: +4 au Mod. de DEX</li>\n<li>Silhouette massive: +5 aux tests de CON et r&eacute;duction des DM de 3 points (RD 3)</li>\n</ul>\n<p><sub><em>Il est impossible de b&eacute;n&eacute;ficier de deux effets de surpuissance en m&ecirc;me temps.</em></sub></p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -10958,8 +10958,8 @@
         "type": "capacity",
         "img": "icons/sundries/scrolls/scroll-plain-tan-red.webp",
         "data": {
-            "key": "souffle",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Le drakonide augmente ses valeurs de CON et de CHA de +2.</p>",
+            "key": "heritage-draconique",
+            "description": "<p>Le drakonide augmente ses valeurs de CON et de CHA de +2.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -11083,7 +11083,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "acrobate",
+            "key": "conjuration-d-armee",
             "description": "\n<p>Une fois par jour, l'invocateur peut conjurer une petite arm&eacute;e pour une dur&eacute;e maximum de [5 + Mod. de CHA] heures. Le sort ne peut &ecirc;tre utilis&eacute; qu'en rase campagne ou dans un espace clos d'au minimum 20 x 20 m&egrave;tres.</p>\n<p>Les cr&eacute;atures apparaissent dans une zone carr&eacute;e de 20 m&egrave;tres de cot&eacute;, centr&eacute;e sur l'invocateur. Elles peuvent ensuite se d&eacute;placer en formation, en occupant la m&ecirc;me surface (elles n'entrent pas dans les couloirs ou des b&acirc;timents exigus), jusqu'&agrave; une port&eacute;e de 200 m&egrave;tres.</p>\n<p>Les cr&eacute;atures attaquent les adversaires que l'invocateur leur d&eacute;signe (d&eacute;placement de 20 m&egrave;tres par tour, 3 km/h).</p>\n<p>L'arm&eacute;e inflige automatiquement 1d6 DM par tour (<strong>1d10 DM au rang 4 et 2d6 DM au rang 5</strong>) &agrave; chaque cible dans la zone.</p>\n<p>Une cible peut choisir de combattre l'arm&eacute;e par une action limit&eacute;e: cela lui permet de ne subir que la moiti&eacute; des DM pr&eacute;vus et d'infliger &agrave; son tour &agrave; l'arm&eacute;e des DM &eacute;gaux &agrave; son niveau + 1 (NC + 1 pour une cr&eacute;ature).</p>\n<p>Lorsque l'arm&eacute;e a subi un montant total de DM &eacute;gal au niveau de l'invocateur multipli&eacute; par 10, le sort prend fin.</p>\n<p>&nbsp;</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -11315,7 +11315,7 @@
         "data": {
             "description": "<p>L'ours du Rôdeur devient un spécimen en pleine possession de ses moyens. Ours noir : Init 15, <strong>DEF</strong> 17, PV [niveau x 5], attaque au contact = [niveau du  rôdeur+2], <strong>DM</strong> 1d6+5, <strong>FOR</strong> +5*, <strong>DEX</strong> +2, <strong>CON</strong> +5, <strong>INT</strong> -4, <strong>SAG</strong> +2, <strong>CHA</strong> -2\nExemple de variation de la Voie du compagnon animal.</p>",
             "source": "Chroniques Oubliées DRS",
-            "key": "animal-fabuleux",
+            "key": "animal-fabuleux-ours",
             "limited": false,
             "spell": false
         },
@@ -11347,8 +11347,8 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "souffle",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Le drakonide re&ccedil;oit un bonus de +1 en DEF.</p>",
+            "key": "ecailles-robustes",
+            "description": "<p>Le drakonide re&ccedil;oit un bonus de +1 en DEF.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -11620,7 +11620,7 @@
         "data": {
             "description": "<p>Lorsqu’elle tombe à 0 PV, la créature n’est pas définitivement détruite, elle est juste chassée et pourra se reconstituer en 24 heures. Parfois elle est simplement bannie dans un autre plan (démon ou élémentaire), d’autre fois, elle s’enfuit sous la forme d’un nuage de ténèbres (vampire). Il faut généralement un rituel spécial pour venir à bout de la créature.</p>",
             "source": "Chroniques Oubliées DRS",
-            "key": "immortel",
+            "key": "immortel-en",
             "limited": false,
             "spell": false
         },
@@ -11850,8 +11850,8 @@
         "type": "capacity",
         "img": "icons/sundries/scrolls/scroll-plain-tan-red.webp",
         "data": {
-            "key": "conjuration-renforcee",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Lorsqu'il utilise le sort de conjuration de pr&eacute;dateur, l'invocateur peu invoquer 1d4 pr&eacute;dateurs d'une cat&eacute;gorie en-dessous de son niveaumaximum ou 2d6 pr&eacute;dateurs de deux cat&eacute;gories en-dessous.</p>",
+            "key": "meute-de-predateurs",
+            "description": "<p>Lorsqu'il utilise le sort de conjuration de pr&eacute;dateur, l'invocateur peu invoquer 1d4 pr&eacute;dateurs d'une cat&eacute;gorie en-dessous de son niveaumaximum ou 2d6 pr&eacute;dateurs de deux cat&eacute;gories en-dessous.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -11922,7 +11922,7 @@
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
             "key": "coup-de-corne",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Un minotaure peut r&eacute;aliser une attaque de corne qui inflige [1d6 + Mod. de FOR] DM &agrave; la place d&rsquo;une attaque normale. Au prix d&rsquo;une action limit&eacute;e, il peut faire une attaque normale avec une arme de contact plus une attaque de corne.</p>",
+            "description": "<p>Un minotaure peut r&eacute;aliser une attaque de corne qui inflige [1d6 + Mod. de FOR] DM &agrave; la place d&rsquo;une attaque normale. Au prix d&rsquo;une action limit&eacute;e, il peut faire une attaque normale avec une arme de contact plus une attaque de corne.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -12209,7 +12209,7 @@
         "img": "icons/sundries/scrolls/scroll-plain-tan-red.webp",
         "data": {
             "key": "teleportation",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Les lutins peuvent se t&eacute;l&eacute;porter de 20 m&egrave;tres par action de mouvement. Ils doivent &ecirc;tre en mesure de voir leur lieu d&rsquo;arriv&eacute;e au d&eacute;but de la t&eacute;l&eacute;portation.</p>",
+            "description": "<p>Les lutins peuvent se t&eacute;l&eacute;porter de 20 m&egrave;tres par action de mouvement. Ils doivent &ecirc;tre en mesure de voir leur lieu d&rsquo;arriv&eacute;e au d&eacute;but de la t&eacute;l&eacute;portation.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,
@@ -12355,7 +12355,7 @@
         "data": {
             "description": "<p>Le Barbare se déplace en ligne droite d'au moins 5 mètres (20 mètres au maximum) et effectue une attaque au contact avec un bonus de +2 en attaque et +1d6 aux <strong>DM</strong>.</p>",
             "source": "Chroniques Oubliées DRS",
-            "key": "charge",
+            "key": "charge-barbare",
             "limited": true,
             "spell": false
         },
@@ -12388,7 +12388,7 @@
         "img": "icons/sundries/scrolls/scroll-plain-tan-red.webp",
         "data": {
             "key": "souffle",
-            "description": "<h1 style=\"border-bottom: 2px solid var(--color-underline-header);\">Description</h1>\n<p>Le joueur choisit un type de souffle pour son personnage parmifeu, froid, &eacute;lectricit&eacute; ou acide.</p>\n<p>Ce souffle inflige 2d6 DM par rang dans une zone conique de 10 m&egrave;tres de long sur 5 m&egrave;tres de large.</p>\n<p>Toutes les cr&eacute;atures affect&eacute;es peuvent diviser les DM par 2 si elles r&eacute;ussissent un test de DEX difficult&eacute; 12.</p>\n<p>Apr&eacute;s avoir utilis&eacute; son souffle, le drakonide doit attendre 1d4 tours avant de pouvoir l'utiliser &agrave; nouveau.</p>",
+            "description": "<p>Le joueur choisit un type de souffle pour son personnage parmifeu, froid, &eacute;lectricit&eacute; ou acide.</p>\n<p>Ce souffle inflige 2d6 DM par rang dans une zone conique de 10 m&egrave;tres de long sur 5 m&egrave;tres de large.</p>\n<p>Toutes les cr&eacute;atures affect&eacute;es peuvent diviser les DM par 2 si elles r&eacute;ussissent un test de DEX difficult&eacute; 12.</p>\n<p>Apr&eacute;s avoir utilis&eacute; son souffle, le drakonide doit attendre 1d4 tours avant de pouvoir l'utiliser &agrave; nouveau.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
             "type": null,

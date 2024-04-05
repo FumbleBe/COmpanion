@@ -58,7 +58,7 @@
         "type": "species",
         "img": "modules/CoFantasy/artwork/icons/races/Lutin-M.webp",
         "data": {
-            "key": "halfelin",
+            "key": "lutin",
             "description": "<p>Les lutins naissent dans les choux, source in&eacute;puisable de moquerie de la part des f&eacute;es &agrave; l&rsquo;endroit de leurs cong&eacute;n&egrave;res m&acirc;les. Les lutins vivent dans les for&ecirc;ts, les bois et les bosquets, se r&eacute;fugiant parfois dans un monde onirique parall&egrave;le auquel on acc&egrave;de par des portes invisibles.</p>\n<p>Pr&eacute;jug&eacute;s typiques : Les lutins et les f&eacute;es, c'est du pareil au m&ecirc;me; des nuisibles. Ca vole la nourriture, &ccedil;a fait des blagues et &ccedil;a dort. Des bouches inutiles a nourrir, si tu veux un animal de compagnie, prend plut&ocirc;t un chat, il sera plus reconnaisant, et videra la maison des mulots !</p>\n<p><strong>&Acirc;ge de d&eacute;part</strong> : 3+</p>\n<p><strong>Long&eacute;vit&eacute;</strong> :&nbsp;150 ans</p>\n<p><strong>Taille</strong> : 20 cm &agrave; 50 cm</p>\n<p><strong>Poids</strong> : 1 kg &agrave; 3 kg</p>\n<h2>Noms</h2>\n<p>Les lutions d&eacute;testent les r&egrave;gles et les conventions, et leur noms refl&egrave;tent ce caract&egrave;re. On trouve de tout, depuis Pierre-Hugues en passant pas Roc ou Poc. Quand ils ne changent pas de nom chaque matin!</p>\n<h2>Racial</h2>\n<p>-4 FOR, -2 CON, +4 DEX</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
@@ -282,7 +282,7 @@
         "type": "species",
         "img": "modules/CoFantasy/artwork/icons/races/Minotaure-M.webp",
         "data": {
-            "key": "demi-orque",
+            "key": "minotaure",
             "description": "<p>Le minotaure est une cr&eacute;ature mi-homme mi-taureau. Il est connu pour son sens de l&rsquo;orientation et ses explosions de rage. Les minotaures, les m&acirc;les en particuliers, sont des solitaires. Ils chassent dans les grandes plaines d&eacute;sertiques et vivent dans des grottes ou des souterrains.</p>\n<p>&nbsp;</p>\n<p><strong>&Acirc;ge de d&eacute;part</strong> :&nbsp;15+</p>\n<p><strong>Long&eacute;vit&eacute;</strong> :&nbsp;60 ans</p>\n<p><strong>Taille</strong> : 1.90 m &agrave; 2.30 m</p>\n<p><strong>Poids</strong> : 150 kg &agrave; 250 kg</p>\n<p>&nbsp;</p>\n<h2>Racial</h2>\n<p>+4 FOR, -4 INT, -2 CHA</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},

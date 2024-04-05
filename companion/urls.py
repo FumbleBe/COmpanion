@@ -6,6 +6,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from actors.views import *
 from rules.views import *
+from items.views import *
 
 
 router = routers.SimpleRouter()
@@ -14,7 +15,7 @@ router.register("capacities", CapacityViewset, basename="capacities")
 router.register("paths", PathViewset, basename="paths")
 router.register("profiles", ProfileViewset, basename="profiles")
 router.register("species", SpeciesViewset, basename="species")
-# router.register('article', ArticleViewset, basename='article')
+router.register('items', ItemViewset, basename='items')
 
 # router.register('admin/category', AdminCategoryViewset, basename='admin-category')
 # router.register('admin/article', AdminArticleViewset, basename='admin-article')
