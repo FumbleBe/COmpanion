@@ -63,6 +63,7 @@ class ItemSubtypeChoice(models.TextChoices):
 
 class ItemTrait(models.Model):
     """
+    It is a model cause we need it in a m2m relation
     Équipement
     Arme
     Protection
@@ -105,6 +106,6 @@ class SlotChoice(models.TextChoices):
 
 
 class ReloadChoice(models.TextChoices):
-    NOACTION = "noaction", "Pas d'action"
-    SIMPLE = "simple", "Action simple (S)"
-    LIMITED = "limited", "Action limitée (L)"
+    NOACTION = "", "Pas d'action"
+    SIMPLE = "s", "Action simple (S)"
+    LIMITED = "l", "Action limitée (L)"

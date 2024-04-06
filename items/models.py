@@ -19,7 +19,7 @@ class Category(models.Model):
 
 class AbstractItem(models.Model):
     name = models.CharField(max_length=255)
-    img = models.ImageField(upload_to="icons/items/",null=True, blank=True)
+    img = models.ImageField(upload_to="icons/items/", null=True, blank=True)
     subtype = models.CharField(max_length=100, choices=ItemSubtypeChoice.choices)
     trait = models.ManyToManyField(ItemTrait, blank=True)
     rarity = models.CharField(max_length=100, choices=RarityChoice.choices)
