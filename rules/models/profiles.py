@@ -4,6 +4,7 @@ from django.core.exceptions import ValidationError
 from rules.choices import Source
 from rules.models import Path
 
+
 class Profile(models.Model):
 
     name = models.CharField(max_length=255)
@@ -22,6 +23,7 @@ class Profile(models.Model):
     mpfactor = models.PositiveSmallIntegerField(default=0)
     paths = models.ManyToManyField(Path)
     prestige = models.BooleanField(default=False)
+    equipment = models.ManyToManyField(to="items.Item", blank=True)
 
     def __str__(self):
         return self.name

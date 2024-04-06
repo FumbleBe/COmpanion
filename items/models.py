@@ -19,7 +19,7 @@ class Category(models.Model):
 
 class AbstractItem(models.Model):
     name = models.CharField(max_length=255)
-    img = models.ImageField(null=True, blank=True)
+    img = models.ImageField(upload_to="icons/items/",null=True, blank=True)
     subtype = models.CharField(max_length=100, choices=ItemSubtypeChoice.choices)
     trait = models.ManyToManyField(ItemTrait, blank=True)
     rarity = models.CharField(max_length=100, choices=RarityChoice.choices)
@@ -36,7 +36,7 @@ class AbstractItem(models.Model):
     two_handed = models.BooleanField(default=False)  # property
     consumable = models.BooleanField(default=False)  # property
 
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True)
 
     protection = models.BooleanField(default=False)  # property
     def_tot = models.PositiveSmallIntegerField(default=0)
@@ -84,6 +84,9 @@ class Item(AbstractItem):
         blank=True,
     )
     access = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True)
+
+    def __str__(self):
+        return self.name
 
     def clean_fields(self, exclude=None):
         self.slug = slugify(self.name)
