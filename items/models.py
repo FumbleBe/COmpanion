@@ -39,7 +39,7 @@ class AbstractItem(models.Model):
     description = models.TextField(null=True, blank=True)
 
     protection = models.BooleanField(default=False)  # property
-    def_tot = models.PositiveSmallIntegerField(default=0)
+    def_tot = models.PositiveSmallIntegerField(default=0, blank=True)
     def_base = models.PositiveSmallIntegerField(default=0)
     def_bonus = models.PositiveSmallIntegerField(default=0)
     dr = models.BooleanField(default=False)  # property
@@ -47,7 +47,7 @@ class AbstractItem(models.Model):
 
     weapon = models.BooleanField(default=False)  # property
     dmg_tot = models.PositiveSmallIntegerField(default=0)
-    dmg_base = models.PositiveSmallIntegerField(default=0)
+    dmg_base = models.CharField(max_length=5)
     dmg_stat = models.CharField(max_length=100, choices=CaracChoice.choices)
     dmg_bonus = models.PositiveSmallIntegerField(default=0)
     mod = models.PositiveSmallIntegerField(default=0)

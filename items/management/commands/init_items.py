@@ -12,8 +12,17 @@ class Command(BaseCommand):
 
     help = "Initialize items for Chroniques Oubliées"
 
+    def if_null(self, value, default):
+        if value is None:
+            return default
+        elif value != "":
+            return value
+        else:
+            return default
+
     def handle(self, *args, **options):
         self.stdout.write(self.style.MIGRATE_HEADING(self.help))
+        Item.objects.all().delete()
 
         if Item.objects.all():
             self.stdout.write(self.style.WARNING("Some items already exists in DB !"))
@@ -31,9 +40,6 @@ class Command(BaseCommand):
 
             self.stdout.write(self.style.NOTICE("Importing Items..."))
 
-            for item in items:
-                _Item_total += 1
-
             # Get trait object
             _weapon = ItemTrait.objects.get(name="Arme")
             _equipment = ItemTrait.objects.get(name="Équipement")
@@ -41,22 +47,29 @@ class Command(BaseCommand):
             _ranged = ItemTrait.objects.get(name="À distance")
             _effects = ItemTrait.objects.get(name="Effet magique")
 
+            _drs = Source.objects.get(name="CO DRS")
+            _compagnon = Source.objects.get(name="CO Compagnon")
+            _vengeance = Source.objects.get(name="Vengeance")
+            _autre = Source.objects.get(name="Autre")
+
+            for item in items:
+                _Item_total += 1
+
             for item in items:
                 name = item["name"]
-                slug = slugify('name')
-
-                img_name = item[img].split("/")[-1]
+                slug = slugify(name)
+                img_name = item["img"].split("/")[-1]
                 img = "icons/items/" + img_name
 
                 source = item["data"]["source"]
                 if "Chroniques Oubliées DRS" in source:
-                    source = Source.objects.get(name="CO DRS")
+                    source = _drs
                 elif "Chroniques Oubliées Compagnon" in source:
-                    source = Source.objects.get(name="CO Compagnon")
+                    source = _compagnon
                 elif "Vengeance" in source:
-                    source = Source.objects.get(name="Vengeance")
+                    source = _vengeance
                 else:
-                    source = ""
+                    source = _autre
 
                 subtype = item["data"]["subtype"]
                 if subtype == "trapping":
@@ -83,34 +96,41 @@ class Command(BaseCommand):
                 price = item["data"]["price"]
                 value = item["data"]["value"]
 
-                equipment = ""
+                equipment = item["data"]["properties"]["equipment"]
                 stackable = item["data"]["properties"]["stackable"]
                 qty = item["data"]["qty"]
-                stacksize = item["data"]["stacksize"]
+                stacksize = self.if_null(item["data"]["stacksize"], 1)
                 deleteWhen0 = item["data"]["deleteWhen0"]
                 tailored = item["data"]["properties"]["tailored"]
                 two_handed = item["data"]["properties"]["2h"]
                 consumable = item["data"]["properties"]["consumable"]
-
                 description = item["data"]["description"]
-                protection = ""
+
+                protection = item["data"]["properties"]["protection"]
                 def_tot = item["data"]["def"]
                 def_base = item["data"]["defBase"]
                 def_bonus = item["data"]["defBonus"]
                 dr = item["data"]["properties"]["dr"]
                 dr_value = item["data"]["def"]
 
-                weapon = ""
-                dmg_tot = item["data"]["dmg"]
-                dmg_base = item["data"]["dmgBase"]
-                dmg_stat = item["data"]["dmgStat"].split(".")[1]
+                weapon = item["data"]["properties"]["weapon"]
+
+                dmg_tot = self.if_null(item["data"]["dmg"], 0)
+                dmg_base = self.if_null(item["data"]["dmgBase"], 0)
+                try:
+                    dmg_stat = item["data"]["dmgStat"].split(".")[1]
+                except IndexError:
+                    dmg_stat = ""
                 dmg_bonus = item["data"]["dmgBonus"]
                 mod = item["data"]["mod"]
-                skill = item["data"]["skill"].split(".")[1]
+                try:
+                    skill = item["data"]["skill"].split(".")[1]
+                except IndexError:
+                    skill = ""
                 skillBonus = item["data"]["skillBonus"]
                 critrange = item["data"]["critrange"]
 
-                ranged = ""
+                ranged = item["data"]["properties"]["ranged"]
                 range = item["data"]["range"]
                 reloadable = item["data"]["properties"]["reloadable"]
                 reload = item["data"]["reload"]
@@ -124,8 +144,7 @@ class Command(BaseCommand):
                 equipable = item["data"]["properties"]["equipable"]
                 worn = item["data"]["worn"]
                 slot = item["data"]["slot"]
-                access = ""
-                
+
                 _Item = Item.objects.create(
                     name = name,
                     slug = slug,
@@ -172,13 +191,13 @@ class Command(BaseCommand):
                     spell = spell,
                     equipable = equipable,
                     worn = worn,
-                    slot = slot,
-                    access = access,
+                    slot = slot
                 )
-                for trait in traits:
-                    _Item.add(trait)
+
+                for t in traits:
+                    _Item.trait.add(t)
                     _Item.save()
-                    
+
                 _Item_created += 1
 
             self.stdout.write(
