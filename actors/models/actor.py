@@ -82,6 +82,9 @@ class Actor(models.Model):
     SP = models.PositiveSmallIntegerField(default=0)
     CP = models.PositiveSmallIntegerField(default=0)
 
+    def __str__(self):
+        return self.name
+
 
 class Character(Actor):
     level = models.PositiveSmallIntegerField(default=1)

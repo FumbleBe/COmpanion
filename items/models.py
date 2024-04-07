@@ -117,3 +117,6 @@ class Equipment(AbstractItem):
 
     def clean_fields(self, exclude=None):
         self.slug = slugify(self.name)
+
+    def __str__(self):
+        return self.name
