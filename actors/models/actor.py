@@ -82,6 +82,11 @@ class Actor(models.Model):
     SP = models.PositiveSmallIntegerField(default=0)
     CP = models.PositiveSmallIntegerField(default=0)
 
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
+
     def __str__(self):
         return self.name
 
@@ -165,10 +170,10 @@ class Character(Actor):
     LP_max = models.PositiveSmallIntegerField(default=0)
 
     languages = models.ManyToManyField(to="actors.Languages", blank=True)
-    owner = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-    )
+    # owner = models.ForeignKey(
+    #     settings.AUTH_USER_MODEL,
+    #     on_delete=models.CASCADE,
+    # )
 
 
 class NPC(Actor):
