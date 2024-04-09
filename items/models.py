@@ -100,17 +100,17 @@ class Item(AbstractItem):
             )
 
 
-class Equipment(AbstractItem):
+class Inventory(AbstractItem):
     actor = models.ForeignKey(
         to="actors.Actor",
         on_delete=models.CASCADE,
-        related_name="equipments",
+        related_name="inventories",
     )
     slug = models.SlugField(unique=False)
     source = models.ForeignKey(
         Source,
         on_delete=models.PROTECT,
-        related_name="equipments",
+        related_name="inventories",
         null=True,
         blank=True,
     )

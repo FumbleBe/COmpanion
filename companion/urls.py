@@ -18,7 +18,7 @@ router.register("paths", PathViewset, basename="paths")
 router.register("profiles", ProfileViewset, basename="profiles")
 router.register("species", SpeciesViewset, basename="species")
 router.register("items", ItemViewset, basename="items")
-router.register(r"equipments/(?P<actor_id>[0-9]+)", EquipmentViewset, basename="equipments")
+router.register(r"inventories/(?P<actor_id>[0-9]+)", InventoryViewset, basename="inventories")
 
 # router.register('admin/category', AdminCategoryViewset, basename='admin-category')
 # router.register('admin/article', AdminArticleViewset, basename='admin-article')

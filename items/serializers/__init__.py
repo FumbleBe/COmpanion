@@ -1,2 +1,2 @@
 from .items import *
-from .equipments import *
+from .inventory import *

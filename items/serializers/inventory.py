@@ -1,11 +1,11 @@
 from rest_framework import serializers
 from django.utils.text import slugify
 
-from items.models import Equipment, Item
+from items.models import Inventory, Item
 from actors.models import Actor
 
 
-class EquipmentListSerializer(serializers.ModelSerializer):
+class InventoryListSerializer(serializers.ModelSerializer):
     # slug = serializers.SlugField(read_only=True)
 
     # def create(self, validated_data):
@@ -16,7 +16,7 @@ class EquipmentListSerializer(serializers.ModelSerializer):
     #     return super(EquipmentListSerializer, self).create(validated_data)
 
     class Meta:
-        model = Equipment
+        model = Inventory
         fields = ["name", "slug"]
 
 
@@ -27,7 +27,7 @@ class MultipleChoicesField(serializers.MultipleChoiceField):
         super(MultipleChoicesField, self).__init__(**kwargs)
 
 
-class EquipmentDetailSerializer(serializers.ModelSerializer):
+class InventoryDetailSerializer(serializers.ModelSerializer):
     slug = serializers.SlugField(read_only=True)
     actor = serializers.CharField(read_only=True)
     items = MultipleChoicesField()
@@ -37,8 +37,8 @@ class EquipmentDetailSerializer(serializers.ModelSerializer):
         actor_id = self.context["request"].parser_context["kwargs"]["actor_id"]
         actor = Actor.objects.get(id=actor_id)
         validated_data["actor"] = actor
-        return super(EquipmentListSerializer, self).create(validated_data)
+        return super(InventoryDetailSerializer, self).create(validated_data)
 
     class Meta:
-        model = Equipment
+        model = Inventory
         fields = ['slug', 'actor', 'items']

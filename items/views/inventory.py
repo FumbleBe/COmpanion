@@ -2,18 +2,18 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 
 from companion.api.mixins import MultipleSerializerMixin
-from items.models import Equipment
+from items.models import Inventory
 from actors.models import Actor
-from items.serializers import EquipmentListSerializer, EquipmentDetailSerializer
+from items.serializers import InventoryListSerializer, InventoryDetailSerializer
 from companion.api.permissions import IsDmOrReadOnly
 from django.shortcuts import get_object_or_404
 from django.http import Http404
 
 
-class EquipmentViewset(MultipleSerializerMixin, ModelViewSet):
-    queryset = Equipment.objects.all()
-    serializer_class = EquipmentListSerializer
-    detail_serializer_class = EquipmentDetailSerializer
+class InventoryViewset(MultipleSerializerMixin, ModelViewSet):
+    queryset = Inventory.objects.all()
+    serializer_class = InventoryListSerializer
+    detail_serializer_class = InventoryDetailSerializer
 
     permission_classes = [IsAuthenticated]
 
@@ -23,10 +23,10 @@ class EquipmentViewset(MultipleSerializerMixin, ModelViewSet):
         actor = get_object_or_404(Actor, id=actor_id)
         if actor_id is not None:
             if self.request.user.groups.filter(name="DungeonMaster").exists():
-                return Equipment.objects.filter(actor=actor)
+                return Inventory.objects.filter(actor=actor)
             try: 
                 if self.request.user == actor.owner:
-                    return Equipment.objects.filter(actor=actor)
+                    return Inventory.objects.filter(actor=actor)
                 else:
                     raise Http404
             except AttributeError:
