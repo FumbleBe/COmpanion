@@ -6,26 +6,27 @@ from rules.serializers import PathListSerializer, CapacityListSerializer
 
 
 class SpeciesListSerializer(serializers.ModelSerializer):
-    slug = serializers.SlugField(read_only=True)
+    # slug = serializers.SlugField(write_only=True)
 
-    def create(self, validated_data):
-        validated_data["slug"] = slugify(validated_data["name"])
-        return super(SpeciesListSerializer, self).create(validated_data)
+    # def create(self, validated_data):
+    #     validated_data["slug"] = slugify(validated_data["name"])
+    #     return super(SpeciesListSerializer, self).create(validated_data)
 
     class Meta:
         model = Species
-        fields = ["name", "img", "description", "source"]
+        fields = ["id", "name", "slug", "img", "description", "source"]
 
 
 class SpeciesDetailSerializer(serializers.ModelSerializer):
-    slug = serializers.SlugField(read_only=True)
+    # slug = serializers.SlugField(read_only=True)
     paths = PathListSerializer(many=True, read_only=True)
     capacities = CapacityListSerializer(many=True, read_only=True)
 
-    def create(self, validated_data):
-        validated_data["slug"] = slugify(validated_data["name"])
-        return super(SpeciesDetailSerializer, self).create(validated_data)
+    # def create(self, validated_data):
+    #     validated_data["slug"] = slugify(validated_data["name"])
+    #     return super(SpeciesDetailSerializer, self).create(validated_data)
 
     class Meta:
         model = Species
         fields = "__all__"
+        # exclude = ["slug"]

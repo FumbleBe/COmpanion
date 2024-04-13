@@ -8,8 +8,8 @@ from rules.models import Path
 class Profile(models.Model):
 
     name = models.CharField(max_length=255)
-    img = models.ImageField()
-    slug = models.SlugField()
+    img = models.ImageField(blank=True, null=True)
+    slug = models.SlugField(unique=True, blank=True)
     description = models.TextField(blank=False)
     source = models.ForeignKey(
         Source,
@@ -28,13 +28,15 @@ class Profile(models.Model):
     def __str__(self):
         return self.name
 
-    def clean_fields(self, exclude=None):
-        self.slug = slugify(self.name)
-        if Profile.objects.filter(slug=self.slug).exclude(pk=self.pk).exists():
-            raise ValidationError(
-                {
-                    "name": [
-                        "Ce profil existe déjà !",
-                    ]
-                }
-            )
+    def save(self, *args, **kwargs):
+        if self.slug is None:
+            self.slug = slugify(self.name)
+            if Profile.objects.filter(slug=self.slug).exclude(pk=self.pk).exists():
+                raise ValidationError(
+                    {
+                        "name": [
+                            "Le profil '{}' existe déjà !".format(self.name),
+                        ]
+                    }
+                )
+        super(Profile, self).save(*args, **kwargs)

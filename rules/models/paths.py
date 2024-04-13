@@ -8,8 +8,8 @@ from rules.models import Capacity
 class Path(models.Model):
 
     name = models.CharField(max_length=255)
-    slug = models.SlugField()
-    img = models.ImageField()
+    slug = models.SlugField(unique=True, blank=True)
+    img = models.ImageField(blank=True, null=True)
     description = models.TextField(blank=False)
     source = models.ForeignKey(
         Source,
@@ -26,13 +26,15 @@ class Path(models.Model):
     def __str__(self):
         return self.name
 
-    def clean_fields(self, exclude=None):
-        self.slug = slugify(self.name)
-        if Path.objects.filter(slug=self.slug).exclude(pk=self.pk).exists():
-            raise ValidationError(
-                {
-                    "name": [
-                        "Cette voie existe déjà !",
-                    ]
-                }
-            )
+    def save(self, *args, **kwargs):
+        if self.slug is None:
+            self.slug = slugify(self.name)
+            if Path.objects.filter(slug=self.slug).exclude(pk=self.pk).exists():
+                raise ValidationError(
+                    {
+                        "name": [
+                            "La voie '{}' existe déjà !".format(self.name),
+                        ]
+                    }
+                )
+        super(Path, self).save(*args, **kwargs)

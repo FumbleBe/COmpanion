@@ -58,6 +58,11 @@ class Command(BaseCommand):
             enc_capacities = json.load(f_enc_capacities)
             species = json.load(f_species)
 
+            _drs = Source.objects.get(name="CO DRS")
+            _compagnon = Source.objects.get(name="CO Compagnon")
+            _vengeance = Source.objects.get(name="Vengeance")
+            _autre = Source.objects.get(name="Autre")
+
             self.stdout.write(self.style.NOTICE("Importing Rules..."))
 
             for profile in profiles:
@@ -79,12 +84,13 @@ class Command(BaseCommand):
                 description = profile["data"]["description"]
                 source = profile["data"]["source"]
                 if "Chroniques Oubliées DRS" in source:
-                    source = "drs"
+                    source = _drs
                 elif "Chroniques Oubliées Compagnon" in source:
-                    source = "compagnon"
-
+                    source = _compagnon
+                elif "Vengeance" in source:
+                    source = _vengeance
                 else:
-                    source = ""
+                    source = _autre
 
                 dv = profile["data"]["dv"]
                 spellcasting = profile["data"]["spellcasting"].upper()
@@ -111,12 +117,13 @@ class Command(BaseCommand):
                             source = path["data"]["source"]
 
                             if "Chroniques Oubliées DRS" in source:
-                                source = "drs"
+                                source = _drs
                             elif "Chroniques Oubliées Compagnon" in source:
-                                source = "compagnon"
-
+                                source = _compagnon
+                            elif "Vengeance" in source:
+                                source = _vengeance
                             else:
-                                source = ""
+                                source = _autre
 
                             _Path = Path.objects.create(
                                 name=name,
@@ -137,12 +144,13 @@ class Command(BaseCommand):
                                         description = capacity["data"]["description"]
                                         source = capacity["data"]["source"]
                                         if "Chroniques Oubliées DRS" in source:
-                                            source = "drs"
+                                            source = _drs
                                         elif "Chroniques Oubliées Compagnon" in source:
-                                            source = "compagnon"
-
+                                            source = _compagnon
+                                        elif "Vengeance" in source:
+                                            source = _vengeance
                                         else:
-                                            source = ""
+                                            source = _autre
 
                                         spell = capacity["data"]["spell"]
                                         limited = capacity["data"]["limited"]
@@ -151,10 +159,12 @@ class Command(BaseCommand):
                                             Capacity.objects.get_or_create(
                                                 name=name,
                                                 slug=slug,
-                                                description=description,
-                                                source=source,
-                                                spell=spell,
-                                                limited=limited,
+                                                defaults={
+                                                    "description": description,
+                                                    "source": source,
+                                                    "spell": spell,
+                                                    "limited": limited,
+                                                },
                                             )
                                         )
                                         if created:
@@ -170,12 +180,13 @@ class Command(BaseCommand):
                 source = path["data"]["source"]
 
                 if "Chroniques Oubliées DRS" in source:
-                    source = "drs"
+                    source = _drs
                 elif "Chroniques Oubliées Compagnon" in source:
-                    source = "compagnon"
-
+                    source = _compagnon
+                elif "Vengeance" in source:
+                    source = _vengeance
                 else:
-                    source = ""
+                    source = _autre
 
                 _Path = Path.objects.create(
                     name=name,
@@ -195,12 +206,13 @@ class Command(BaseCommand):
                             description = capacity["data"]["description"]
                             source = capacity["data"]["source"]
                             if "Chroniques Oubliées DRS" in source:
-                                source = "drs"
+                                source = _drs
                             elif "Chroniques Oubliées Compagnon" in source:
-                                source = "compagnon"
-
+                                source = _compagnon
+                            elif "Vengeance" in source:
+                                source = _vengeance
                             else:
-                                source = ""
+                                source = _autre
 
                             spell = capacity["data"]["spell"]
                             limited = capacity["data"]["limited"]
@@ -208,10 +220,12 @@ class Command(BaseCommand):
                             _Capacity, created = Capacity.objects.get_or_create(
                                 name=name,
                                 slug=slug,
-                                description=description,
-                                source=source,
-                                spell=spell,
-                                limited=limited,
+                                defaults={
+                                    "description": description,
+                                    "source": source,
+                                    "spell": spell,
+                                    "limited": limited,
+                                },
                             )
                             if created:
                                 _Capacity_created += 1
@@ -226,12 +240,13 @@ class Command(BaseCommand):
                             description = capacity["data"]["description"]
                             source = capacity["data"]["source"]
                             if "Chroniques Oubliées DRS" in source:
-                                source = "drs"
+                                source = _drs
                             elif "Chroniques Oubliées Compagnon" in source:
-                                source = "compagnon"
-
+                                source = _compagnon
+                            elif "Vengeance" in source:
+                                source = _vengeance
                             else:
-                                source = ""
+                                source = _autre
 
                             spell = capacity["data"]["spell"]
                             limited = capacity["data"]["limited"]
@@ -257,12 +272,13 @@ class Command(BaseCommand):
                 description = race["data"]["description"]
                 source = race["data"]["source"]
                 if "Chroniques Oubliées DRS" in source:
-                    source = "drs"
+                    source = _drs
                 elif "Chroniques Oubliées Compagnon" in source:
-                    source = "compagnon"
-
+                    source = _compagnon
+                elif "Vengeance" in source:
+                    source = _vengeance
                 else:
-                    source = ""
+                    source = _autre
 
                 STR = race["data"]["bonuses"]["str"]
                 DEX = race["data"]["bonuses"]["dex"]
@@ -295,12 +311,13 @@ class Command(BaseCommand):
                             source = path["data"]["source"]
 
                             if "Chroniques Oubliées DRS" in source:
-                                source = "drs"
+                                source = _drs
                             elif "Chroniques Oubliées Compagnon" in source:
-                                source = "compagnon"
-
+                                source = _compagnon
+                            elif "Vengeance" in source:
+                                source = _vengeance
                             else:
-                                source = ""
+                                source = _autre
 
                             _Path = Path.objects.create(
                                 name=name,
@@ -321,12 +338,13 @@ class Command(BaseCommand):
                                         description = capacity["data"]["description"]
                                         source = capacity["data"]["source"]
                                         if "Chroniques Oubliées DRS" in source:
-                                            source = "drs"
+                                            source = _drs
                                         elif "Chroniques Oubliées Compagnon" in source:
-                                            source = "compagnon"
-
+                                            source = _compagnon
+                                        elif "Vengeance" in source:
+                                            source = _vengeance
                                         else:
-                                            source = ""
+                                            source = _autre
 
                                         spell = capacity["data"]["spell"]
                                         limited = capacity["data"]["limited"]
@@ -335,10 +353,12 @@ class Command(BaseCommand):
                                             Capacity.objects.get_or_create(
                                                 name=name,
                                                 slug=slug,
-                                                description=description,
-                                                source=source,
-                                                spell=spell,
-                                                limited=limited,
+                                                defaults={
+                                                    "description": description,
+                                                    "source": source,
+                                                    "spell": spell,
+                                                    "limited": limited,
+                                                }
                                             )
                                         )
                                         if created:
@@ -356,12 +376,13 @@ class Command(BaseCommand):
                             description = capacity["data"]["description"]
                             source = capacity["data"]["source"]
                             if "Chroniques Oubliées DRS" in source:
-                                source = "drs"
+                                source = _drs
                             elif "Chroniques Oubliées Compagnon" in source:
-                                source = "compagnon"
-
+                                source = _compagnon
+                            elif "Vengeance" in source:
+                                source = _vengeance
                             else:
-                                source = ""
+                                source = _autre
 
                             spell = capacity["data"]["spell"]
                             limited = capacity["data"]["limited"]
@@ -369,10 +390,12 @@ class Command(BaseCommand):
                             _Capacity, created = Capacity.objects.get_or_create(
                                 name=name,
                                 slug=slug,
-                                description=description,
-                                source=source,
-                                spell=spell,
-                                limited=limited,
+                                defaults={
+                                    "description": description,
+                                    "source": source,
+                                    "spell": spell,
+                                    "limited": limited,
+                                },
                             )
                             if created:
                                 _Capacity_created += 1
@@ -386,12 +409,13 @@ class Command(BaseCommand):
                 description = capacity["data"]["description"]
                 source = capacity["data"]["source"]
                 if "Chroniques Oubliées DRS" in source:
-                    source = "drs"
+                    source = _drs
                 elif "Chroniques Oubliées Compagnon" in source:
-                    source = "compagnon"
-
+                    source = _compagnon
+                elif "Vengeance" in source:
+                    source = _vengeance
                 else:
-                    source = ""
+                    source = _autre
 
                 spell = capacity["data"]["spell"]
                 limited = capacity["data"]["limited"]
@@ -414,12 +438,13 @@ class Command(BaseCommand):
                 description = capacity["data"]["description"]
                 source = capacity["data"]["source"]
                 if "Chroniques Oubliées DRS" in source:
-                    source = "drs"
+                    source = _drs
                 elif "Chroniques Oubliées Compagnon" in source:
-                    source = "compagnon"
-
+                    source = _compagnon
+                elif "Vengeance" in source:
+                    source = _vengeance
                 else:
-                    source = ""
+                    source = _autre
 
                 spell = capacity["data"]["spell"]
                 limited = capacity["data"]["limited"]
@@ -427,10 +452,12 @@ class Command(BaseCommand):
                 _Capacity, created = Capacity.objects.get_or_create(
                     name=name,
                     slug=slug,
-                    description=description,
-                    source=source,
-                    spell=spell,
-                    limited=limited,
+                    defaults={
+                        "description": description,
+                        "source": source,
+                        "spell": spell,
+                        "limited": limited,
+                    },
                 )
                 if created:
                     _Capacity_created += 1

@@ -9,7 +9,7 @@ class Species(models.Model):
 
     name = models.CharField(max_length=255)
     img = models.ImageField(blank=True, null=True)
-    slug = models.SlugField()
+    slug = models.SlugField(unique=True, blank=True)
     description = models.TextField(blank=False)
     source = models.ForeignKey(
         Source,
@@ -30,16 +30,19 @@ class Species(models.Model):
     def __str__(self):
         return self.name
 
-    def clean_fields(self, exclude=None):
-        self.slug = slugify(self.name)
-        if Species.objects.filter(slug=self.slug).exclude(pk=self.pk).exists():
-            raise ValidationError(
-                {
-                    "name": [
-                        "Cette race existe déjà !",
-                    ]
-                }
-            )
+    def save(self, *args, **kwargs):
+        if self.slug is None:
+            self.slug = slugify(self.name)
+            if Species.objects.filter(slug=self.slug).exclude(pk=self.pk).exists():
+                raise ValidationError(
+                    {
+                        "name": [
+                            "La race '{}' existe déjà !".format(self.name),
+                        ]
+                    }
+                )
+        super(Species, self).save(*args, **kwargs)
+        
 
     class Meta:
         verbose_name_plural = "Species"
