@@ -1,5 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 
 from companion.api.mixins import MultipleSerializerMixin
 from items.models import Inventory, Item
@@ -15,11 +16,11 @@ from django.http import Http404
 from django.utils.text import slugify
 
 
-class InventoryViewset(MultipleSerializerMixin, ModelViewSet):
+class InventoryViewset(ModelViewSet):
     queryset = Inventory.objects.all()
     serializer_class = InventoryListSerializer
     detail_serializer_class = InventoryDetailSerializer
-    creation_serialzier_class = InventoryCreateSerializer
+    # creation_serialzier_class = InventoryCreateSerializer
 
     permission_classes = [IsAuthenticated]
 
@@ -39,6 +40,16 @@ class InventoryViewset(MultipleSerializerMixin, ModelViewSet):
                 raise Http404
         else:
             raise
+
+    def get_serializer_class(self):
+        if self.action == "create":
+            return InventoryCreateSerializer
+        if self.action == "list":
+            return InventoryListSerializer
+        if self.action == "retrieve" or "update":
+            return InventoryDetailSerializer
+        else:
+            return InventoryListSerializer
 
     def copy_item_to_inventory(self, item, actor):
         inventory = Inventory()
@@ -78,7 +89,10 @@ class InventoryViewset(MultipleSerializerMixin, ModelViewSet):
 
         # del validated_data['item']
 
-        return super().create(request, *args, **kwargs)
+        # return super().create(request, *args, **kwargs)
+        return Response(
+            status=201
+        )
 
     # def create(self, request, *args, **kwargs):
     #     # items = self.request.query_params.get("items")

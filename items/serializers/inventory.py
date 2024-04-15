@@ -19,7 +19,7 @@ class InventoryListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Inventory
-        fields = ["name", "slug"]
+        fields = ["id", "name", "slug"]
 
 
 class ItemChoicesField(serializers.ChoiceField):
@@ -32,7 +32,7 @@ class ItemChoicesField(serializers.ChoiceField):
 class InventoryCreateSerializer(serializers.ModelSerializer):
     # slug = serializers.SlugField(read_only=True)
     # actor = serializers.CharField(write_only=True)
-    item = ItemChoicesField(write_only=True)
+    item = ItemChoicesField()
 
     # def copy_item_to_inventory(item):
     #     inventory = Inventory()
@@ -45,7 +45,6 @@ class InventoryCreateSerializer(serializers.ModelSerializer):
     #     inventory.save()
 
     # def create(self, validated_data):
-    #     pass
     #     item_id = validated_data["item"]
     #     item = get_object_or_404(Item, id=item_id)
 
