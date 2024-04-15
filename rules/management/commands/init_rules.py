@@ -125,13 +125,14 @@ class Command(BaseCommand):
                             else:
                                 source = _autre
 
-                            _Path = Path.objects.create(
+                            _Path, created = Path.objects.get_or_create(
                                 name=name,
                                 slug=slug,
-                                description=description,
-                                source=source,
+                                defaults={"description": description, "source": source},
                             )
-                            _Path_created += 1
+                            if created:
+                                _Path_created += 1
+
                             _Profile.paths.add(_Path)
                             _Profile.save()
 
@@ -188,14 +189,17 @@ class Command(BaseCommand):
                 else:
                     source = _autre
 
-                _Path = Path.objects.create(
+                _Path, created = Path.objects.get_or_create(
                     name=name,
                     slug=slug,
-                    description=description,
-                    source=source,
-                    encounter=True,
+                    defaults={
+                        "description": description,
+                        "source": source,
+                        "encounter": True,
+                    },
                 )
-                _enc_Path_created += 1
+                if created:
+                    _enc_Path_created += 1
 
                 for _capacity in path["data"]["capacities"]:
                     _id_cap = _capacity["_id"]
@@ -319,13 +323,14 @@ class Command(BaseCommand):
                             else:
                                 source = _autre
 
-                            _Path = Path.objects.create(
+                            _Path, created = Path.objects.get_or_create(
                                 name=name,
                                 slug=slug,
-                                description=description,
-                                source=source,
+                                defaults={"description": description, "source": source},
                             )
-                            _Path_created += 1
+                            if created:
+                                _Path_created += 1
+
                             _Species.paths.add(_Path)
                             _Species.save()
 
@@ -358,7 +363,7 @@ class Command(BaseCommand):
                                                     "source": source,
                                                     "spell": spell,
                                                     "limited": limited,
-                                                }
+                                                },
                                             )
                                         )
                                         if created:

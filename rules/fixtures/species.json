@@ -453,7 +453,7 @@
         "type": "species",
         "img": "modules/CoFantasy/artwork/icons/races/Drakonide-M.webp",
         "data": {
-            "key": "demi-orque",
+            "key": "drakonide",
             "description": "<p>Les drakonides sont des humano&iuml;des robustes mi-hommes, mi-dragons. Cr&eacute;&eacute;s pour servir les grands vers, ils sont d&eacute;sormais &eacute;mancip&eacute;s de leurs ma&icirc;tres, mais ils ont conserv&eacute; de leur origine un sens de la loyaut&eacute; et de l&rsquo;honneur qu&rsquo;il leur est impossible de renier. Fiers et perfectionnistes, les drakonides parcourent le monde &agrave; la recherche de l&rsquo;excellence.</p>\n<p>Pr&eacute;jug&eacute;s typiques : Le sens de l'honneur exacerb&eacute; de ces fanatiques les rend tout aussi dangereux pour leurs amis que pour leurs ennemis. Toutefois, cela les rend pr&eacute;visibles et faciles &agrave; manipuler.</p>\n<p><strong>&Acirc;ge de d&eacute;part</strong> : 15 ans</p>\n<p><strong>Long&eacute;vit&eacute;</strong> :&nbsp; 80 ans</p>\n<p><strong>Taille</strong> :&nbsp; 1.80 m &agrave;&nbsp; 2.30 m</p>\n<p><strong>Poids</strong> :&nbsp; 100 kg &agrave;&nbsp; 150 kg</p>\n<p>&nbsp;</p>\n<h2>Racial</h2>\n<p>+2 FOR, -2 SAG</p>",
             "source": "Chroniques Oubliées",
             "moduleData": {},
@@ -559,7 +559,7 @@
         "type": "species",
         "img": "modules/CoFantasy/artwork/icons/races/Ame_Forgee-M.webp",
         "data": {
-            "key": "halfelin",
+            "key": "ame-forgee",
             "description": "<p>Les &acirc;mes-forg&eacute;es constituent un peuple cr&eacute;&eacute; il y a bien longtemps dans un seul et unique but : faire la guerre. Ce sont des cr&eacute;atures m&eacute;caniques, n&eacute;es de la fusion du m&eacute;tal et d&rsquo;une magie d&eacute;sormais perdue.</p>\n<p>Pr&eacute;jug&eacute;s typiques : Les &acirc;mes-forg&eacute;es apparaissent souvent, perdues, sans souvenir, en bordure de la For&ecirc;t Sombre et parfois encore dans la Baronnie du Bordant ou le Protectorat de Fer. Cela laisse &agrave; penser qu'elles furent utilis&eacute;es, il y a bien longtemps, dans les guerres du Roi-Sorcier de Tor-Angul. Mais dans quel camp, personne ne le sait plus.</p>\n<p><strong>&Acirc;ge de d&eacute;part</strong> : 0 &agrave; 5 ans (Les &acirc;mes forg&eacute;es sont d&eacute;j&agrave; adulte lorsque leur vie commence)</p>\n<p><strong>Long&eacute;vit&eacute;</strong> :&nbsp;150 ans</p>\n<p><strong>Taille</strong> : 1.30 m &agrave; 2.10 m</p>\n<p><strong>Poids</strong> : 100 kg &agrave; 300 kg</p>\n<h2>Noms</h2>\n<p>Les noms des &acirc;mes-forg&eacute;es sont tr&eacute;s simple. Ils sont en g&eacute;n&eacute;ral \"baptis&eacute;s\" par la premi&egrave;re personne qui les rencontre. Il s'agit g&eacute;n&eacute;ralement de noms unisexes.</p>\n<p>Abattoir, Blocus, Burin, Claym, Durandal, Enclume, Ferraille, Rouille, etc.</p>\n<h2>Racial</h2>\n<p>+2 CON, -2 CHA</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},

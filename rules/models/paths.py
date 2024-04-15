@@ -27,7 +27,7 @@ class Path(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        if self.slug is None:
+        if self.slug is None or "":
             self.slug = slugify(self.name)
             if Path.objects.filter(slug=self.slug).exclude(pk=self.pk).exists():
                 raise ValidationError(

@@ -6285,7 +6285,7 @@
         "type": "capacity",
         "img": "modules/CoFantasy/artwork/icons/capacities/scroll-plain-tan-red.webp",
         "data": {
-            "key": "sens-developpes",
+            "key": "sens-developpes-invocateur",
             "description": "\n<p>Capable de percevoir avec les sens de son familier, l'invocateur am&eacute;liore grandement sa vigilance. Il obtient un bonus de +5 &agrave; tous les tests de perception (SAG) et peut voir dans le noir comme s'il &eacute;tait dans la p&eacute;nombre jusqu'&agrave; une distance de 20m. S'il poss&egrave;de d&eacute;ja cette capacit&eacute;, la distance est doubl&eacute;e.</p>",
             "source": "Chroniques Oubliées Compagnon",
             "moduleData": {},
