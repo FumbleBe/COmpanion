@@ -1,10 +1,14 @@
-from django.db import models, transaction
+from django.db import models
 from django.conf import settings
-from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes.fields import GenericRelation
-from django.contrib.contenttypes.fields import GenericForeignKey
 
-from rules.choices import CaracChoice, SizeChoice, GenderChoice
+from rules.choices import (
+    CaracChoice,
+    SizeChoice,
+    GenderChoice,
+    CategoryChoice,
+    ArchetypeChoice,
+    BossChoice,
+)
 
 
 class Actor(models.Model):
@@ -77,11 +81,14 @@ class Actor(models.Model):
     CHA_skillbonus = models.SmallIntegerField(default=0)
     CHA_skillmalus = models.SmallIntegerField(default=0)
 
+    languages = models.ManyToManyField(to="actors.Languages", blank=True)
+
     PP = models.PositiveSmallIntegerField(default=0)
     GP = models.PositiveSmallIntegerField(default=0)
     SP = models.PositiveSmallIntegerField(default=0)
     CP = models.PositiveSmallIntegerField(default=0)
 
+    # Owner is here because items are attached directly to actors
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -91,29 +98,31 @@ class Actor(models.Model):
         return self.name
 
 
-class Character(Actor):
+class AbstractPJ(Actor):
     level = models.PositiveSmallIntegerField(default=1)
-    gender = models.CharField(max_length=100, choices=GenderChoice.choices)
+    gender = models.CharField(
+        max_length=100, choices=GenderChoice.choices, default="NULL"
+    )
     age = models.PositiveSmallIntegerField(default=1)
     weight = models.PositiveSmallIntegerField(default=1)
     height = models.PositiveSmallIntegerField(default=1)
     eyes = models.CharField(max_length=255, null=True, blank=True)
     hair = models.CharField(max_length=255, null=True, blank=True)
     background = models.TextField(blank=True)
-    species = models.ForeignKey(
-        "rules.Species",
-        on_delete=models.PROTECT,
-        related_name="characters",
-        null=True,
-        blank=True,
-    )
-    profile = models.ForeignKey(
-        "rules.Profile",
-        on_delete=models.PROTECT,
-        related_name="characters",
-        null=True,
-        blank=True,
-    )
+    # species = models.ForeignKey(
+    #     "rules.Species",
+    #     on_delete=models.PROTECT,
+    #     related_name="characters",
+    #     null=True,
+    #     blank=True,
+    # )
+    # profile = models.ForeignKey(
+    #     "rules.Profile",
+    #     on_delete=models.PROTECT,
+    #     related_name="characters",
+    #     null=True,
+    #     blank=True,
+    # )
 
     melee_enabled = models.BooleanField(default=True)
     melee_base = models.PositiveSmallIntegerField(default=10)
@@ -121,7 +130,9 @@ class Character(Actor):
     melee_malus = models.PositiveSmallIntegerField(default=0)
     melee_mod = models.PositiveSmallIntegerField(default=0)
     melee_dm_bonus = models.PositiveSmallIntegerField(default=0)
-    melee_stat = models.CharField(max_length=3, choices=CaracChoice.choices)
+    melee_stat = models.CharField(
+        max_length=3, choices=CaracChoice.choices, default="STR"
+    )
 
     ranged_enabled = models.BooleanField(default=True)
     ranged_base = models.PositiveSmallIntegerField(default=10)
@@ -129,7 +140,9 @@ class Character(Actor):
     ranged_malus = models.PositiveSmallIntegerField(default=0)
     ranged_mod = models.PositiveSmallIntegerField(default=0)
     ranged_dm_bonus = models.PositiveSmallIntegerField(default=0)
-    ranged_stat = models.CharField(max_length=3, choices=CaracChoice.choices)
+    ranged_stat = models.CharField(
+        max_length=3, choices=CaracChoice.choices, default="DEX"
+    )
 
     magic_enabled = models.BooleanField(default=True)
     magic_base = models.PositiveSmallIntegerField(default=10)
@@ -137,7 +150,9 @@ class Character(Actor):
     magic_malus = models.PositiveSmallIntegerField(default=0)
     magic_mod = models.PositiveSmallIntegerField(default=0)
     magic_dm_bonus = models.PositiveSmallIntegerField(default=0)
-    magic_stat = models.CharField(max_length=3, choices=CaracChoice.choices)
+    magic_stat = models.CharField(
+        max_length=3, choices=CaracChoice.choices, default="INT"
+    )
 
     init_base = models.PositiveSmallIntegerField(default=0)
     init_bonus = models.PositiveSmallIntegerField(default=0)
@@ -169,31 +184,196 @@ class Character(Actor):
     LP_value = models.PositiveSmallIntegerField(default=0)
     LP_max = models.PositiveSmallIntegerField(default=0)
 
-    languages = models.ManyToManyField(to="actors.Languages", blank=True)
+    class Meta:
+        abstract = True
+
+
+class Character(AbstractPJ):
+    species = models.ForeignKey(
+        "rules.Species",
+        on_delete=models.PROTECT,
+        related_name="characters",
+        null=True,
+        blank=True,
+    )
+    profile = models.ForeignKey(
+        "rules.Profile",
+        on_delete=models.PROTECT,
+        related_name="characters",
+        null=True,
+        blank=True,
+    )
+    # level = models.PositiveSmallIntegerField(default=1)
+    # gender = models.CharField(max_length=100, choices=GenderChoice.choices)
+    # age = models.PositiveSmallIntegerField(default=1)
+    # weight = models.PositiveSmallIntegerField(default=1)
+    # height = models.PositiveSmallIntegerField(default=1)
+    # eyes = models.CharField(max_length=255, null=True, blank=True)
+    # hair = models.CharField(max_length=255, null=True, blank=True)
+    # background = models.TextField(blank=True)
+    # species = models.ForeignKey(
+    #     "rules.Species",
+    #     on_delete=models.PROTECT,
+    #     related_name="characters",
+    #     null=True,
+    #     blank=True,
+    # )
+    # profile = models.ForeignKey(
+    #     "rules.Profile",
+    #     on_delete=models.PROTECT,
+    #     related_name="characters",
+    #     null=True,
+    #     blank=True,
+    # )
+
+    # melee_enabled = models.BooleanField(default=True)
+    # melee_base = models.PositiveSmallIntegerField(default=10)
+    # melee_bonus = models.PositiveSmallIntegerField(default=0)
+    # melee_malus = models.PositiveSmallIntegerField(default=0)
+    # melee_mod = models.PositiveSmallIntegerField(default=0)
+    # melee_dm_bonus = models.PositiveSmallIntegerField(default=0)
+    # melee_stat = models.CharField(
+    #     max_length=3, choices=CaracChoice.choices, default="STR"
+    # )
+
+    # ranged_enabled = models.BooleanField(default=True)
+    # ranged_base = models.PositiveSmallIntegerField(default=10)
+    # ranged_bonus = models.PositiveSmallIntegerField(default=0)
+    # ranged_malus = models.PositiveSmallIntegerField(default=0)
+    # ranged_mod = models.PositiveSmallIntegerField(default=0)
+    # ranged_dm_bonus = models.PositiveSmallIntegerField(default=0)
+    # ranged_stat = models.CharField(
+    #     max_length=3, choices=CaracChoice.choices, default="DEX"
+    # )
+
+    # magic_enabled = models.BooleanField(default=True)
+    # magic_base = models.PositiveSmallIntegerField(default=10)
+    # magic_bonus = models.PositiveSmallIntegerField(default=0)
+    # magic_malus = models.PositiveSmallIntegerField(default=0)
+    # magic_mod = models.PositiveSmallIntegerField(default=0)
+    # magic_dm_bonus = models.PositiveSmallIntegerField(default=0)
+    # magic_stat = models.CharField(
+    #     max_length=3, choices=CaracChoice.choices, default="INT"
+    # )
+
+    # init_base = models.PositiveSmallIntegerField(default=0)
+    # init_bonus = models.PositiveSmallIntegerField(default=0)
+    # init_value = models.PositiveSmallIntegerField(default=0)
+    # init_max = models.PositiveSmallIntegerField(default=0)
+
+    # HP_base = models.PositiveSmallIntegerField(default=0)
+    # HP_bonus = models.PositiveSmallIntegerField(default=0)
+    # HP_value = models.PositiveSmallIntegerField(default=0)
+    # HP_max = models.PositiveSmallIntegerField(default=0)
+
+    # RP_base = models.PositiveSmallIntegerField(default=0)
+    # RP_bonus = models.PositiveSmallIntegerField(default=0)
+    # RP_value = models.PositiveSmallIntegerField(default=0)
+    # RP_max = models.PositiveSmallIntegerField(default=0)
+
+    # def_base = models.PositiveSmallIntegerField(default=0)
+    # def_bonus = models.PositiveSmallIntegerField(default=0)
+    # def_value = models.PositiveSmallIntegerField(default=0)
+    # def_max = models.PositiveSmallIntegerField(default=0)
+
+    # MP_base = models.PositiveSmallIntegerField(default=0)
+    # MP_bonus = models.PositiveSmallIntegerField(default=0)
+    # MP_value = models.PositiveSmallIntegerField(default=0)
+    # MP_max = models.PositiveSmallIntegerField(default=0)
+
+    # LP_base = models.PositiveSmallIntegerField(default=0)
+    # LP_bonus = models.PositiveSmallIntegerField(default=0)
+    # LP_value = models.PositiveSmallIntegerField(default=0)
+    # LP_max = models.PositiveSmallIntegerField(default=0)
+
+    # languages = models.ManyToManyField(to="actors.Languages", blank=True)
     # owner = models.ForeignKey(
     #     settings.AUTH_USER_MODEL,
     #     on_delete=models.CASCADE,
     # )
 
 
-class NPC(Actor):
-    level = models.PositiveSmallIntegerField(default=1)
-    gender = models.CharField(max_length=255)
-    age = models.PositiveSmallIntegerField(default=1)
-    weight = models.PositiveSmallIntegerField(default=1)
-    height = models.PositiveSmallIntegerField(default=1)
-    eyes = models.CharField(max_length=255)
-    hair = models.CharField(max_length=255)
-    languages = models.ManyToManyField(to="actors.Languages")
+class NPC(AbstractPJ):
+    species = models.ForeignKey(
+        "rules.Species",
+        on_delete=models.PROTECT,
+        related_name="npcs",
+        null=True,
+        blank=True,
+    )
+    profile = models.ForeignKey(
+        "rules.Profile",
+        on_delete=models.PROTECT,
+        related_name="npcs",
+        null=True,
+        blank=True,
+    )
+    access = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True)
 
 
 class Encounter(Actor):
-    ARCHETYPE_CHOICES = [("standard", "Standard")]
-    CATEGORY_CHOICES = [("", "")]
-
     nc = models.PositiveSmallIntegerField(default=1)
-    category = models.CharField(max_length=100, choices=CATEGORY_CHOICES)
-    archetype = models.CharField(max_length=100, choices=ARCHETYPE_CHOICES)
+    category = models.CharField(
+        max_length=100, null=True, blank=True, choices=CategoryChoice.choices
+    )
+    archetype = models.CharField(
+        max_length=100, null=True, blank=True, choices=ArchetypeChoice.choices
+    )
+    boss = models.CharField(
+        max_length=100, null=True, blank=True, choices=BossChoice.choices
+    )
+
+    melee_enabled = models.BooleanField(default=True)
+    melee_base = models.PositiveSmallIntegerField(default=10)
+    melee_bonus = models.PositiveSmallIntegerField(default=0)
+    melee_malus = models.PositiveSmallIntegerField(default=0)
+    melee_mod = models.PositiveSmallIntegerField(default=0)
+    melee_dm_bonus = models.PositiveSmallIntegerField(default=0)
+    melee_stat = models.CharField(
+        max_length=3, choices=CaracChoice.choices, default="STR"
+    )
+
+    ranged_enabled = models.BooleanField(default=True)
+    ranged_base = models.PositiveSmallIntegerField(default=10)
+    ranged_bonus = models.PositiveSmallIntegerField(default=0)
+    ranged_malus = models.PositiveSmallIntegerField(default=0)
+    ranged_mod = models.PositiveSmallIntegerField(default=0)
+    ranged_dm_bonus = models.PositiveSmallIntegerField(default=0)
+    ranged_stat = models.CharField(
+        max_length=3, choices=CaracChoice.choices, default="DEX"
+    )
+
+    magic_enabled = models.BooleanField(default=True)
+    magic_base = models.PositiveSmallIntegerField(default=10)
+    magic_bonus = models.PositiveSmallIntegerField(default=0)
+    magic_malus = models.PositiveSmallIntegerField(default=0)
+    magic_mod = models.PositiveSmallIntegerField(default=0)
+    magic_dm_bonus = models.PositiveSmallIntegerField(default=0)
+    magic_stat = models.CharField(
+        max_length=3, choices=CaracChoice.choices, default="INT"
+    )
+
+    init_value = models.PositiveSmallIntegerField(default=0)
+    init_temp = models.PositiveSmallIntegerField(default=0)
+
+    def_value = models.PositiveSmallIntegerField(default=0)
+    def_temp = models.PositiveSmallIntegerField(default=0)
+
+    HP_value = models.PositiveSmallIntegerField(default=0)
+    HP_max = models.PositiveSmallIntegerField(default=0)
+
+    RD_value = models.PositiveSmallIntegerField(default=0)
+    RD_temp = models.PositiveSmallIntegerField(default=0)
+
+    path = models.ManyToManyField(
+        to="rules.Path", blank=True, related_name="encounters"
+    )
+
+    capacity = models.ManyToManyField(
+        to="rules.Capacity", blank=True, related_name="encounters"
+    )
+
+    access = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True)
 
 
 class Languages(models.Model):

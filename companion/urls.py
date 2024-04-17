@@ -12,7 +12,9 @@ from items.views import *
 
 
 router = routers.SimpleRouter()
-router.register('characters', CharacterViewset, basename='characters')
+router.register("characters", CharacterViewset, basename="characters")
+router.register("npcs", NPCViewset, basename="npcs")
+router.register("encounters", EncounterViewset, basename="encounters")
 router.register("capacities", CapacityViewset, basename="capacities")
 router.register("paths", PathViewset, basename="paths")
 router.register("profiles", ProfileViewset, basename="profiles")

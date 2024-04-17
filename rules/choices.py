@@ -39,6 +39,7 @@ class SizeChoice(models.TextChoices):
 
 
 class GenderChoice(models.TextChoices):
+    NULL = "", ""
     MALE = "male", "Homme"
     FEMALE = "female", "Femme"
 
@@ -109,3 +110,27 @@ class ReloadChoice(models.TextChoices):
     NOACTION = "", "Pas d'action"
     SIMPLE = "s", "Action simple (S)"
     LIMITED = "l", "Action limitée (L)"
+
+
+class CategoryChoice(models.TextChoices):
+    NULL = "", ""
+    LIVING = "living", "Vivante"
+    HUMANOID = "humanoid", "Humanoïde"
+    PLANT = "plant", "Végétale"
+    UNLIVING = "unliving", "Non-vivante"
+
+
+class ArchetypeChoice(models.TextChoices):
+    NULL = "", ""
+    STANDARD = "standard", "Standard"
+    FAST = "fast", "Rapide"
+    POWERFUL = "powerful", "Puissant"
+    LESSER = "lesser", "Inférieur"
+
+class BossChoice(models.TextChoices):
+    NULL = "", ""   
+    ONE = "1", "Remarquable"
+    TWO = "2", "Supérieur"
+    THREE = "3", "Majeur"
+    FOUR = "4", "Exceptionnel"
+    FIVE = "5", "Légendaire"
