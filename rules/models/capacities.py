@@ -5,17 +5,8 @@ from django.core.exceptions import ValidationError
 
 
 class AbstractCapacity(models.Model):
-
     name = models.CharField(max_length=255)
-    slug = models.SlugField(unique=True, blank=True)
     description = models.TextField(blank=False, null=True)
-    # source = models.ForeignKey(
-    #     Source,
-    #     on_delete=models.PROTECT,
-    #     related_name="capacities",
-    #     null=True,
-    #     blank=True,
-    # )
     spell = models.BooleanField(default=False)
     limited = models.BooleanField(default=False)
     encounter = models.BooleanField(default=False)
@@ -28,6 +19,7 @@ class AbstractCapacity(models.Model):
 
 
 class Capacity(AbstractCapacity):
+    slug = models.SlugField(unique=True, blank=True)
     source = models.ForeignKey(
         Source,
         on_delete=models.PROTECT,

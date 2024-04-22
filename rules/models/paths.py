@@ -18,7 +18,9 @@ class Path(models.Model):
         null=True,
         blank=True,
     )
-    capacities = models.ManyToManyField(Capacity)
+    capacities = models.ManyToManyField(
+        Capacity, through="PathCapacity"
+    )  # Use the intermediary model
     prestige = models.BooleanField(default=False)
     racial = models.BooleanField(default=False)
     encounter = models.BooleanField(default=False)
@@ -38,3 +40,15 @@ class Path(models.Model):
                     }
                 )
         super(Path, self).save(*args, **kwargs)
+
+
+class PathCapacity(models.Model):
+    path = models.ForeignKey(Path, on_delete=models.CASCADE)
+    capacity = models.ForeignKey(Capacity, on_delete=models.CASCADE)
+    rank = models.IntegerField(default=0)
+
+    class Meta:
+        unique_together = (
+            "path",
+            "capacity",
+        )  # Ensure uniqueness of path and capacity combination

@@ -1,6 +1,20 @@
 from rest_framework import serializers
 
-from actors.models import Character, NPC, Encounter
+from actors.models import Character, NPC, Encounter, Capacity
+from rules.models import Path
+
+class CapacityListSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Capacity
+        fields = ["id", "path", "name", "slug", "description", "limited", "learned"]
+
+
+class PathListSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Path
+        fields = ["id", "name"]
 
 
 class CharacterListSerializer(serializers.ModelSerializer):
@@ -13,13 +27,15 @@ class CharacterListSerializer(serializers.ModelSerializer):
 
 class CharacterDetailSerializer(serializers.ModelSerializer):
     owner = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    
+    capacities = CapacityListSerializer(many=True, read_only=True)
     class Meta:
         model = Character
         fields = '__all__'
 
 
 class NPCListSerializer(serializers.ModelSerializer):
-    owner = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    # owner = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
     class Meta:
         model = NPC
@@ -27,15 +43,15 @@ class NPCListSerializer(serializers.ModelSerializer):
 
 
 class NPCDetailSerializer(serializers.ModelSerializer):
-    owner = serializers.HiddenField(default=serializers.CurrentUserDefault())
-
+    # owner = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    capacities = CapacityListSerializer(many=True, read_only=True)
     class Meta:
         model = NPC
         fields = "__all__"
 
 
 class EncounterListSerializer(serializers.ModelSerializer):
-    owner = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    # owner = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
     class Meta:
         model = Encounter
@@ -43,8 +59,10 @@ class EncounterListSerializer(serializers.ModelSerializer):
 
 
 class EncounterDetailSerializer(serializers.ModelSerializer):
-    owner = serializers.HiddenField(default=serializers.CurrentUserDefault())
-
+    # owner = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    capacities = CapacityListSerializer(many=True, read_only=True)
+    capacity = CapacityListSerializer(many=True, read_only=True)
+    path = PathListSerializer(many=True, read_only=True)
     class Meta:
         model = Encounter
         fields = "__all__"

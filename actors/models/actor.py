@@ -183,15 +183,15 @@ class Character(AbstractPJ):
         "rules.Species",
         on_delete=models.PROTECT,
         related_name="characters",
-        null=True,
-        blank=True,
+        null=False,
+        blank=False,
     )
     profile = models.ForeignKey(
         "rules.Profile",
         on_delete=models.PROTECT,
         related_name="characters",
-        null=True,
-        blank=True,
+        null=False,
+        blank=False,
     )
 
 
@@ -200,15 +200,15 @@ class NPC(AbstractPJ):
         "rules.Species",
         on_delete=models.PROTECT,
         related_name="npcs",
-        null=True,
-        blank=True,
+        null=False,
+        blank=False,
     )
     profile = models.ForeignKey(
         "rules.Profile",
         on_delete=models.PROTECT,
         related_name="npcs",
-        null=True,
-        blank=True,
+        null=False,
+        blank=False,
     )
     access = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True)
 
@@ -277,7 +277,9 @@ class Encounter(Actor):
 
     access = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True)
 
+
 class Capacity(AbstractCapacity):
+    slug = models.SlugField(unique=False, blank=True)
     actor = models.ForeignKey(
         Actor,
         on_delete=models.CASCADE,
@@ -285,14 +287,28 @@ class Capacity(AbstractCapacity):
         null=True,
         blank=True,
     )
-    source = models.ForeignKey(
-        Source,
-        on_delete=models.PROTECT,
-        related_name="knowned_capacities",
+    path = models.ForeignKey(
+        "rules.Path",
+        on_delete=models.CASCADE,
+        related_name="known_capacities",
         null=True,
         blank=True,
     )
+    source = models.ForeignKey(
+        Source,
+        on_delete=models.PROTECT,
+        related_name="known_capacities",
+        null=True,
+        blank=True,
+    )
+    rank = models.IntegerField(default=0)
     learned = models.BooleanField(default=False)
+
+    def learn(self):
+        if self.learned is True:
+            return
+        self.learned = True
+        self.save()
 
 
 class Language(models.Model):

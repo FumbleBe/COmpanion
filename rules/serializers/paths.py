@@ -1,12 +1,22 @@
 from rest_framework import serializers
 from django.utils.text import slugify
 
-from rules.models import Path
+from rules.models import Path, PathCapacity
 from rules.serializers import CapacityListSerializer
 
 
+class PathCapacitySerializer(serializers.ModelSerializer):
+    rank = serializers.IntegerField()
+    capacity = CapacityListSerializer()
+
+    class Meta:
+        model = PathCapacity
+        fields = ["rank", "capacity"]
+
+
 class PathListSerializer(serializers.ModelSerializer):
-    capacities = CapacityListSerializer(many=True, read_only=True)
+    capacities = PathCapacitySerializer(many=True, source="pathcapacity_set")
+    # capacities = CapacityListSerializer(many=True, read_only=True)
     # slug = serializers.SlugField(read_only=True)
 
     # def create(self, validated_data):

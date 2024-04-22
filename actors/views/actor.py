@@ -1,9 +1,11 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 from companion.api.permissions import IsDmOrReadOnly
+from django.utils.text import slugify
 
 from companion.api.mixins import MultipleSerializerMixin
-from actors.models import Character, NPC, Encounter
+from actors.models import Character, NPC, Encounter, Capacity
 from actors.serializers import (
     CharacterListSerializer,
     CharacterDetailSerializer,
@@ -12,6 +14,20 @@ from actors.serializers import (
     EncounterListSerializer,
     EncounterDetailSerializer
 )
+
+
+def copy_capacities_to_actor(capacity, path, actor):
+    known_capacity = Capacity()
+
+    for field in capacity._meta.fields:
+        field_name = field.name
+        field_value = getattr(capacity, field_name)
+        if field_name != "id":
+            setattr(known_capacity, field_name, field_value)
+
+    known_capacity.actor = actor
+    known_capacity.path = path
+    known_capacity.save()
 
 
 class CharacterViewset(MultipleSerializerMixin, ModelViewSet):
@@ -26,6 +42,14 @@ class CharacterViewset(MultipleSerializerMixin, ModelViewSet):
             return Character.objects.all()
         else:
             return Character.objects.filter(owner=self.request.user)
+
+    def perform_create(self, serializer):
+        instance = serializer.save()  # Save the object
+        profile = instance.profile
+        for path in profile.paths.all():
+            for capacity in path.capacities.all():
+                copy_capacities_to_actor(capacity, path, instance)
+        return Response(CharacterDetailSerializer(instance).data)
 
 
 class NPCViewset(MultipleSerializerMixin, ModelViewSet):
@@ -43,6 +67,14 @@ class NPCViewset(MultipleSerializerMixin, ModelViewSet):
                 access__in=[self.request.user]
             ) | NPC.objects.filter(access__isnull=True)
 
+    def perform_create(self, serializer):
+        instance = serializer.save()  # Save the object
+        profile = instance.profile
+        for path in profile.paths.all():
+            for capacity in path.capacities.all():
+                copy_capacities_to_actor(capacity, path, instance)
+        return Response(NPCDetailSerializer(instance).data)
+
 
 class EncounterViewset(MultipleSerializerMixin, ModelViewSet):
     queryset = Encounter.objects.all()
@@ -58,3 +90,13 @@ class EncounterViewset(MultipleSerializerMixin, ModelViewSet):
             return Encounter.objects.filter(
                 access__in=[self.request.user]
             ) | Encounter.objects.filter(access__isnull=True)
+            
+
+    def perform_create(self, serializer):
+        instance = serializer.save()  # Save the object
+        paths = instance.path.all()
+        for path in paths:
+            for capacity in path.capacities.all():
+                copy_capacities_to_actor(capacity, path, instance)
+        
+        return Response(EncounterDetailSerializer(instance).data)

@@ -109,6 +109,7 @@ class Command(BaseCommand):
 
                 for _path in profile["data"]["paths"]:
                     _id = _path["_id"]
+                    rank = 1
                     for path in paths:
                         if path["_id"] == _id:
                             name = path["name"]
@@ -171,8 +172,11 @@ class Command(BaseCommand):
                                         if created:
                                             _Capacity_created += 1
 
-                                        _Path.capacities.add(_Capacity)
+                                        _Path.capacities.add(_Capacity, through_defaults={'rank': rank})
                                         _Path.save()
+                                        print(_Capacity)
+                                        print(rank)
+                                        rank += 1
 
             for path in enc_paths:
                 name = path["name"]
@@ -203,6 +207,7 @@ class Command(BaseCommand):
 
                 for _capacity in path["data"]["capacities"]:
                     _id_cap = _capacity["_id"]
+                    rank = 1
                     for capacity in capacities:
                         if capacity["_id"] == _id_cap:
                             name = capacity["name"]
@@ -234,8 +239,11 @@ class Command(BaseCommand):
                             if created:
                                 _Capacity_created += 1
 
-                            _Path.capacities.add(_Capacity)
+                            _Path.capacities.add(
+                                _Capacity, through_defaults={"rank": rank}
+                            )
                             _Path.save()
+                            rank += 1
 
                     for capacity in enc_capacities:
                         if capacity["_id"] == _id_cap:
@@ -267,7 +275,9 @@ class Command(BaseCommand):
                             if created:
                                 _enc_Capacity_created += 1
 
-                            _Path.capacities.add(_Capacity)
+                            _Path.capacities.add(
+                                _Capacity, through_defaults={"rank": 0}
+                            )
                             _Path.save()
 
             for race in species:
@@ -307,6 +317,7 @@ class Command(BaseCommand):
 
                 for _path in race["data"]["paths"]:
                     _id = _path["_id"]
+                    rank = 1
                     for path in paths:
                         if path["_id"] == _id:
                             name = path["name"]
@@ -369,8 +380,11 @@ class Command(BaseCommand):
                                         if created:
                                             _Capacity_created += 1
 
-                                        _Path.capacities.add(_Capacity)
+                                        _Path.capacities.add(
+                                            _Capacity, through_defaults={"rank": rank}
+                                        )
                                         _Path.save()
+                                        rank += 1
 
                 for _capacity in race["data"]["capacities"]:
                     _id_cap = _capacity["_id"]
@@ -405,7 +419,9 @@ class Command(BaseCommand):
                             if created:
                                 _Capacity_created += 1
 
-                            _Species.capacities.add(_Capacity)
+                            _Species.capacities.add(
+                                _Capacity, through_defaults={"rank": 0}
+                            )
                             _Species.save()
 
             for capacity in enc_capacities:
