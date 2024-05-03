@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "actors",
     "rules",
     "items",
+    "scenes"
 ]
 
 MIDDLEWARE = [
