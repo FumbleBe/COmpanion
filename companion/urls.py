@@ -13,6 +13,11 @@ from items.views import *
 
 router = routers.SimpleRouter()
 router.register("characters", CharacterViewset, basename="characters")
+router.register(
+    r"capacities/(?P<actor_id>[0-9]+)",
+    CharacterCapacityViewset,
+    basename="known_capacities",
+)
 router.register("npcs", NPCViewset, basename="npcs")
 router.register("encounters", EncounterViewset, basename="encounters")
 router.register("capacities", CapacityViewset, basename="capacities")
@@ -20,7 +25,9 @@ router.register("paths", PathViewset, basename="paths")
 router.register("profiles", ProfileViewset, basename="profiles")
 router.register("species", SpeciesViewset, basename="species")
 router.register("items", ItemViewset, basename="items")
-router.register(r"inventories/(?P<actor_id>[0-9]+)", InventoryViewset, basename="inventories")
+router.register(
+    r"inventories/(?P<actor_id>[0-9]+)", InventoryViewset, basename="inventories"
+)
 
 # router.register('admin/category', AdminCategoryViewset, basename='admin-category')
 # router.register('admin/article', AdminArticleViewset, basename='admin-article')

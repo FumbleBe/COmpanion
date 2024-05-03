@@ -2,12 +2,15 @@ from rest_framework import serializers
 
 from actors.models import Character, NPC, Encounter, Capacity
 from rules.models import Path
+from rules.serializers import SpeciesDetailSerializer
+
+# from rules.serializers 
 
 class CapacityListSerializer(serializers.ModelSerializer):
-
+    path = serializers.StringRelatedField()
     class Meta:
         model = Capacity
-        fields = ["id", "path", "name", "slug", "description", "limited", "learned"]
+        fields = ["id", "path", "rank", "name", "slug", "description", "limited", "learned"]
 
 
 class PathListSerializer(serializers.ModelSerializer):
@@ -27,8 +30,10 @@ class CharacterListSerializer(serializers.ModelSerializer):
 
 class CharacterDetailSerializer(serializers.ModelSerializer):
     owner = serializers.HiddenField(default=serializers.CurrentUserDefault())
-    
+
     capacities = CapacityListSerializer(many=True, read_only=True)
+    species = SpeciesDetailSerializer(read_only=True)
+    profile = serializers.StringRelatedField()
     class Meta:
         model = Character
         fields = '__all__'

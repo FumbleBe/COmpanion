@@ -30,7 +30,6 @@ class PathListSerializer(serializers.ModelSerializer):
 
 class PathDetailSerializer(serializers.ModelSerializer):
     capacities = CapacityListSerializer(many=True, read_only=True)
-    capacities = CapacityListSerializer(many=True, read_only=True)
     # slug = serializers.SlugField(read_only=True)
 
     # def create(self, validated_data):
