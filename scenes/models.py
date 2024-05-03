@@ -9,18 +9,31 @@ class Image(models.Model):
 class Campaign(models.Model):
     name = models.CharField(max_length=100)
     summary = models.TextField()
-    image = models.ForeignKey(
-        Image,
-        on_delete=models.SET_NULL,
-        related_name="campaigns",
+    image = models.ImageField(
         null=True,
         blank=True,
     )
     pj = models.ManyToManyField(to="actors.Character")
     starting_date = models.DateField()
-    ending_date = models.DateField(blank=True, null= True)
-    next_session = models.DateTimeField(blank=True, null= True)
+    ending_date = models.DateField(blank=True, null=True)
+    next_session = models.DateTimeField(blank=True, null=True)
     last_session = models.DateField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+class Chapter(models.Model):
+    campaign = models.ForeignKey(
+        Campaign,
+        on_delete=models.CASCADE,
+        related_name="chapters",
+        null=True,
+        blank=True,
+    )
+    name = models.CharField()
+
+    def __str__(self):
+        return self.name
 
 
 class Scene(models.Model):
@@ -47,7 +60,25 @@ class Scene(models.Model):
         null=True,
         blank=True,
     )
-    image = models.ManyToManyField(to=Image)
+    chapter = models.ForeignKey(
+        Chapter,
+        on_delete=models.CASCADE,
+        related_name="scenes",
+        null=True,
+        blank=True,
+    )
+    order = models.SmallIntegerField(default=0)
+    image = models.ManyToManyField(
+        to=Image,
+        null=True,
+        blank=True,
+    )
+
+    # def __str__(self):
+    #     return "{}-{}-{}".format(self.campaign, self.chapter, self.title)
+    def __str__(self):
+        return self.title
+
 
 class Session(models.Model):
     scene = models.ForeignKey(
@@ -60,3 +91,6 @@ class Session(models.Model):
     date = models.DateField()
     title = models.CharField(max_length=100)
     summary = models.TextField()
+
+    def __str__(self):
+        return self.title

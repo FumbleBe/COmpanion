@@ -9,6 +9,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from actors.views import *
 from rules.views import *
 from items.views import *
+from scenes.views import *
 
 
 router = routers.SimpleRouter()
@@ -28,6 +29,12 @@ router.register("items", ItemViewset, basename="items")
 router.register(
     r"inventories/(?P<actor_id>[0-9]+)", InventoryViewset, basename="inventories"
 )
+router.register("campaigns", CampaignViewset, basename="campaigns")
+router.register(
+    r"chapters/(?P<campaign_id>[0-9]+)", ChapterViewset, basename="chapters"
+)
+router.register("scenes", SceneViewset, basename="scenes")
+router.register("sessions", SessionViewset, basename="sessions")
 
 # router.register('admin/category', AdminCategoryViewset, basename='admin-category')
 # router.register('admin/article', AdminArticleViewset, basename='admin-article')

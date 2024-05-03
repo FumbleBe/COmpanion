@@ -193,6 +193,7 @@ class Character(AbstractPJ):
         null=False,
         blank=False,
     )
+    capacity_point = models.PositiveSmallIntegerField(default=2)
 
 
 class NPC(AbstractPJ):

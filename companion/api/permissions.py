@@ -33,6 +33,12 @@ class IsDmOrReadOnly(permissions.BasePermission):
         return request.user.groups.filter(name="DungeonMaster").exists()
 
 
+class IsDmOnly(permissions.BasePermission):
+
+    def has_permission(self, request, view):
+        return request.user.groups.filter(name="DungeonMaster").exists()
+
+
 def is_in_group(user, group_name):
   try:
     return Group.objects.get(name=group_name).user_set.filter(id=user.id).exists()
