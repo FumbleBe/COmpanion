@@ -27,13 +27,13 @@ class Chapter(models.Model):
         Campaign,
         on_delete=models.CASCADE,
         related_name="chapters",
-        null=True,
-        blank=True,
+        null=False,
+        blank=False,
     )
     name = models.CharField()
 
     def __str__(self):
-        return self.name
+        return "{}-{}".format(self.campaign, self.name)
 
 
 class Scene(models.Model):
@@ -74,10 +74,14 @@ class Scene(models.Model):
         blank=True,
     )
 
-    # def __str__(self):
-    #     return "{}-{}-{}".format(self.campaign, self.chapter, self.title)
     def __str__(self):
-        return self.title
+        if self.campaign:
+            if self.chapter:
+                return "{}-{}-{}".format(self.campaign, self.chapter.name, self.title)
+            else:
+                return "{}-{}".format(self.campaign, self.title)
+        else:
+            return self.title
 
 
 class Session(models.Model):
